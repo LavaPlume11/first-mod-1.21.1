@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "firstmod",
+  "version": "${version}",
+  "name": "First Mod",
+  "description": "just testing out some stuff",
+  "authors": ["Xander"],
+  "contact": {
+    "homepage": "https://youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/firstmod/art.png",
+  "environment": "*",
+  "entrypoints":{
+    "fabric-datagen": [
+      "me.xander.ModDataGenerator"
+    ],
+    "client": [
+      "me.xander.firstmod.First_modClient"
+    ],
+    "main": [
+      "me.xander.first_mod"
+    ]
+  },
+  "mixins": [
+    "firstmod.mixins.json",
+    {
+      "config": "firstmod.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": "0.16.7",
+    "fabric": "*",
+    "fabric-api": "*",
+    "minecraft": "1.21.1"
+  }
+}

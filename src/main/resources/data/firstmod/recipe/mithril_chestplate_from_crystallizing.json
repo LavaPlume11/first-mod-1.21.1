@@ -1,0 +1,10 @@
+{
+  "type": "firstmod:crystallizing",
+  "ingredient": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "result": {
+    "id": "firstmod:mithril_helmet",
+    "count": 1
+  }
+}

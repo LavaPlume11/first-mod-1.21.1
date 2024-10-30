@@ -1,0 +1,12 @@
+package me.xander.firstmod.world.tree;
+
+import me.xander.first_mod;
+import me.xander.firstmod.world.ModConfiguredFeatures;
+import net.minecraft.block.SaplingGenerator;
+
+import java.util.Optional;
+
+public class ModSaplingGenerators {
+    public static final SaplingGenerator BLACKWOOD = new SaplingGenerator(first_mod.MOD_ID + ":blackwood",
+            Optional.empty(), Optional.of(ModConfiguredFeatures.BLACKWOOD_KEY), Optional.empty());
+}

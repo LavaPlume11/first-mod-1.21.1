@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "firstmod:item/mithril_staff"
+  },"overrides": [
+  {
+    "predicate": {
+      "custom_model_data": 1
+    },
+    "model": "firstmod:item/mithril_staff_3d"
+  }
+]
+}
