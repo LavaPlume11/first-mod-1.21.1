@@ -32,11 +32,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MITHRIL_STAIRS)
                 .add(ModBlocks.MITHRIL_TRAPDOOR)
                 .add(ModBlocks.MITHRIL_PRESSURE_PLATE)
+                .add(ModBlocks.CRYSTALLIZER)
                 .add(ModBlocks.MITHRIL_DISPLAY_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.RUBY_BLOCK)
                 .add(ModBlocks.RUBY_ORE)
+                .add(ModBlocks.CRYSTALLIZER)
                 .add(ModBlocks.NETHER_MITHRIL_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)

@@ -1,6 +1,7 @@
 package me.xander.firstmod.block;
 
 import me.xander.first_mod;
+import me.xander.firstmod.block.custom.CrystallizerBlock;
 import me.xander.firstmod.block.custom.DisplayBlock;
 import me.xander.firstmod.block.custom.SoundBlock;
 import me.xander.firstmod.world.tree.ModSaplingGenerators;
@@ -82,7 +83,7 @@ public class ModBlocks {
                     .strength(7.0F, 7.0F)
                     .sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block MITHRIL_DISPLAY_BLOCK = registerBlock("mithril_display_block",
-            new DisplayBlock(AbstractBlock.Settings.copy(ModBlocks.MITHRIL_BLOCK).strength(5f).nonOpaque()));
+            new DisplayBlock(AbstractBlock.Settings.copy(ModBlocks.MITHRIL_BLOCK).strength(7f).nonOpaque()));
     public static final Block BLACKWOOD_LOG = registerBlock("blackwood_log",
             new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(3f)));
     public static final Block BLACKWOOD_WOOD = registerBlock("blackwood_wood",
@@ -99,6 +100,8 @@ public class ModBlocks {
 
     public static final Block BLACKWOOD_SAPLING = registerBlock("blackwood_sapling",
             new SaplingBlock(ModSaplingGenerators.BLACKWOOD,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).strength(3f)));
+    public static final Block CRYSTALLIZER = registerBlock("crystallizer",
+            new CrystallizerBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
 
 
     private static Block registerBlock(String name, Block block) {

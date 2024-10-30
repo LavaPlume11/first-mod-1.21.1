@@ -1,4 +1,4 @@
-package net.kaupenjoe.mccourse.block.entity;
+package me.xander.firstmod.block.entity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

@@ -1,9 +1,9 @@
 {
   "type": "firstmod:crystallizing",
   "ingredient": {
-    "item": "minecraft:stick"
+    "item": "minecraft:nether_star"
   },
   "result": {
-    "id": "minecraft:end_rod"
+    "id": "firstmod:catalyst"
   }
 }

@@ -1,10 +1,10 @@
 {
   "type": "firstmod:crystallizing",
   "ingredient": {
-    "item": "minecraft:diamond_helmet"
+    "item": "minecraft:diamond_chestplate"
   },
   "result": {
-    "id": "firstmod:mithril_helmet",
+    "id": "firstmod:mithril_chestplate",
     "count": 1
   }
 }

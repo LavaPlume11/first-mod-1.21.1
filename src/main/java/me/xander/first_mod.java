@@ -2,13 +2,13 @@ package me.xander;
 
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
+import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
 import me.xander.firstmod.events.AttackEntityHandler;
 import me.xander.firstmod.item.custom.ModItemGroups;
 import me.xander.firstmod.potion.ModPotions;
-
-import me.xander.firstmod.util.ModModelPredicates;
+import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -32,14 +32,15 @@ public class first_mod implements ModInitializer {
     @Override
     public void onInitialize() {
         ModItemGroups.registerItemGroups();
-        FuelRegistry.INSTANCE.add(DYNAMITE, 1000);
+        FuelRegistry.INSTANCE.add(DYNAMITE, 100);
         LOGGER.info("Initializing FirstMod");
         ModBlocks.registerModBlocks();
         registerModItems();
-
         ModEffects.registerEffects();
         ModPotions.registerPotions();
         registerStrippables();
+        ModRecipes.registerRecipes();
+        ModDataComponentTypes.registerDataComponentTypes();
         registerCustomTrades();
         ModEnchantmentEffects.registerEnchantmentEffects();
         ModBlockEntities.registerBlockEntities();

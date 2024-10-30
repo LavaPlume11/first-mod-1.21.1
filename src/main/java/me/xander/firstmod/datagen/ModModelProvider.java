@@ -9,7 +9,6 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.client.TexturedModel;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -27,6 +26,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_DISPLAY_BLOCK);
+        blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
 
         mithrilPool.stairs(ModBlocks.MITHRIL_STAIRS);
         mithrilPool.slab(ModBlocks.MITHRIL_SLAB);
@@ -65,5 +65,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRUE_BLADE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CATALYST, Models.GENERATED);
+
+
     }
 }

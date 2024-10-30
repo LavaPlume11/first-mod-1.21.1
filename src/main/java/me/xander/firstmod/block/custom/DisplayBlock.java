@@ -2,10 +2,13 @@ package me.xander.firstmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
+import me.xander.firstmod.item.custom.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -13,6 +16,7 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,6 +36,21 @@ public class DisplayBlock extends BlockWithEntity implements BlockEntityProvider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DisplayBlockEntity(pos, state);
+    }
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        // only client
+        double xPos = pos.getX() + 0.5f;
+        double yPos = pos.getY() + 1.25f;
+        double zPos = pos.getZ() + 0.5f;
+        double offset = random.nextDouble() * 0.6 - 0.3;
+
+        world.addParticle(ParticleTypes.DRAGON_BREATH, xPos + offset,yPos + offset,zPos + offset, 0.0,1.0,0.0);;
+        world.addParticle(ParticleTypes.DUST_PLUME, xPos + offset,yPos + offset,zPos + offset, 0.0,0.0,0.0);
+        world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, ModItems.TRUE_BLADE.getDefaultStack()),
+                xPos + offset,yPos + offset,zPos + offset, 0.0,0.1,0.0);
+
+
     }
 
     @Override

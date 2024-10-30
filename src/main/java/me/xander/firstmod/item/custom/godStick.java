@@ -10,8 +10,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -40,6 +42,7 @@ public class godStick extends SwordItem {
         if (!world.isClient) {
             BlockPos playerPos = user.getBlockPos().down(10);
             EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, playerPos, SpawnReason.TRIGGERED);
+
         }
         return TypedActionResult.success(user.getStackInHand(hand));
     }
@@ -48,8 +51,15 @@ public class godStick extends SwordItem {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos().up(); // Position above the block
         if (!world.isClient) {
-            EntityType.WARDEN.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
+            context.getWorld().playSound(null,context.getBlockPos(),SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.HOSTILE,1,1);
+
+            // server particals
+            ((ServerWorld) context.getWorld()).spawnParticles(ParticleTypes.SCULK_SOUL, context.getBlockPos().getX() + 0.5f, context.getBlockPos().getY()
+            + 1.0f,context.getBlockPos().getZ()+0.5f,500,0.1,20.5,0.1,0.2);
+
+
         }
+
         return ActionResult.SUCCESS;
     }
 

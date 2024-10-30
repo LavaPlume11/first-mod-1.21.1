@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "firstmod",
   "version": "${version}",
-  "name": "First Mod",
+  "name": "FirstMod",
   "description": "just testing out some stuff",
-  "authors": ["Xander"],
+  "authors": ["Xander, Modeling by Marcus"],
   "contact": {
     "homepage": "https://youtube.com/watch?v=dQw4w9WgXcQ"
   },
@@ -18,16 +18,15 @@
     "client": [
       "me.xander.firstmod.First_modClient"
     ],
+    "rei_client": [
+      "me.xander.firstmod.compat.first_modREIClient"
+    ],
     "main": [
       "me.xander.first_mod"
     ]
   },
   "mixins": [
-    "firstmod.mixins.json",
-    {
-      "config": "firstmod.mixins.json",
-      "environment": "client"
-    }
+    "firstmod.mixins.json"
   ],
   "depends": {
     "fabricloader": "0.16.7",

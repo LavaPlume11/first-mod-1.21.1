@@ -10,9 +10,9 @@ import java.util.List;
 public class SwordShard extends Item {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-     tooltip.add(Text.of("A dusty old shard that looks like it was once part of something."));
-        tooltip.add(Text.of(""));
-        tooltip.add(Text.of("It feels lighter than air"));
+     tooltip.add(Text.of("A glistening crystal that feels lighter than air."));
+
+
     }
 
     public SwordShard(Settings settings) {

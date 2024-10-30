@@ -4,6 +4,7 @@ import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.item.custom.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -51,7 +52,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("GNE")
                 .input('S', ModItems.MITHRIL_SWORD)
                 .input('N', Items.NETHER_STAR)
-                .input('M', ModItems.MITHRIL)
+                .input('M', ModItems.MITHRIL_SWORD_SHARD)
                 .input('G', Items.REDSTONE_BLOCK)
                 .input('E', Items.ECHO_SHARD)
                 .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
@@ -67,6 +68,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 1.2f, 100, "mithril");
         offerSmelting(exporter, MITHRIL_SMELTABLE,RecipeCategory.MISC, ModItems.MITHRIL,
                 1.7f, 500, "mithril");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_DISPLAY_BLOCK)
+                .pattern(" O ")
+                .pattern("CSC")
+                .pattern(" C ")
+                .input('S', ModBlocks.MITHRIL_BLOCK)
+                .input('C', Items.REDSTONE)
+                .input('O', Items.GLASS_PANE)
+                .criterion(hasItem(ModBlocks.MITHRIL_BLOCK), conditionsFromItem(ModBlocks.MITHRIL_BLOCK))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.MITHRIL_DISPLAY_BLOCK)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYSTALLIZER)
+                .pattern("COC")
+                .pattern("CSC")
+                .pattern("COC")
+                .input('S', Items.AMETHYST_SHARD)
+                .input('C', Blocks.COBBLESTONE)
+                .input('O', Items.IRON_INGOT)
+                .criterion(hasItem(ModItems.RAW_MITHRIL), conditionsFromItem(ModItems.RAW_MITHRIL))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.CRYSTALLIZER)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.MITHRIL_HORSE_ARMOR)
+                .pattern("  C")
+                .pattern("CCC")
+                .pattern("C C")
+                .input('C', ModItems.MITHRIL_SWORD_SHARD)
+                .criterion(hasItem(ModItems.MITHRIL_SWORD_SHARD), conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_HORSE_ARMOR)));
 
     }
 }

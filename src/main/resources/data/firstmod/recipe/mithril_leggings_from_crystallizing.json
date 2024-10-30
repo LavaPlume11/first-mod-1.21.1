@@ -1,10 +1,10 @@
 {
   "type": "firstmod:crystallizing",
   "ingredient": {
-    "item": "minecraft:diamond_chestplate"
+    "item": "minecraft:diamond_leggings"
   },
   "result": {
-    "id": "firstmod:mithril_chestplate",
+    "id": "firstmod:mithril_leggings",
     "count": 1
   }
 }

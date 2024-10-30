@@ -20,6 +20,7 @@ public class ModItemGroups {
                        entries.add(ModItems.BURNT_BANANA);
                        entries.add(ModItems.SPEAR);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
+                       entries.add(ModBlocks.MITHRIL_DISPLAY_BLOCK);
                        entries.add(ModBlocks.SOUND_BLOCK);
                        entries.add(ModBlocks.MITHRIL_ORE);
                        entries.add(ModBlocks.DEEPSLATE_MITHRIL_ORE);
@@ -35,11 +36,12 @@ public class ModItemGroups {
                        entries.add(ModBlocks.MITHRIL_SLAB);
                        entries.add(ModItems.DAMAGED_MITHRIL_SWORD);
                        entries.add(ModItems.MITHRIL_SWORD_SHARD);
+                       entries.add(ModItems.CATALYST);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);
                        entries.add(ModItems.MITHRIL_LEGGINGS);
                        entries.add(ModItems.MITHRIL_BOOTS);
-                       entries.add(ModItems.MITHRIL_TEMPLATE);
+                       entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModItems.MITHRIL_SWORD);
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModBlocks.BLACKWOOD_LOG);

@@ -1,6 +1,8 @@
 package me.xander.firstmod;
 
+import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.screen.ModScreenHandlers;
+import me.xander.firstmod.screen.custom.CrystallizerScreen;
 import me.xander.firstmod.screen.custom.DisplayScreen;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
@@ -17,10 +19,10 @@ public class First_modClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MITHRIL_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
-
         ModScreenHandlers.registerScreenHandlers();
         BlockEntityRendererFactories.register(ModBlockEntities.DISPLAY_BE, DisplayBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
+        HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
 
     }
 }
