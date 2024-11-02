@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "firstmod:mithril_sword_shard"
+    }
+  },
+  "pattern": [
+    "  C",
+    "CCC",
+    "C C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:mithril_horse_armor"
+  }
+}

@@ -1,5 +1,9 @@
 package me.xander.firstmod;
 
+import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.entity.client.LionModel;
+import me.xander.firstmod.entity.client.LionRenderer;
+import me.xander.firstmod.entity.client.ModEntityModelLayers;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.CrystallizerScreen;
@@ -9,6 +13,8 @@ import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -24,5 +30,7 @@ public class First_modClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
 
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);
     }
 }

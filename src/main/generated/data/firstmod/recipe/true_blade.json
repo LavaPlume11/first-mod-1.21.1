@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "G": {
+      "item": "minecraft:redstone_block"
+    },
+    "M": {
+      "item": "firstmod:mithril_sword_shard"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "S": {
+      "item": "firstmod:mithril_sword"
+    }
+  },
+  "pattern": [
+    "ENM",
+    "NSN",
+    "GNE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:true_blade"
+  }
+}

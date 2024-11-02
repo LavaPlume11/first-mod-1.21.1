@@ -1,0 +1,8 @@
+// 1.21.1	2024-11-01T18:17:51.1453243	FirstMod/World Gen
+5192c0a87e652a9b5259e418a708419c3be43ba2 data\firstmod\worldgen\placed_feature\blackwood_placed.json
+26919f267f8a46e7ef26919895ccc197942670d1 data\firstmod\worldgen\configured_feature\nether_mithril_ore.json
+ece4851b1c3ce14d0cf3f0994190ff192fd2e5fe data\firstmod\worldgen\configured_feature\mithril_ore.json
+482c7daddaa2fac7cf9e5895dcf8e2d8b7a23651 data\firstmod\worldgen\placed_feature\mithril_ore_placed.json
+2b4bdba006c23ed8f89a52e301d21a9439295b8b data\firstmod\enchantment\improved_smite.json
+aade6a937064886237db97f78096a524f14b22a5 data\firstmod\worldgen\configured_feature\blackwood.json
+f1f2934877bff7d726aeaeb8985e0f2978c22833 data\firstmod\worldgen\placed_feature\nether_mithril_ore_placed.json

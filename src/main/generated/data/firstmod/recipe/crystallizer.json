@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "O": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "COC",
+    "CSC",
+    "COC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:crystallizer"
+  }
+}

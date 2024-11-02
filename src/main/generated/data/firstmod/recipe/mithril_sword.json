@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "firstmod:mithril_sword_shard"
+    },
+    {
+      "item": "firstmod:mithril_sword_shard"
+    },
+    {
+      "item": "firstmod:damaged_mithril_sword"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:mithril_sword"
+  }
+}

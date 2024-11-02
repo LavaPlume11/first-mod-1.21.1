@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 500,
+  "experience": 1.7,
+  "group": "mithril",
+  "ingredient": {
+    "item": "firstmod:raw_mithril"
+  },
+  "result": {
+    "id": "firstmod:mithril"
+  }
+}

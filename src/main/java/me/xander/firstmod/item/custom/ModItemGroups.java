@@ -37,6 +37,7 @@ public class ModItemGroups {
                        entries.add(ModItems.DAMAGED_MITHRIL_SWORD);
                        entries.add(ModItems.MITHRIL_SWORD_SHARD);
                        entries.add(ModItems.CATALYST);
+                       entries.add(ModItems.LION_SPAWN_EGG);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);
                        entries.add(ModItems.MITHRIL_LEGGINGS);

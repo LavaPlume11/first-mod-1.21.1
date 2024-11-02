@@ -109,6 +109,9 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
+        if(world.isClient()) {
+            return;
+        }
         if(hasRecipe() && canInsertIntoOutputSlot()) {
             increaseCraftingProgress();
             world.setBlockState(pos, state.with(CrystallizerBlock.LIT, true));

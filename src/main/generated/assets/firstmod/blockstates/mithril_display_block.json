@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "firstmod:block/mithril_display_block"
+    }
+  }
+}

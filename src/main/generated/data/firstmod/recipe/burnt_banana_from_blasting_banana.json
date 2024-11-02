@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1000,
+  "experience": 0.7,
+  "group": "banana",
+  "ingredient": {
+    "item": "firstmod:banana"
+  },
+  "result": {
+    "id": "firstmod:burnt_banana"
+  }
+}

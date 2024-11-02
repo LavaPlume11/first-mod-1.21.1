@@ -1,0 +1,22 @@
+{
+  "values": [
+    "firstmod:ruby_block",
+    "firstmod:ruby_ore",
+    "firstmod:mithril_block",
+    "firstmod:mithril_ore",
+    "firstmod:deepslate_mithril_ore",
+    "firstmod:nether_mithril_ore",
+    "firstmod:sound_block",
+    "firstmod:mithril_fence",
+    "firstmod:mithril_fence_gate",
+    "firstmod:mithril_button",
+    "firstmod:mithril_wall",
+    "firstmod:mithril_door",
+    "firstmod:mithril_slab",
+    "firstmod:mithril_stairs",
+    "firstmod:mithril_trapdoor",
+    "firstmod:mithril_pressure_plate",
+    "firstmod:crystallizer",
+    "firstmod:mithril_display_block"
+  ]
+}

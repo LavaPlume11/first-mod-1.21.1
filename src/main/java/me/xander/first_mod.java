@@ -5,6 +5,8 @@ import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
+import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.entity.custom.LionEntity;
 import me.xander.firstmod.events.AttackEntityHandler;
 import me.xander.firstmod.item.custom.ModItemGroups;
 import me.xander.firstmod.potion.ModPotions;
@@ -13,6 +15,7 @@ import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -41,9 +44,11 @@ public class first_mod implements ModInitializer {
         registerStrippables();
         ModRecipes.registerRecipes();
         ModDataComponentTypes.registerDataComponentTypes();
+        ModEntities.registerModEntities();
         registerCustomTrades();
         ModEnchantmentEffects.registerEnchantmentEffects();
         ModBlockEntities.registerBlockEntities();
+        FabricDefaultAttributeRegistry.register(ModEntities.LION, LionEntity.createLionAttributes());
 
         ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());

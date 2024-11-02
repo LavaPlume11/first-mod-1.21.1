@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:quartz_block"
+    },
+    "S": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "CSC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:sound_block"
+  }
+}

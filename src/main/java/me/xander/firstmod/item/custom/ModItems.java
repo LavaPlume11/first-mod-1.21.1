@@ -1,6 +1,7 @@
 package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
+import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.ModToolMaterial;
 import net.minecraft.component.type.FoodComponent;
@@ -47,6 +48,8 @@ public class ModItems {
 
     public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe",
             new PickaxeItem(ModToolMaterial.MITHRIL, new Item.Settings()));
+    public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
+            new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(165)));
