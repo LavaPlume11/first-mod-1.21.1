@@ -1,6 +1,7 @@
 package me.xander.firstmod.datagen;
 
 import me.xander.firstmod.block.ModBlocks;
+import me.xander.firstmod.block.custom.BananaBushBlock;
 import me.xander.firstmod.item.custom.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -42,6 +43,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BLACKWOOD_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.BLACKWOOD_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BANANA_LEAVES, TexturedModel.LEAVES);
+
+        blockStateModelGenerator.registerCrop(ModBlocks.BANANA_BUSH, BananaBushBlock.AGE,0,1,2,3,4,5);
 
         blockStateModelGenerator.registerDoor(ModBlocks.MITHRIL_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.MITHRIL_TRAPDOOR);
@@ -49,7 +53,6 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.BANANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.BURNT_BANANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DAMAGED_MITHRIL_SWORD, Models.HANDHELD);
@@ -68,6 +71,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATALYST, Models.GENERATED);
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
 
 

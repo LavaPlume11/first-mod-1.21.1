@@ -1,6 +1,7 @@
 package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
+import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.ModToolMaterial;
@@ -15,7 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 public class ModItems {
-    public static final Item BANANA = registerItem("banana",  new Item(new Item.Settings().food(new FoodComponent.Builder()
+    public static final Item BANANA = registerItem("banana",  new AliasedBlockItem(ModBlocks.BANANA_BUSH, new Item.Settings().food(new FoodComponent.Builder()
             .nutrition(9)
             .saturationModifier(1.3F)
             .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 10, 9), 0.5F)
@@ -50,6 +51,8 @@ public class ModItems {
             new PickaxeItem(ModToolMaterial.MITHRIL, new Item.Settings()));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
+    public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
+            new SpawnEggItem(ModEntities.LEMMING,0x94756362,0x58395863, new Item.Settings()));
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(165)));

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "firstmod:block/banana_bush_stage4"
+  }
+}

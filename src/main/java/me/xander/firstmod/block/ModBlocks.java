@@ -1,6 +1,7 @@
 package me.xander.firstmod.block;
 
 import me.xander.first_mod;
+import me.xander.firstmod.block.custom.BananaBushBlock;
 import me.xander.firstmod.block.custom.CrystallizerBlock;
 import me.xander.firstmod.block.custom.DisplayBlock;
 import me.xander.firstmod.block.custom.SoundBlock;
@@ -97,12 +98,21 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(3f)));
     public static final Block BLACKWOOD_LEAVES = registerBlock("blackwood_leaves",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+    public static final Block BANANA_LEAVES = registerBlock("banana_leaves",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block BLACKWOOD_SAPLING = registerBlock("blackwood_sapling",
             new SaplingBlock(ModSaplingGenerators.BLACKWOOD,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).strength(3f)));
     public static final Block CRYSTALLIZER = registerBlock("crystallizer",
             new CrystallizerBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
+    public static final Block BANANA_BUSH = registerBlockWithoutBlockItem("banana_bush",
+            new BananaBushBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 
+
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(first_mod.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

@@ -6,11 +6,13 @@ import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
 import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.entity.custom.LemmingEntity;
 import me.xander.firstmod.entity.custom.LionEntity;
 import me.xander.firstmod.events.AttackEntityHandler;
 import me.xander.firstmod.item.custom.ModItemGroups;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
+import me.xander.firstmod.util.ModLootTableModifiers;
 import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -46,9 +48,11 @@ public class first_mod implements ModInitializer {
         ModDataComponentTypes.registerDataComponentTypes();
         ModEntities.registerModEntities();
         registerCustomTrades();
+        ModLootTableModifiers.modifyLootTables();
         ModEnchantmentEffects.registerEnchantmentEffects();
         ModBlockEntities.registerBlockEntities();
         FabricDefaultAttributeRegistry.register(ModEntities.LION, LionEntity.createLionAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.LEMMING, LemmingEntity.createLemmingAttributes());
 
         ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());

@@ -1,9 +1,7 @@
 package me.xander.firstmod;
 
 import me.xander.firstmod.entity.ModEntities;
-import me.xander.firstmod.entity.client.LionModel;
-import me.xander.firstmod.entity.client.LionRenderer;
-import me.xander.firstmod.entity.client.ModEntityModelLayers;
+import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.CrystallizerScreen;
@@ -24,6 +22,7 @@ public class First_modClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MITHRIL_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
         ModScreenHandlers.registerScreenHandlers();
         BlockEntityRendererFactories.register(ModBlockEntities.DISPLAY_BE, DisplayBlockEntityRenderer::new);
@@ -32,5 +31,7 @@ public class First_modClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LEMMING, LemmingModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LEMMING, LemmingRenderer::new);
     }
 }

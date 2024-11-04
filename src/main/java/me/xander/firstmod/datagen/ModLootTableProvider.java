@@ -1,6 +1,7 @@
 package me.xander.firstmod.datagen;
 
 import me.xander.firstmod.block.ModBlocks;
+import me.xander.firstmod.block.custom.BananaBushBlock;
 import me.xander.firstmod.item.custom.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -9,11 +10,13 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
@@ -46,11 +49,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CRYSTALLIZER);
         addDrop(ModBlocks.BLACKWOOD_LOG);addDrop(ModBlocks.BLACKWOOD_WOOD);addDrop(ModBlocks.STRIPPED_BLACKWOOD_LOG);
         addDrop(ModBlocks.STRIPPED_BLACKWOOD_WOOD);addDrop(ModBlocks.BLACKWOOD_PLANKS);addDrop
-                (ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING,0.0625f))
-        ;addDrop(ModBlocks.BLACKWOOD_SAPLING);
+                (ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING,0.0625f));
+        addDrop(ModBlocks.BANANA_LEAVES, leavesDrops(ModBlocks.BANANA_LEAVES, Block.getBlockFromItem(ModItems.BANANA),0.0567f));
+        addDrop(ModBlocks.BLACKWOOD_SAPLING);
 
         addDrop(ModBlocks.MITHRIL_DOOR,doorDrops(ModBlocks.MITHRIL_DOOR));
         addDrop(ModBlocks.MITHRIL_SLAB,slabDrops(ModBlocks.MITHRIL_SLAB));
+
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.BANANA_BUSH)
+                .properties(StatePredicate.Builder.create().exactMatch(BananaBushBlock.AGE,5));
+        this.addDrop(ModBlocks.BANANA_BUSH, this.cropDrops(ModBlocks.BANANA_BUSH, ModItems.BANANA, ModItems.BANANA, builder));
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);

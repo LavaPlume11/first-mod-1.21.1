@@ -17,6 +17,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL);
                        entries.add(ModItems.RAW_MITHRIL);
                        entries.add(ModItems.BANANA);
+                       entries.add(ModBlocks.BANANA_LEAVES);
                        entries.add(ModItems.BURNT_BANANA);
                        entries.add(ModItems.SPEAR);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
