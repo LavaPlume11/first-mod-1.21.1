@@ -47,7 +47,7 @@
                 },
                 {
                   "chances": [
-                    0.3
+                    0.0567
                   ],
                   "condition": "minecraft:table_bonus",
                   "enchantment": "minecraft:fortune"

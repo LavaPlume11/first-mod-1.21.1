@@ -52,10 +52,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 (ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING,0.0625f));
         addDrop(ModBlocks.BANANA_LEAVES, leavesDrops(ModBlocks.BANANA_LEAVES, Block.getBlockFromItem(ModItems.BANANA),0.0567f));
         addDrop(ModBlocks.BLACKWOOD_SAPLING);
-
         addDrop(ModBlocks.MITHRIL_DOOR,doorDrops(ModBlocks.MITHRIL_DOOR));
         addDrop(ModBlocks.MITHRIL_SLAB,slabDrops(ModBlocks.MITHRIL_SLAB));
-
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.BANANA_BUSH)
                 .properties(StatePredicate.Builder.create().exactMatch(BananaBushBlock.AGE,5));
         this.addDrop(ModBlocks.BANANA_BUSH, this.cropDrops(ModBlocks.BANANA_BUSH, ModItems.BANANA, ModItems.BANANA, builder));
