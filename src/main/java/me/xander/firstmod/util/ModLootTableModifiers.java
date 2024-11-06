@@ -2,31 +2,54 @@ package me.xander.firstmod.util;
 
 import me.xander.firstmod.item.custom.ModItems;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.fabricmc.fabric.api.loot.v3.LootTableSource;
-import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.util.Identifier;
 
 public class ModLootTableModifiers {
-    private static final Identifier STRONGHOLD_CHEST_ID =
-            Identifier.of("minecraft","chests/ruined_portal");
+
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
-            if (STRONGHOLD_CHEST_ID.equals(registryKey)) {
+            if (LootTables.STRONGHOLD_CORRIDOR_CHEST.equals(registryKey)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .conditionally(RandomChanceLootCondition.builder(0.35f)) // Drops 35% of the time
                         .with(ItemEntry.builder(ModItems.DAMAGED_MITHRIL_SWORD))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f,1.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 builder.pool(poolBuilder.build());
-
             }
+
+        });
+        LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
+            if (LootTables.DESERT_PYRAMID_CHEST.equals(registryKey)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.15f)) // Drops 15% of the time
+                        .with(ItemEntry.builder(ModItems.MITHRIL_SWORD_SHARD))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+
+                builder.pool(poolBuilder.build());
+            }
+        });
+        LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
+            if (LootTables.END_CITY_TREASURE_CHEST.equals(registryKey)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 5% of the time
+                        .with(ItemEntry.builder(ModItems.MITHRIL_HELMET))
+                        .with(ItemEntry.builder(ModItems.MITHRIL_CHESTPLATE))
+                        .with(ItemEntry.builder(ModItems.MITHRIL_LEGGINGS))
+                        .with(ItemEntry.builder(ModItems.MITHRIL_BOOTS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                builder.pool(poolBuilder.build());
+            }
+
 
         });
     }
