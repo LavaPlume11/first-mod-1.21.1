@@ -1,5 +1,6 @@
 package me.xander.firstmod;
 
+import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.item.ModArmorMaterials;
@@ -26,6 +27,7 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
         ModScreenHandlers.registerScreenHandlers();
         BlockEntityRendererFactories.register(ModBlockEntities.DISPLAY_BE, DisplayBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.STONE_BE, StoneOfSwordBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
 

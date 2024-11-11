@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "firstmod",
   "version": "${version}",
-  "name": "FirstMod",
+  "name": "Cool Stuff",
   "description": "just testing out some stuff",
-  "authors": ["Xander"],
+  "authors": ["Xander","Ethan"],
   "contact": {
     "homepage": "https://youtube.com/watch?v=dQw4w9WgXcQ"
   },

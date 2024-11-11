@@ -4,6 +4,7 @@ import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.custom.CrystallizerBlockEntity;
 import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
+import me.xander.firstmod.block.entity.custom.StoneOfSwordBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -16,6 +17,9 @@ public class ModBlockEntities {
     public static final BlockEntityType<CrystallizerBlockEntity> CRYSTALLIZER_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "crystallizer_be"),
                     BlockEntityType.Builder.create(CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER).build(null));
+    public static final BlockEntityType<StoneOfSwordBlockEntity> STONE_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID,"stone_be"),
+                    BlockEntityType.Builder.create(StoneOfSwordBlockEntity::new, ModBlocks.STONE_OF_SWORD).build(null));
 
 
     public static void registerBlockEntities(){

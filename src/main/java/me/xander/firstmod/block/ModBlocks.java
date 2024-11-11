@@ -1,10 +1,7 @@
 package me.xander.firstmod.block;
 
 import me.xander.first_mod;
-import me.xander.firstmod.block.custom.BananaBushBlock;
-import me.xander.firstmod.block.custom.CrystallizerBlock;
-import me.xander.firstmod.block.custom.DisplayBlock;
-import me.xander.firstmod.block.custom.SoundBlock;
+import me.xander.firstmod.block.custom.*;
 import me.xander.firstmod.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
@@ -100,6 +97,8 @@ public class ModBlocks {
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block BANANA_LEAVES = registerBlock("banana_leaves",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+    public static final Block STONE_OF_SWORD = registerBlock("stone_of_sword",
+            new StoneOfSwordBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
 
     public static final Block BLACKWOOD_SAPLING = registerBlock("blackwood_sapling",
             new SaplingBlock(ModSaplingGenerators.BLACKWOOD,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).strength(3f)));
