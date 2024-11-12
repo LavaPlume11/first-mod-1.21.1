@@ -28,11 +28,7 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 10, 9), 1.0F)
             .alwaysEdible().build())
     ));
-    public static final Item LIGHT_KNIFE = registerItem("light_knife", new LightKnife(ModToolMaterial.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-            (ModToolMaterial.DAMAGED_SWORD,5,-1.9f)).rarity(Rarity.RARE)));
     public static final Item DYNAMITE = registerItem("dynamite",  new Item(new Item.Settings()));
-    public static final Item TIME_STICK = registerItem("time_stick",  new Item(new Item.Settings().maxCount(1)));
-    public static final Item MITHRIL_STAFF = registerItem("mithril_staff",  new MithrilStaff(new Item.Settings().maxCount(1)));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
     public static final Item MITHRIL = registerItem("mithril", new Item(new Item.Settings()));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
@@ -47,8 +43,6 @@ public class ModItems {
             new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ModToolMaterial.SWORD,20,-2.1f)).rarity(Rarity.EPIC)));
 
-    public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe",
-            new PickaxeItem(ModToolMaterial.MITHRIL, new Item.Settings()));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
@@ -68,9 +62,6 @@ public class ModItems {
                     (ModToolMaterial.SWORD,1,-0.4f)), StatusEffects.LEVITATION));
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor",
             new AnimalArmorItem(ModArmorMaterials.MITHRIL_ARMOR, AnimalArmorItem.Type.EQUESTRIAN,false,new Item.Settings().maxDamage(800)));
-    public static final Item NETHER_BOW = registerItem("nether_bow",  new BowItem(new Item.Settings()));
-    public static final Item MASTER_SWORD = registerItem("master_sword", new MasterSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-            (ToolMaterials.NETHERITE,2,-2.1f)).rarity(Rarity.RARE)));
     public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {

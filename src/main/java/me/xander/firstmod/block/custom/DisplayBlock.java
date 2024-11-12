@@ -37,21 +37,6 @@ public class DisplayBlock extends BlockWithEntity implements BlockEntityProvider
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DisplayBlockEntity(pos, state);
     }
-    @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        // only client
-        double xPos = pos.getX() + 0.5f;
-        double yPos = pos.getY() + 1.25f;
-        double zPos = pos.getZ() + 0.5f;
-        double offset = random.nextDouble() * 0.6 - 0.3;
-
-        world.addParticle(ParticleTypes.DRAGON_BREATH, xPos + offset,yPos + offset,zPos + offset, 0.0,1.0,0.0);;
-        world.addParticle(ParticleTypes.DUST_PLUME, xPos + offset,yPos + offset,zPos + offset, 0.0,0.0,0.0);
-        world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, ModItems.TRUE_BLADE.getDefaultStack()),
-                xPos + offset,yPos + offset,zPos + offset, 0.0,0.1,0.0);
-
-
-    }
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {

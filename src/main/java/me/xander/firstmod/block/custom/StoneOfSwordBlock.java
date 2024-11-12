@@ -42,14 +42,13 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         // only client
+
         double xPos = pos.getX() + 0.5f;
         double yPos = pos.getY() + 0.25f;
         double zPos = pos.getZ() + 0.5f;
         double offset = random.nextDouble() * 0.6 - 0.3;
 
-        world.addParticle(ParticleTypes.CRIT, xPos + offset,yPos + offset,zPos + offset, 0.0,2.0,0.0);
-        world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, ModItems.TRUE_BLADE.getDefaultStack()),
-                xPos + offset,yPos + offset,zPos + offset, 0.0,0.1,0.0);
+        world.addParticle(ParticleTypes.ELECTRIC_SPARK, xPos + offset,yPos + offset,zPos + offset, 0.0,0.5,0.0);;
 
 
     }

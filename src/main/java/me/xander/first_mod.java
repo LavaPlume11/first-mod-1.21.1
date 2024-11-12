@@ -2,6 +2,8 @@ package me.xander;
 
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
+import me.xander.firstmod.command.ReturnHomeCommand;
+import me.xander.firstmod.command.SetHomeCommand;
 import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
@@ -9,12 +11,15 @@ import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.custom.LemmingEntity;
 import me.xander.firstmod.entity.custom.LionEntity;
 import me.xander.firstmod.events.AttackEntityHandler;
+import me.xander.firstmod.events.PlayerCopyHandler;
 import me.xander.firstmod.item.custom.ModItemGroups;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.util.ModLootTableModifiers;
 import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -26,7 +31,7 @@ import net.minecraft.potion.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static me.xander.firstmod.VilagerTrades.registerCustomTrades;
+
 import static me.xander.firstmod.item.custom.ModItems.*;
 
 public class first_mod implements ModInitializer {
@@ -47,7 +52,6 @@ public class first_mod implements ModInitializer {
         ModRecipes.registerRecipes();
         ModDataComponentTypes.registerDataComponentTypes();
         ModEntities.registerModEntities();
-        registerCustomTrades();
         ModLootTableModifiers.modifyLootTables();
         ModEnchantmentEffects.registerEnchantmentEffects();
         ModBlockEntities.registerBlockEntities();
@@ -57,6 +61,9 @@ public class first_mod implements ModInitializer {
         ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());
 
+        CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
+        CommandRegistrationCallback.EVENT.register(ReturnHomeCommand::register);
+        ServerPlayerEvents.COPY_FROM.register(new PlayerCopyHandler());
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
                 entries.addAfter(Items.GOLDEN_CARROT, BANANA));

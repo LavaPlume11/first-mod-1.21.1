@@ -4,6 +4,10 @@
   "package": "me.xander.firstmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ModEntityDataSaverMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
