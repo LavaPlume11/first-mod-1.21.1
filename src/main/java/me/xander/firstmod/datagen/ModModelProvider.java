@@ -2,6 +2,7 @@ package me.xander.firstmod.datagen;
 
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.custom.BananaBushBlock;
+import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -28,6 +29,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_DISPLAY_BLOCK);
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
+        
+
 
         mithrilPool.stairs(ModBlocks.MITHRIL_STAIRS);
         mithrilPool.slab(ModBlocks.MITHRIL_SLAB);
@@ -60,7 +63,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DYNAMITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
-
+        itemModelGenerator.register(ModFluids.MITHRIL_WATER_BUCKET, Models.GENERATED);
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_LEGGINGS));

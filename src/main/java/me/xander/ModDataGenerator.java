@@ -23,6 +23,8 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModWorldGenerator::new);
+        pack.addProvider(ModPoiTagProvider::new);
+        pack.addProvider(ModFluidTagProvider::new);
     }
     @Override
     public void buildRegistry(RegistryBuilder registryBuilder) {

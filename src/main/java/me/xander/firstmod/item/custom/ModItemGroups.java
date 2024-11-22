@@ -2,6 +2,7 @@ package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
+import me.xander.firstmod.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -16,6 +17,7 @@ public class ModItemGroups {
                    .icon(() -> new ItemStack(ModItems.MITHRIL)).entries((displayContext, entries) -> {
                         entries.add(ModItems.MITHRIL);
                        entries.add(ModItems.RAW_MITHRIL);
+                       entries.add(ModFluids.MITHRIL_WATER_BUCKET);
                        entries.add(ModItems.BANANA);
                        entries.add(ModBlocks.BANANA_LEAVES);
                        entries.add(ModItems.BURNT_BANANA);

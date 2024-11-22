@@ -12,10 +12,14 @@ import me.xander.firstmod.entity.custom.LemmingEntity;
 import me.xander.firstmod.entity.custom.LionEntity;
 import me.xander.firstmod.events.AttackEntityHandler;
 import me.xander.firstmod.events.PlayerCopyHandler;
+import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItemGroups;
+import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.util.ModLootTableModifiers;
+import me.xander.firstmod.villager.ModVillagers;
+import me.xander.firstmod.villager.ModVillagers;
 import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -23,14 +27,20 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.item.*;
 import net.minecraft.potion.Potions;
+import net.minecraft.village.TradeOffer;
+import net.minecraft.village.TradedItem;
+import net.minecraft.village.VillagerProfession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+import java.util.Optional;
 
 import static me.xander.firstmod.item.custom.ModItems.*;
 
@@ -48,6 +58,9 @@ public class first_mod implements ModInitializer {
         registerModItems();
         ModEffects.registerEffects();
         ModPotions.registerPotions();
+        ModVillagers.registerVillagers();
+        ModFluids.registerFluids();
+        registerCustomTrades();
         registerStrippables();
         ModRecipes.registerRecipes();
         ModDataComponentTypes.registerDataComponentTypes();
@@ -77,9 +90,20 @@ public class first_mod implements ModInitializer {
 
 
     }
-    private static void registerStrippables(){
+    private static void registerStrippables() {
         StrippableBlockRegistry.register(ModBlocks.BLACKWOOD_LOG, ModBlocks.STRIPPED_BLACKWOOD_LOG);
         StrippableBlockRegistry.register(ModBlocks.BLACKWOOD_WOOD, ModBlocks.STRIPPED_BLACKWOOD_WOOD);
+    }
+    private static void registerCustomTrades() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER,3, factories -> {
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD,5),
+                    Optional.of(new TradedItem(Items.ALLIUM, 1)),
+                    new ItemStack(BANANA,1),1,6,0.55f
+            ));
+        });
+
+
     }
 
 

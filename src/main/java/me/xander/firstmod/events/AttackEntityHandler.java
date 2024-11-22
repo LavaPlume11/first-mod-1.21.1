@@ -26,8 +26,8 @@ public class AttackEntityHandler implements AttackEntityCallback {
             }
         }
         if (player.getMainHandStack().getItem() == ModItems.BANANA) {
-            player.sendMessage(Text.of("But Something Happened!"));
-            ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY,400));
+            player.sendMessage(Text.of("Something Happened!"));
+            ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING,800));
             player.getMainHandStack().decrement(1);
         }
 

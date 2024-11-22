@@ -55,7 +55,7 @@ public class godStick extends SwordItem {
 
             // server particals
             ((ServerWorld) context.getWorld()).spawnParticles(ParticleTypes.SCULK_SOUL, context.getBlockPos().getX() + 0.5f, context.getBlockPos().getY()
-            + 1.0f,context.getBlockPos().getZ()+0.5f,500,0.1,20.5,0.1,0.2);
+            + 1.0f,context.getBlockPos().getZ()+0.5f,500,6.0,4.5,0.01,-0.8);
 
 
         }

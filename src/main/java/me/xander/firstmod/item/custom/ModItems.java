@@ -32,7 +32,9 @@ public class ModItems {
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
     public static final Item MITHRIL = registerItem("mithril", new Item(new Item.Settings()));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
+
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));
+
     public static final Item DAMAGED_MITHRIL_SWORD = registerItem("damaged_mithril_sword", new DamagedSword(ModToolMaterial.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
             (ModToolMaterial.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword",
@@ -41,7 +43,7 @@ public class ModItems {
 
     public static final Item TRUE_BLADE = registerItem("true_blade",
             new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,20,-2.1f)).rarity(Rarity.EPIC)));
+                    (ModToolMaterial.SWORD,20,-2.1f)).rarity(Rarity.EPIC).fireproof()));
 
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
