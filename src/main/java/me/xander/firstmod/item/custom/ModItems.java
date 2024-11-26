@@ -45,11 +45,21 @@ public class ModItems {
             new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ModToolMaterial.SWORD,20,-2.1f)).rarity(Rarity.EPIC).fireproof()));
 
+    public static final Item BIG_SWORD_TEST = registerItem("big_sword_test",
+            new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ToolMaterials.DIAMOND,5,-3.5f)).rarity(Rarity.RARE).fireproof()));
+    public static final Item BIG_SWORD = registerItem("big_sword",
+            new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ToolMaterials.DIAMOND,9,-3.1f)).rarity(Rarity.RARE).fireproof()));
+    public static final Item LANCE = registerItem("lance",
+            new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterial.SWORD,2,-2.1f))));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
             new SpawnEggItem(ModEntities.LEMMING,0x94756362,0x58395863, new Item.Settings()));
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));
+    public static final Item THANK_HAT = registerItem("thank_hat", new HolidayHat(new Item.Settings().maxCount(1)));
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(165)));
     public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate",  new  ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,

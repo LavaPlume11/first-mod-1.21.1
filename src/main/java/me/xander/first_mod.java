@@ -101,6 +101,18 @@ public class first_mod implements ModInitializer {
                     Optional.of(new TradedItem(Items.ALLIUM, 1)),
                     new ItemStack(BANANA,1),1,6,0.55f
             ));
+
+        });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST,1, factories -> {
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 64),
+                    new ItemStack(BIG_SWORD, 1), 1, 4, 0.5f
+
+            ));
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 64),
+                    new ItemStack(THANK_HAT, 1), 1, 1, 0.1f
+            ));
         });
 
 

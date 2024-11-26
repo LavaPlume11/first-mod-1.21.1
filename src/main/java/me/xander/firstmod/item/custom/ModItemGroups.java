@@ -40,6 +40,7 @@ public class ModItemGroups {
                        entries.add(ModItems.DAMAGED_MITHRIL_SWORD);
                        entries.add(ModItems.MITHRIL_SWORD_SHARD);
                        entries.add(ModItems.CATALYST);
+                       entries.add(ModItems.THANK_HAT);
                        entries.add(ModBlocks.STONE_OF_SWORD);
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.MITHRIL_HELMET);
@@ -48,6 +49,7 @@ public class ModItemGroups {
                        entries.add(ModItems.MITHRIL_BOOTS);
                        entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModItems.MITHRIL_SWORD);
+                       entries.add(ModItems.BIG_SWORD);
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModBlocks.BLACKWOOD_LOG);
                        entries.add(ModBlocks.BLACKWOOD_LEAVES);
@@ -56,8 +58,6 @@ public class ModItemGroups {
                        entries.add(ModBlocks.STRIPPED_BLACKWOOD_LOG);
                        entries.add(ModBlocks.STRIPPED_BLACKWOOD_WOOD);
                        entries.add(ModBlocks.BLACKWOOD_SAPLING);
-
-
                    }).build());
 
 

@@ -40,6 +40,9 @@
   "item.firstmod.nether_bow":"Nether Bow",
   "block.firstmod.crystallizer":"Crystallizer",
   "item.firstmod.raw_mithril":"Raw Mithril",
+  "item.firstmod.thank_hat":"Thanksgiving Hat",
+  "item.firstmod.big_sword_test":"Big Anime Sword That Does Cool Bleeding Things With Enemies UWU!!! (BASTDCBTWEUWU for short)",
+  "item.firstmod.big_sword":"Blood Cleaver",
   "item.firstmod.lion_spawn_egg":"Lion Spawn Egg",
   "item.firstmod.lemming_spawn_egg":"Lemming Spawn Egg",
   "item.firstmod.true_blade":"True Blade",
@@ -60,5 +63,6 @@
   "gui.firstmod.display_block": "Display",
   "item.firstmod.mithril_horse_armor": "Crystal Horse Armor",
   "item.firstmod.catalyst": "Catalyst",
-  "gui.firstmod.crystallizer": "Crystallizer"
+  "gui.firstmod.crystallizer": "Crystallizer",
+  "entity.minecraft.villager.cultist": "Cultist"
 }
