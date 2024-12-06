@@ -56,6 +56,8 @@ public class ModItems {
                     (ModToolMaterial.SWORD,2,-2.1f))));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
+    public static final Item WHISPERER_SPAWN_EGG = registerItem("whisperer_spawn_egg",
+            new SpawnEggItem(ModEntities.WHISPERER,0x295338,0x5828ae31, new Item.Settings()));
     public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
             new SpawnEggItem(ModEntities.LEMMING,0x94756362,0x58395863, new Item.Settings()));
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));

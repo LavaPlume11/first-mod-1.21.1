@@ -3,6 +3,7 @@ package me.xander.firstmod.entity;
 import me.xander.first_mod;
 import me.xander.firstmod.entity.custom.LemmingEntity;
 import me.xander.firstmod.entity.custom.LionEntity;
+import me.xander.firstmod.entity.custom.WhispererEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -16,6 +17,9 @@ public class ModEntities {
     public static final EntityType<LemmingEntity> LEMMING = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "lemming"),
             EntityType.Builder.create(LemmingEntity::new, SpawnGroup.CREATURE).dimensions(0.5f,0.5f).build());
+    public static final EntityType<WhispererEntity> WHISPERER = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "whisperer"),
+            EntityType.Builder.create(WhispererEntity::new, SpawnGroup.CREATURE).dimensions(1f,1f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

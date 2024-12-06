@@ -9,4 +9,6 @@ public class ModEntityModelLayers {
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"lion"),"main");
     public static final EntityModelLayer LEMMING =
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"lemming"),"main");
+    public static final EntityModelLayer WHISPERER =
+            new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"whisperer"),"main");
 }

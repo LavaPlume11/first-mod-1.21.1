@@ -40,9 +40,14 @@ public class First_modClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
 
+
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);
+
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LEMMING, LemmingModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LEMMING, LemmingRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.WHISPERER, WhispererModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WHISPERER, WhispererRenderer::new);
     }
 }
