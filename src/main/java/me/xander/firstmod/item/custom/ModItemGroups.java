@@ -42,6 +42,7 @@ public class ModItemGroups {
                        entries.add(ModItems.CATALYST);
                        entries.add(ModItems.THANK_HAT);
                        entries.add(ModBlocks.STONE_OF_SWORD);
+                       entries.add(ModItems.TOMAHAWK);
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.WHISPERER_SPAWN_EGG);
                        entries.add(ModItems.MITHRIL_HELMET);

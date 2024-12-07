@@ -49,5 +49,8 @@ public class First_modClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.WHISPERER, WhispererModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.WHISPERER, WhispererRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
     }
 }

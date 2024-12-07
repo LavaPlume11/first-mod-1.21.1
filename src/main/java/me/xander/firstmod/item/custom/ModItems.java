@@ -77,6 +77,8 @@ public class ModItems {
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor",
             new AnimalArmorItem(ModArmorMaterials.MITHRIL_ARMOR, AnimalArmorItem.Type.EQUESTRIAN,false,new Item.Settings().maxDamage(800)));
     public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings()));
+    public static final Item GUITAR = registerItem("guitar", new GuitarItem(new Item.Settings()));
+    public static final Item TOMAHAWK = registerItem("tomahawk", new TomahawkItem(new Item.Settings().maxCount(16)));
 
     private static Item registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),

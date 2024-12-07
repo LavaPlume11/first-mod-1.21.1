@@ -1,0 +1,20 @@
+{
+  "guitar_riff": {
+    "subtitle": "sounds.firstmod.guitar_riff",
+    "sounds": [
+      "firstmod:guitar_riff",
+      "firstmod:guitar_riff_metal"
+
+    ]
+  },
+  "whisperer_idle": {
+    "subtitle": "sounds.firstmod.whisper",
+    "sounds": [
+      "firstmod:whisper1",
+      "firstmod:whisper2",
+      "firstmod:whisper3",
+      "firstmod:whisper4"
+
+    ]
+  }
+}

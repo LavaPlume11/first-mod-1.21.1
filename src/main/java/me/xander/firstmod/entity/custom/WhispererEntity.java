@@ -1,17 +1,23 @@
 package me.xander.firstmod.entity.custom;
 
 import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,7 +30,6 @@ public class WhispererEntity extends AnimalEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4f));
         this.goalSelector.add(5, new WanderAroundGoal(this, 0.8));
         this.goalSelector.add(6, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
@@ -46,7 +51,10 @@ public class WhispererEntity extends AnimalEntity {
         if (this.getWorld().isClient()) {
             this.setupAnimationStates();
         }
+        this.setAir(this.getMaxAir());
     }
+
+
 
     public static DefaultAttributeContainer.Builder createWhispererAttributes() {
         return MobEntity.createMobAttributes()
@@ -65,4 +73,21 @@ public class WhispererEntity extends AnimalEntity {
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.WHISPERER.create(world);
     }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return ModSounds.WHISPERER_IDLE;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.ENTITY_GHAST_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return ModSounds.WHISPERER_IDLE;
+    }
+
+
 }

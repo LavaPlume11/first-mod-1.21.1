@@ -18,6 +18,7 @@ import me.xander.firstmod.item.custom.ModItemGroups;
 import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
+import me.xander.firstmod.sound.ModSounds;
 import me.xander.firstmod.util.ModLootTableModifiers;
 import me.xander.firstmod.villager.ModVillagers;
 import me.xander.firstmod.villager.ModVillagers;
@@ -64,6 +65,7 @@ public class first_mod implements ModInitializer {
         registerCustomTrades();
         registerStrippables();
         ModRecipes.registerRecipes();
+        ModSounds.registerSounds();
         ModDataComponentTypes.registerDataComponentTypes();
         ModEntities.registerModEntities();
         ModLootTableModifiers.modifyLootTables();

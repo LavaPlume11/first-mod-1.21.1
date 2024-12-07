@@ -3,6 +3,7 @@ package me.xander.firstmod.entity;
 import me.xander.first_mod;
 import me.xander.firstmod.entity.custom.LemmingEntity;
 import me.xander.firstmod.entity.custom.LionEntity;
+import me.xander.firstmod.entity.custom.TomahawkProjectileEntity;
 import me.xander.firstmod.entity.custom.WhispererEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -20,6 +21,9 @@ public class ModEntities {
     public static final EntityType<WhispererEntity> WHISPERER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "whisperer"),
             EntityType.Builder.create(WhispererEntity::new, SpawnGroup.CREATURE).dimensions(1f,1f).build());
+    public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "tomahawk"),
+            EntityType.Builder.<TomahawkProjectileEntity>create(TomahawkProjectileEntity::new, SpawnGroup.MISC).dimensions(0.5f,1.15f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }
