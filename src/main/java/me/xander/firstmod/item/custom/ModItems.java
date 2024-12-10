@@ -58,10 +58,13 @@ public class ModItems {
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item WHISPERER_SPAWN_EGG = registerItem("whisperer_spawn_egg",
             new SpawnEggItem(ModEntities.WHISPERER,0x295338,0x5828ae31, new Item.Settings()));
+    public static final Item WARTURTLE_SPAWN_EGG = registerItem("warturtle_spawn_egg",
+            new SpawnEggItem(ModEntities.WARTURTLE,0x7436c21,0x58a3167, new Item.Settings()));
     public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
             new SpawnEggItem(ModEntities.LEMMING,0x94756362,0x58395863, new Item.Settings()));
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));
-    public static final Item THANK_HAT = registerItem("thank_hat", new HolidayHat(new Item.Settings().maxCount(1)));
+    public static final Item THANK_HAT = registerItem("thank_hat", new ThankHat(new Item.Settings().maxCount(1)));
+    public static final Item XMAS_HAT = registerItem("xmas_hat", new XmasHat(new Item.Settings().maxCount(1)));
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(165)));
     public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate",  new  ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
@@ -79,7 +82,18 @@ public class ModItems {
     public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings()));
     public static final Item GUITAR = registerItem("guitar", new GuitarItem(new Item.Settings()));
     public static final Item TOMAHAWK = registerItem("tomahawk", new TomahawkItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-            (ToolMaterials.IRON,4,-3.5f)).maxCount(16)));
+            (ToolMaterials.IRON,4,-3.5f))));
+    public static final Item IRON_WARTURTLE_ARMOR = registerItem("iron_warturtle_armor",
+            new WarturtleArmorItem(ArmorMaterials.IRON, new Item.Settings().maxDamage(400)));
+    public static final Item GOLD_WARTURTLE_ARMOR = registerItem("gold_warturtle_armor",
+            new WarturtleArmorItem(ArmorMaterials.GOLD, new Item.Settings().maxDamage(200)));
+    public static final Item DIAMOND_WARTURTLE_ARMOR = registerItem("diamond_warturtle_armor",
+            new WarturtleArmorItem(ArmorMaterials.DIAMOND, new Item.Settings().maxDamage(600)));
+    public static final Item NETHERITE_WARTURTLE_ARMOR = registerItem("netherite_warturtle_armor",
+            new WarturtleArmorItem(ArmorMaterials.NETHERITE, new Item.Settings().maxDamage(800)));
+    public static final Item MITHRIL_WARTURTLE_ARMOR = registerItem("mithril_warturtle_armor",
+            new WarturtleArmorItem(ModArmorMaterials.MITHRIL_ARMOR, new Item.Settings().maxDamage(1000)));
+
 
     private static Item registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),

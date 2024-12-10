@@ -11,6 +11,7 @@ import me.xander.firstmod.screen.custom.DisplayScreen;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
+import me.xander.firstmod.screen.custom.WarturtleScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
@@ -39,6 +40,7 @@ public class First_modClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.STONE_BE, StoneOfSwordBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
+        HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);
 
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
@@ -52,5 +54,10 @@ public class First_modClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.WARTURTLE, WarturtleModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WARTURTLE, WarturtleRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.WARTURTLE_ARMOR, WarturtleModel::getTexturedModelData);
+
     }
 }

@@ -94,6 +94,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('C', ModItems.MITHRIL_SWORD_SHARD)
                 .criterion(hasItem(ModItems.MITHRIL_SWORD_SHARD), conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_HORSE_ARMOR)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.TOMAHAWK)
+                .pattern("CCC")
+                .pattern("CSC")
+                .pattern(" S ")
+                .input('S', Items.STICK)
+                .input('C', Items.IRON_INGOT)
+
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.TOMAHAWK)));
 
     }
 }

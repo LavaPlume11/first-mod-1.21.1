@@ -12,22 +12,21 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class HolidayHat extends Item implements Equipment {
+public class XmasHat extends Item implements Equipment {
 
-
-    public HolidayHat(Settings settings) {
+    public XmasHat(Settings settings) {
         super(settings);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.of(""));
-        tooltip.add(Text.of("'Spiffy'"));
+        tooltip.add(Text.of("'Festive'"));
     }
 
     @Override
     public RegistryEntry<SoundEvent> getEquipSound() {
-        return RegistryEntry.of(SoundEvents.ENTITY_CHICKEN_AMBIENT);
+        return RegistryEntry.of(SoundEvents.ITEM_ARMOR_EQUIP_LEATHER.value());
     }
 
     @Override

@@ -1,10 +1,12 @@
-// 1.21.1	2024-12-05T19:44:23.943138	Cool Stuff/Recipes
+// 1.21.1	2024-12-09T17:53:44.2508417	Cool Stuff/Recipes
 8471dd603fe2f255f3ede81af0cc2a781498c338 data\firstmod\recipe\mithril.json
 b42857099a8d73fa3e8c0497e3f2538d945fd1c4 data\firstmod\advancement\recipes\misc\sound_block.json
 a7dc6c3425202d1d7504d9cbb9a3e26cc04d80ac data\firstmod\recipe\mithril_from_smelting_raw_mithril.json
 0b33e21d7110e2871e3ce53fc5ad59ed084f3c84 data\firstmod\advancement\recipes\combat\mithril_horse_armor.json
 269b89d2d0f6d930963add7801e6d21472f3716f data\firstmod\advancement\recipes\decorations\mithril_block.json
+f82465482d3a36ba24e2b82931f4902a4608bf04 data\firstmod\advancement\recipes\combat\tomahawk.json
 8cfdfcc50056a412ea25f95f546daecf417992e2 data\firstmod\recipe\mithril_horse_armor.json
+76d8045b3f5ea2d879b00d7dbfceda3aed5b992c data\firstmod\recipe\tomahawk.json
 6757e842801dd8674535d6978708a082111c9450 data\firstmod\recipe\mithril_from_blasting_raw_mithril.json
 cbfda40032241bfae07876e2a916924c02f02013 data\firstmod\advancement\recipes\building_blocks\mithril_display_block.json
 dabb34bfda9b237e8814f49518df28bf0e635e72 data\firstmod\advancement\recipes\misc\spear.json

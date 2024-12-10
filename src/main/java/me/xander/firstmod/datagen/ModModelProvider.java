@@ -61,6 +61,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GUITAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DAMAGED_MITHRIL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD_SHARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_WARTURTLE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLD_WARTURTLE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_WARTURTLE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_WARTURTLE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_WARTURTLE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.DYNAMITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
@@ -79,6 +84,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.WHISPERER_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.WARTURTLE_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
 
 

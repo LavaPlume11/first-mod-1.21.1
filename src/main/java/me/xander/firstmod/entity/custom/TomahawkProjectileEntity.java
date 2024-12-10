@@ -45,7 +45,7 @@ public class TomahawkProjectileEntity extends PersistentProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this,this.getOwner()),15);
+        entity.damage(this.getDamageSources().thrown(this,this.getOwner()),30);
 
         if (!this.getWorld().isClient()) {
             this.getWorld().sendEntityStatus(this,(byte)3);
@@ -56,23 +56,27 @@ public class TomahawkProjectileEntity extends PersistentProjectileEntity {
     @Override
     protected void onBlockHit(BlockHitResult result) {
         super.onBlockHit(result);
-        if (result.getSide() == Direction.SOUTH) {
-            groundedOffset = new Vector2f(215f,180f);
-        }
-        if (result.getSide() == Direction.NORTH) {
-            groundedOffset = new Vector2f(215f,0f);
-        }
-        if (result.getSide() == Direction.EAST) {
-            groundedOffset = new Vector2f(215f,-90f);
-        }
-        if (result.getSide() == Direction.WEST) {
-            groundedOffset = new Vector2f(215f,90f);
-        }
-        if (result.getSide() == Direction.DOWN) {
-            groundedOffset = new Vector2f(115f,180f);
-        }
-        if (result.getSide() == Direction.UP) {
-            groundedOffset = new Vector2f(285f,180f);
+        groundedOffset = new Vector2f(0, 0);
+        PlayerEntity user = (PlayerEntity) this.getOwner();
+        if (user != null) {
+            if (result.getSide() == Direction.SOUTH) {
+                groundedOffset = new Vector2f(215f, 180f);
+            }
+            if (result.getSide() == Direction.NORTH) {
+                groundedOffset = new Vector2f(215f, 0f);
+            }
+            if (result.getSide() == Direction.EAST) {
+                groundedOffset = new Vector2f(215f, -90f);
+            }
+            if (result.getSide() == Direction.WEST) {
+                groundedOffset = new Vector2f(215f, 90f);
+            }
+            if (result.getSide() == Direction.DOWN) {
+                groundedOffset = new Vector2f(115f, 180f);
+            }
+            if (result.getSide() == Direction.UP) {
+                groundedOffset = new Vector2f(295f, user.getYaw());
+            }
         }
 
     }
