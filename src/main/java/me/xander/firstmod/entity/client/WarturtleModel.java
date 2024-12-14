@@ -15,6 +15,7 @@ public class WarturtleModel<T extends WarturtleEntity> extends SinglePartEntityM
     private final ModelPart tier2;
     private final ModelPart tier3;
     private final ModelPart head;
+    private final ModelPart frill;
 
     public WarturtleModel(ModelPart root) {
         this.body = root.getChild("body");
@@ -23,6 +24,7 @@ public class WarturtleModel<T extends WarturtleEntity> extends SinglePartEntityM
         this.tier1 = body.getChild("torso").getChild("chests").getChild("tier1");
         this.tier2 = body.getChild("torso").getChild("chests").getChild("tier2");
         this.tier3 = body.getChild("torso").getChild("chests").getChild("tier3");
+        this.frill = head.getChild("helmet").getChild("frill_r1");
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -102,6 +104,8 @@ public class WarturtleModel<T extends WarturtleEntity> extends SinglePartEntityM
         tier1.visible = entity.hasTier1Chest();
         tier2.visible = entity.hasTier2Chest();
         tier3.visible = entity.hasTier3Chest();
+        frill.visible = entity.hasArmorOn();
+
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {

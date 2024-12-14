@@ -3,6 +3,8 @@ package me.xander.firstmod.screen.custom;
 import me.xander.firstmod.entity.custom.WarturtleEntity;
 import me.xander.firstmod.item.custom.WarturtleArmorItem;
 import me.xander.firstmod.screen.ModScreenHandlers;
+import net.minecraft.block.Block;
+import net.minecraft.block.DyedCarpetBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -33,6 +35,18 @@ public class WarturtleScreenHandler extends ScreenHandler {
         this.warturtleContainer = warturtleContainer;
         this.warturtle = warturtleEntity;
         warturtleContainer.onOpen(inventory.player);
+        // Dye Slot
+        this.addSlot(new Slot(warturtleContainer, 1, 44, 63) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return warturtleEntity.hasArmorOn() && Block.getBlockFromItem(stack.getItem()) instanceof DyedCarpetBlock;
+            }
+
+            @Override
+            public int getMaxItemCount() {
+                return 1;
+            }
+        });
 
 // Armor Slot
         this.addSlot(new Slot(warturtleContainer, 0, 8, 63) {
