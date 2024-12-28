@@ -63,7 +63,10 @@ public class First_modClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.WARTURTLE, WarturtleRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.WARTURTLE_ARMOR, WarturtleModel::getTexturedModelData);
 
-        ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, EndRodParticle.Factory::new);
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.SLEIGH, SleighModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SLEIGH, SleighRenderer::new);
+
+        ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, BloodParticle.Factory::new);
 
     }
 }

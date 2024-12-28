@@ -79,6 +79,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATALYST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.XMAS_STICK, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,

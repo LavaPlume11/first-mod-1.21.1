@@ -8,10 +8,7 @@ import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
 import me.xander.firstmod.entity.ModEntities;
-import me.xander.firstmod.entity.custom.LemmingEntity;
-import me.xander.firstmod.entity.custom.LionEntity;
-import me.xander.firstmod.entity.custom.WarturtleEntity;
-import me.xander.firstmod.entity.custom.WhispererEntity;
+import me.xander.firstmod.entity.custom.*;
 import me.xander.firstmod.events.AttackEntityHandler;
 import me.xander.firstmod.events.PlayerCopyHandler;
 import me.xander.firstmod.fluid.ModFluids;
@@ -83,6 +80,7 @@ public class first_mod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.LEMMING, LemmingEntity.createLemmingAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WHISPERER, WhispererEntity.createWhispererAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WARTURTLE, WarturtleEntity.createWarturtleAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SLEIGH, SleighEntity.createSleighAttributes());
 
         ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());

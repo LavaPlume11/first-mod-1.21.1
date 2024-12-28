@@ -24,6 +24,9 @@ public class ModEntities {
     public static final EntityType<TomahawkProjectileEntity> TOMAHAWK = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "tomahawk"),
             EntityType.Builder.<TomahawkProjectileEntity>create(TomahawkProjectileEntity::new, SpawnGroup.MISC).dimensions(0.5f,1.15f).build());
+    public static final EntityType<SleighEntity> SLEIGH = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "sleigh"),
+            EntityType.Builder.create(SleighEntity::new, SpawnGroup.MISC).dimensions(2.5f,1.5f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

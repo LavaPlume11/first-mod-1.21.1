@@ -17,4 +17,6 @@ public class ModEntityModelLayers {
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"warturtle"),"main");
     public static final EntityModelLayer WARTURTLE_ARMOR =
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"warturtle_armor"),"armor");
+    public static final EntityModelLayer SLEIGH =
+            new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"sleigh"),"main");
 }

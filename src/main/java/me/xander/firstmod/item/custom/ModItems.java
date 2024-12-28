@@ -29,6 +29,7 @@ public class ModItems {
             .alwaysEdible().build())
     ));
     public static final Item DYNAMITE = registerItem("dynamite",  new Item(new Item.Settings()));
+    public static final Item XMAS_STICK = registerItem("xmas_stick",  new XmasStick(new Item.Settings().maxCount(1).maxDamage(1).fireproof()));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
     public static final Item MITHRIL = registerItem("mithril", new Item(new Item.Settings()));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
@@ -51,9 +52,6 @@ public class ModItems {
     public static final Item BIG_SWORD = registerItem("big_sword",
             new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.DIAMOND,9,-3.1f)).rarity(Rarity.RARE).fireproof()));
-    public static final Item LANCE = registerItem("lance",
-            new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,2,-2.1f))));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item WHISPERER_SPAWN_EGG = registerItem("whisperer_spawn_egg",
@@ -79,7 +77,12 @@ public class ModItems {
                     (ModToolMaterial.SWORD,1,-0.4f)), StatusEffects.LEVITATION));
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor",
             new AnimalArmorItem(ModArmorMaterials.MITHRIL_ARMOR, AnimalArmorItem.Type.EQUESTRIAN,false,new Item.Settings().maxDamage(800)));
-    public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings()));
+    public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings().food(new FoodComponent.Builder()
+            .nutrition(9)
+            .saturationModifier(1.3F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1000,9),0.6f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 2000, 9), 0.355F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 30000, 2), 0.155F).alwaysEdible().build())));
     public static final Item GUITAR = registerItem("guitar", new GuitarItem(new Item.Settings()));
     public static final Item TOMAHAWK = registerItem("tomahawk", new TomahawkItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
             (ToolMaterials.IRON,4,-3.5f))));
