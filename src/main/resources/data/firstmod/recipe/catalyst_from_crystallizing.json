@@ -1,7 +1,7 @@
 {
   "type": "firstmod:crystallizing",
   "ingredient": {
-    "item": "minecraft:nether_star"
+    "item": "minecraft:amethyst_shard"
   },
   "result": {
     "id": "firstmod:catalyst"

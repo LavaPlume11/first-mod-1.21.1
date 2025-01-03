@@ -40,7 +40,7 @@ public class ModLootTableModifiers {
             if (LootTables.END_CITY_TREASURE_CHEST.equals(registryKey)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 5% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.90f)) // Drops 5% of the time
                         .with(ItemEntry.builder(ModItems.MITHRIL_HELMET))
                         .conditionally(RandomChanceLootCondition.builder(0.05f))
                         .with(ItemEntry.builder(ModItems.MITHRIL_CHESTPLATE))

@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:firstmod/get_raw_mithril",
+  "criteria": {
+    "got_tomahawk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:tomahawk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a Tomahawk",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:tomahawk"
+    },
+    "title": "A Throwable Axe"
+  },
+  "requirements": [
+    [
+      "got_tomahawk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

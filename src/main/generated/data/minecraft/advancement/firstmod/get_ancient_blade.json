@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:firstmod/get_damaged_blade",
+  "criteria": {
+    "got_ancient_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Reforge a great weapon from the ashes of the past.",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:mithril_sword"
+    },
+    "title": "The Strong Rise"
+  },
+  "requirements": [
+    [
+      "got_ancient_blade"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  },
+  "sends_telemetry_event": true
+}

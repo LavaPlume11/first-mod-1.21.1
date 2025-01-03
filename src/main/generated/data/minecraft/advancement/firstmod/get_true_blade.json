@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:firstmod/get_ancient_blade",
+  "criteria": {
+    "got_true_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:true_blade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Realize your full potential.",
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "firstmod:true_blade"
+    },
+    "title": "The Mighty Rise Higher"
+  },
+  "requirements": [
+    [
+      "got_true_blade"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

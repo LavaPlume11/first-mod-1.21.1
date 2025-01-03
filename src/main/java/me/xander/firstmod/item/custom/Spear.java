@@ -25,7 +25,10 @@ public class Spear extends Item {
         tooltip.add(Text.of("Be Careful!"));
         tooltip.add(Text.of("Right click to use"));
     }
-
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 if (hand == Hand.MAIN_HAND) {

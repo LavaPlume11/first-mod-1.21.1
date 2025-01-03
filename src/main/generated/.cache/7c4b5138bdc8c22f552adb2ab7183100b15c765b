@@ -1,9 +1,9 @@
-// 1.21.1	2024-12-23T20:12:46.9814002	Cool Stuff/Tags for minecraft:block
+// 1.21.1	2025-01-02T16:10:37.0732376	Cool Stuff/Tags for minecraft:block
 51d47ba394ae3811c75eb54d137f9510b7d7873e data\minecraft\tags\block\fence_gates.json
 841f633dcb5cf73447f09977634a0c52fe64c23b data\minecraft\tags\block\logs_that_burn.json
 0825d50c85cf16c5b078e30474e842bd6c975e91 data\minecraft\tags\block\needs_diamond_tool.json
 9a696400a0a75af2040439fcab89e646be5ada1d data\minecraft\tags\block\walls.json
-0002e3ba0e648cd7b617bdf723feb1df754fd8d1 data\minecraft\tags\block\fences.json
 ccfba707cb64cce161bd54afaf723ff781dc2021 data\minecraft\tags\block\needs_iron_tool.json
-a5c425b82d8520f7c14430bb1660baf3479db30a data\minecraft\tags\block\needs_stone_tool.json
+0002e3ba0e648cd7b617bdf723feb1df754fd8d1 data\minecraft\tags\block\fences.json
 841525286b3007e9fd39166f47d2c5b46e4285b8 data\minecraft\tags\block\mineable\pickaxe.json
+a5c425b82d8520f7c14430bb1660baf3479db30a data\minecraft\tags\block\needs_stone_tool.json

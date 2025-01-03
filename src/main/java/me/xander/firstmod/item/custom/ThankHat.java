@@ -21,7 +21,7 @@ public class ThankHat extends Item implements Equipment {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.of(""));
-        tooltip.add(Text.of("'Spiffy'"));
+        tooltip.add(Text.of("\"Spiffy\""));
     }
 
     @Override

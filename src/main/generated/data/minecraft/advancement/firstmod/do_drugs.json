@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:firstmod/get_mithril_armor",
+  "criteria": {
+    "do_drugs": {
+      "conditions": {
+        "item": {
+          "items": "firstmod:catalyst"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Ignore your parents advice",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:catalyst"
+    },
+    "title": "Don't Do Drugs"
+  },
+  "requirements": [
+    [
+      "do_drugs"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

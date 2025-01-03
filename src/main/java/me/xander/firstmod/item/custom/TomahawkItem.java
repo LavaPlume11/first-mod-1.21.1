@@ -32,9 +32,8 @@ public class TomahawkItem extends AxeItem {
         }
 
         user.incrementStat(Stats.USED.getOrCreateStat(this));
-        if (!user.getAbilities().creativeMode) {
             itemStack.decrement(1);
-        }
+
 
         return TypedActionResult.success(itemStack,world.isClient());
     }

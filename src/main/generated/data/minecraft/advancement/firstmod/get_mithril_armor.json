@@ -1,0 +1,71 @@
+{
+  "parent": "minecraft:firstmod/get_raw_mithril",
+  "criteria": {
+    "got_mithril_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_mithril_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_mithril_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_mithril_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a full set of mithril armor",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:mithril_chestplate"
+    },
+    "title": "Cover Me In Crystal"
+  },
+  "requirements": [
+    [
+      "got_mithril_helmet"
+    ],
+    [
+      "got_mithril_chestplate"
+    ],
+    [
+      "got_mithril_leggings"
+    ],
+    [
+      "got_mithril_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  },
+  "sends_telemetry_event": true
+}

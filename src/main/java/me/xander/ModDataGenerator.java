@@ -25,6 +25,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModWorldGenerator::new);
         pack.addProvider(ModPoiTagProvider::new);
         pack.addProvider(ModFluidTagProvider::new);
+        pack.addProvider(ModAdvancementProvider::new);
     }
     @Override
     public void buildRegistry(RegistryBuilder registryBuilder) {

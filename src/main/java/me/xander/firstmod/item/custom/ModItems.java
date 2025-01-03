@@ -60,7 +60,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.WARTURTLE,0x7436c21,0x58a3167, new Item.Settings()));
     public static final Item LEMMING_SPAWN_EGG = registerItem("lemming_spawn_egg",
             new SpawnEggItem(ModEntities.LEMMING,0x94756362,0x58395863, new Item.Settings()));
-    public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16)));
+    public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16).fireproof()));
     public static final Item THANK_HAT = registerItem("thank_hat", new ThankHat(new Item.Settings().maxCount(1)));
     public static final Item XMAS_HAT = registerItem("xmas_hat", new XmasHat(new Item.Settings().maxCount(1)));
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
@@ -75,6 +75,7 @@ public class ModItems {
     public static final Item GOD_STICK = registerItem("god_stick",
             new godStick(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ModToolMaterial.SWORD,1,-0.4f)), StatusEffects.LEVITATION));
+    public static final Item WHIP = registerItem("whip",  new WhipItem(new Item.Settings().maxCount(1)));
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor",
             new AnimalArmorItem(ModArmorMaterials.MITHRIL_ARMOR, AnimalArmorItem.Type.EQUESTRIAN,false,new Item.Settings().maxDamage(800)));
     public static final Item CATALYST = registerItem("catalyst", new Item(new Item.Settings().food(new FoodComponent.Builder()

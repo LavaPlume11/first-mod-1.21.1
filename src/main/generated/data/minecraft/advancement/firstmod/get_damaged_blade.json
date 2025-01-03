@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:firstmod/get_raw_mithril",
+  "criteria": {
+    "got_damaged_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:damaged_mithril_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Find an ancient relic from a time long past.",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:damaged_mithril_sword"
+    },
+    "title": "The Weak Fall"
+  },
+  "requirements": [
+    [
+      "got_damaged_blade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

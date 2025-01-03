@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "got_raw_mithril": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:raw_mithril"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "firstmod:textures/block/mithril_block.png",
+    "description": "Mine mithril ore",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:raw_mithril"
+    },
+    "title": "New Advancements in Society"
+  },
+  "requirements": [
+    [
+      "got_raw_mithril"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

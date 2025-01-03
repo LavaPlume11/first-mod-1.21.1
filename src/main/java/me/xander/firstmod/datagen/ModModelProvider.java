@@ -59,6 +59,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BURNT_BANANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GUITAR, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WHIP, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DAMAGED_MITHRIL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_WARTURTLE_ARMOR, Models.GENERATED);

@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:firstmod/get_mithril_block",
+  "criteria": {
+    "got_mithril_display_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:mithril_display_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a display block",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:mithril_display_block"
+    },
+    "title": "Your Life On Display"
+  },
+  "requirements": [
+    [
+      "got_mithril_display_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
