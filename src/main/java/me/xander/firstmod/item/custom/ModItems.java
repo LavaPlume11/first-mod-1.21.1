@@ -40,15 +40,22 @@ public class ModItems {
             (ModToolMaterial.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword",
             new MithrilSword(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,9,-3.4f)).rarity(Rarity.RARE), StatusEffects.LEVITATION));
+                    (ModToolMaterial.SWORD,9,-3.0f)).rarity(Rarity.RARE), StatusEffects.LEVITATION));
+    public static final Item NETHER_BOW = registerItem("nether_bow",
+            new NetherBow(new Item.Settings().maxDamage(200)));
+    public static final Item REFINED_MITHRIL_SWORD = registerItem("refined_mithril_sword",
+            new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterial.SWORD,15,-2.5f)).rarity(Rarity.RARE).fireproof()));
 
     public static final Item TRUE_BLADE = registerItem("true_blade",
             new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,20,-2.1f)).rarity(Rarity.EPIC).fireproof()));
+                    (ModToolMaterial.SWORD,22,-2.1f)).rarity(Rarity.EPIC).fireproof()));
 
     public static final Item BIG_SWORD_TEST = registerItem("big_sword_test",
             new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.DIAMOND,5,-3.5f)).rarity(Rarity.RARE).fireproof()));
+    public static final Item LIGHT_KNIFE = registerItem("light_knife",
+            new LightKnife(ModToolMaterial.LIGHT,new Item.Settings()));
     public static final Item BIG_SWORD = registerItem("big_sword",
             new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.DIAMOND,9,-3.1f)).rarity(Rarity.RARE).fireproof()));

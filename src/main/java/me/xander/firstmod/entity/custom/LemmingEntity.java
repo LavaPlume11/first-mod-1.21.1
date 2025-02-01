@@ -9,6 +9,8 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -19,7 +21,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -30,9 +34,15 @@ public class LemmingEntity extends AnimalEntity {
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(LemmingEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Sir Lemmingtenth III Destroyer of Overworlds, Ruler of The Nether Realms," +
+            " and Conqueror of the End Isles"),
+            BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
+
     public LemmingEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
+
+
     public final AnimationState IdleAnimationState = new AnimationState();
     private int idleAnimationTimeOut = 0;
 
@@ -121,5 +131,24 @@ public class LemmingEntity extends AnimalEntity {
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
+    }
+    /* BOSS BAR */
+
+    @Override
+    public void onStartedTrackingBy(ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+        this.bossBar.addPlayer(player);
+    }
+
+    @Override
+    public void onStoppedTrackingBy(ServerPlayerEntity player) {
+        super.onStoppedTrackingBy(player);
+        this.bossBar.removePlayer(player);
+    }
+
+    @Override
+    protected void mobTick() {
+        super.mobTick();
+        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
 }

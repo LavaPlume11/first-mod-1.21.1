@@ -10,11 +10,12 @@ public class BloodParticle extends AnimatedParticle {
 
     BloodParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider) {
         super(world, x, y, z, spriteProvider, -0.0125F);
+        this.collidesWithWorld = true;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
         this.velocityZ = velocityZ;
         this.scale *= 1.5F;
-        this.maxAge = 1800 + this.random.nextInt(60);
+        this.maxAge = 1800 + ((int) (Math.random() * (500 - 10) - 100));
         this.setTargetColor(15916745);
         this.setSpriteForAge(spriteProvider);
     }

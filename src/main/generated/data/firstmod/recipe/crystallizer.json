@@ -5,17 +5,23 @@
     "C": {
       "item": "minecraft:cobblestone"
     },
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
     "O": {
       "item": "minecraft:iron_ingot"
     },
     "S": {
       "item": "minecraft:amethyst_shard"
+    },
+    "Y": {
+      "item": "minecraft:end_crystal"
     }
   },
   "pattern": [
     "COC",
-    "CSC",
-    "COC"
+    "ESE",
+    "CYC"
   ],
   "result": {
     "count": 1,

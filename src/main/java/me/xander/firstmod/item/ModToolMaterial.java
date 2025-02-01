@@ -15,7 +15,9 @@ public enum ModToolMaterial implements ToolMaterial {
     SWORD(5,2500,3.5f,9.5f,26,
             ()-> Ingredient.ofItems(ModItems.MITHRIL_SWORD_SHARD)),
          DAMAGED_SWORD(2,25,1.5f,2.5f,1,
-                 ()-> Ingredient.ofItems(ModItems.RAW_MITHRIL));
+                 ()-> Ingredient.ofItems(ModItems.RAW_MITHRIL)),
+    LIGHT(1,5,1.5f,1.5f,1,
+                          ()-> Ingredient.ofItems((net.minecraft.item.ItemConvertible) null));
 
 
     private final int miningLevel;

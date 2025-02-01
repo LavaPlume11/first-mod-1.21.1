@@ -1,5 +1,6 @@
 package me.xander.firstmod.block.renderer;
 
+import me.xander.firstmod.block.custom.StoneOfSwordBlock;
 import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
 import me.xander.firstmod.block.entity.custom.StoneOfSwordBlockEntity;
 import net.minecraft.client.MinecraftClient;

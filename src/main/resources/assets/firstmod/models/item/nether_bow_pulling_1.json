@@ -1,6 +1,6 @@
 {
-  "parent": "first_mod:item/nether_bow",
+  "parent": "firstmod:item/nether_bow",
   "textures": {
-    "layer0": "first_mod:item/nether_bow_pulling_1"
+    "layer0": "firstmod:item/nether_bow_pulling_1"
   }
 }

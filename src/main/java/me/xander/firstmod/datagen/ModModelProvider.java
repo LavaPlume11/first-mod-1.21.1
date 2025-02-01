@@ -61,6 +61,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GUITAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WHIP, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DAMAGED_MITHRIL_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.REFINED_MITHRIL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRON_WARTURTLE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_WARTURTLE_ARMOR, Models.GENERATED);
@@ -77,6 +78,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_BOOTS));
         itemModelGenerator.register(ModItems.MITHRIL_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRUE_BLADE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.LIGHT_KNIFE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATALYST, Models.GENERATED);

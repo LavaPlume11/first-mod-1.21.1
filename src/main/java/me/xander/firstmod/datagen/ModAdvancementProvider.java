@@ -41,6 +41,21 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("got_raw_mithril", InventoryChangedCriterion.Conditions.items(ModItems.RAW_MITHRIL))
                 .build(consumer, first_mod.MOD_ID + "/get_raw_mithril");
 
+        AdvancementEntry getNetherBow = Advancement.Builder.create()
+                .parent(getRawMithril)
+                .display(
+                        ModItems.NETHER_BOW,
+                        Text.literal("Bua-Thwang"),
+                        Text.literal("Obtain a Nether Bow"),
+                        null,
+                        AdvancementFrame.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .criterion("got_nether_bow_mithril", InventoryChangedCriterion.Conditions.items(ModItems.NETHER_BOW))
+                .build(consumer, first_mod.MOD_ID + "/get_nether_bow");
+
         AdvancementEntry getMithrilArmor = Advancement.Builder.create()
                 .parent(getRawMithril)
                 .display(
@@ -91,8 +106,24 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("got_ancient_blade", InventoryChangedCriterion.Conditions.items(ModItems.MITHRIL_SWORD))
                 .build(consumer, first_mod.MOD_ID + "/get_ancient_blade");
 
-        AdvancementEntry getTrueBlade = Advancement.Builder.create()
+        AdvancementEntry getRefinedBlade = Advancement.Builder.create()
                 .parent(getAncientBlade)
+                .display(
+                        ModItems.REFINED_MITHRIL_SWORD,
+                        Text.literal("Bigger. Better. Stronger. Higher."),
+                        Text.literal("Upgrade your sword."),
+                        null,
+                        AdvancementFrame.CHALLENGE,
+                        true,
+                        true,
+                        false
+                )
+                .rewards(AdvancementRewards.Builder.experience(175))
+                .criterion("got_refined_blade", InventoryChangedCriterion.Conditions.items(ModItems.REFINED_MITHRIL_SWORD))
+                .build(consumer, first_mod.MOD_ID + "/get_refined_blade");
+
+        AdvancementEntry getTrueBlade = Advancement.Builder.create()
+                .parent(getRefinedBlade)
                 .display(
                         ModItems.TRUE_BLADE,
                         Text.literal("The Mighty Rise Higher"),
@@ -103,7 +134,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true
                 )
-                .rewards(AdvancementRewards.Builder.experience(500))
+                .rewards(AdvancementRewards.Builder.experience(700))
                 .criterion("got_true_blade", InventoryChangedCriterion.Conditions.items(ModItems.TRUE_BLADE))
                 .build(consumer, first_mod.MOD_ID + "/get_true_blade");
         AdvancementEntry getMithrilBlock = Advancement.Builder.create()

@@ -5,7 +5,6 @@ import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.fluid.ModFluids;
-import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.particle.BloodParticle;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.CrystallizerScreen;
@@ -14,6 +13,7 @@ import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
 import me.xander.firstmod.screen.custom.WarturtleScreen;
+import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -22,7 +22,6 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.particle.EndRodParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -66,7 +65,11 @@ public class First_modClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.SLEIGH, SleighModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SLEIGH, SleighRenderer::new);
 
+        EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
+
         ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, BloodParticle.Factory::new);
+
+        ModModelPredicates.registerModelPredicates();
 
     }
 }

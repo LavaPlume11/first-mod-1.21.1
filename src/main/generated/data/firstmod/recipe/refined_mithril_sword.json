@@ -2,9 +2,6 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "E": {
-      "item": "minecraft:echo_shard"
-    },
     "G": {
       "item": "minecraft:redstone_block"
     },
@@ -19,12 +16,12 @@
     }
   },
   "pattern": [
-    "ENM",
+    " NM",
     "NSN",
-    "GNE"
+    "GN "
   ],
   "result": {
     "count": 1,
-    "id": "firstmod:true_blade"
+    "id": "firstmod:refined_mithril_sword"
   }
 }

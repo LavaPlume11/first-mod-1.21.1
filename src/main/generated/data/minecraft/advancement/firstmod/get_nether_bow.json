@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:firstmod/get_raw_mithril",
+  "criteria": {
+    "got_nether_bow_mithril": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:nether_bow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a Nether Bow",
+    "icon": {
+      "count": 1,
+      "id": "firstmod:nether_bow"
+    },
+    "title": "Bua-Thwang"
+  },
+  "requirements": [
+    [
+      "got_nether_bow_mithril"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

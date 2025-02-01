@@ -27,6 +27,9 @@ public class ModEntities {
     public static final EntityType<SleighEntity> SLEIGH = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "sleigh"),
             EntityType.Builder.create(SleighEntity::new, SpawnGroup.MISC).dimensions(2.5f,1.5f).build());
+    public static final EntityType<DisplayBlockEntityEntity> DISPLAY_ENTITY = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "display_entity"),
+            EntityType.Builder.create(DisplayBlockEntityEntity::new, SpawnGroup.MISC).dimensions(1.0f,1.0f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

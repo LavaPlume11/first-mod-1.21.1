@@ -2,23 +2,32 @@ package me.xander.firstmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
+import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.entity.custom.DisplayBlockEntityEntity;
 import me.xander.firstmod.item.custom.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DisplayBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final MapCodec<DisplayBlock> CODEC = DisplayBlock.createCodec(DisplayBlock::new);
@@ -73,13 +82,12 @@ public class DisplayBlock extends BlockWithEntity implements BlockEntityProvider
                 displayBlockEntity.clear();
                 displayBlockEntity.markDirty();
                 world.updateListeners(pos,state,state,0);
-            }else if (player.isSneaking() && !world.isClient()) {
-                player.openHandledScreen(displayBlockEntity);
             }
         }
 
 
             return ItemActionResult.SUCCESS;
         }
-    }
+
+}
 

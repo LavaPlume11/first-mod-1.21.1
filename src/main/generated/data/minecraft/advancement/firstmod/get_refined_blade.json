@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:firstmod/get_refined_blade",
+  "parent": "minecraft:firstmod/get_ancient_blade",
   "criteria": {
-    "got_true_blade": {
+    "got_refined_blade": {
       "conditions": {
         "items": [
           {
-            "items": "firstmod:true_blade"
+            "items": "firstmod:refined_mithril_sword"
           }
         ]
       },
@@ -13,22 +13,21 @@
     }
   },
   "display": {
-    "description": "Realize your full potential.",
+    "description": "Upgrade your sword.",
     "frame": "challenge",
-    "hidden": true,
     "icon": {
       "count": 1,
-      "id": "firstmod:true_blade"
+      "id": "firstmod:refined_mithril_sword"
     },
-    "title": "The Mighty Rise Higher"
+    "title": "Bigger. Better. Stronger. Higher."
   },
   "requirements": [
     [
-      "got_true_blade"
+      "got_refined_blade"
     ]
   ],
   "rewards": {
-    "experience": 700
+    "experience": 175
   },
   "sends_telemetry_event": true
 }

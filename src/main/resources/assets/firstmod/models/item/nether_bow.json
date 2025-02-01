@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "first_mod:item/nether_bow"
+    "layer0": "firstmod:item/nether_bow"
   },
   "display": {
     "thirdperson_righthand": {
@@ -30,21 +30,21 @@
       "predicate": {
         "pulling": 1
       },
-      "model": "first_mod:item/nether_bow_pulling_0"
+      "model": "firstmod:item/nether_bow_pulling_0"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 0.65
       },
-      "model": "first_mod:item/nether_bow_pulling_1"
+      "model": "firstmod:item/nether_bow_pulling_1"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 0.9
       },
-      "model": "first_mod:item/nether_bow_pulling_2"
+      "model": "firstmod:item/nether_bow_pulling_2"
     }
   ]
 }

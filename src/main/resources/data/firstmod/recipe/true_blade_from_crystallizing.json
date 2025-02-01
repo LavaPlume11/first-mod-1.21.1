@@ -1,0 +1,9 @@
+{
+  "type": "firstmod:crystallizing",
+  "ingredient": {
+    "item": "firstmod:refined_mithril_sword"
+  },
+  "result": {
+    "id": "firstmod:true_blade"
+  }
+}
