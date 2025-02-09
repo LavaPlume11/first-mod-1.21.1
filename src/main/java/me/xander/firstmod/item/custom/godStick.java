@@ -38,6 +38,13 @@ public class godStick extends SwordItem {
         super.postDamageEntity(stack, target, attacker);
     }
 
+    @Override
+    public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraftByPlayer(stack, world, player);
+        BlockPos playerPos = player.getBlockPos();
+        EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, playerPos, SpawnReason.TRIGGERED);
+    }
+
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
             BlockPos playerPos = user.getBlockPos().down(10);

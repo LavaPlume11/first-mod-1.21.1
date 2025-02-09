@@ -98,7 +98,7 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
                                              PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof StoneOfSwordBlockEntity displayBlockEntity) {
-            if (displayBlockEntity.isEmpty() && stack.isOf(Items.DIAMOND_SWORD) || stack.isOf(ModItems.MITHRIL_SWORD)|| stack.isOf(ModItems.DAMAGED_MITHRIL_SWORD)
+            if (displayBlockEntity.isEmpty() && stack.isOf(Items.DIAMOND_SWORD) || stack.isOf(ModItems.MITHRIL_SWORD)|| stack.isOf(ModItems.RE_DEAD_SWORD)
                     || stack.isOf(ModItems.TRUE_BLADE)|| stack.isOf(ModItems.REFINED_MITHRIL_SWORD) || stack.isOf(Items.GOLDEN_SWORD) || stack.isOf(Items.IRON_SWORD) || stack.isOf(Items.STONE_SWORD)
                     || stack.isOf(Items.WOODEN_SWORD) || stack.isOf(ModItems.LIGHT_KNIFE) || stack.isOf(Items.NETHERITE_SWORD)|| stack.isOf(ModItems.GOD_STICK)|| stack.isOf(ModItems.BIG_SWORD)) {
                 if (displayBlockEntity.isEmpty()) {

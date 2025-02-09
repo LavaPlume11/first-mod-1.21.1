@@ -34,8 +34,9 @@ public class LemmingEntity extends AnimalEntity {
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(LemmingEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Sir Lemmingtenth III Destroyer of Overworlds, Ruler of The Nether Realms," +
-            " and Conqueror of the End Isles"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal(" His Royal Majesty Sir Lemming Lemmingtenth III The Achiever of all Achievements, The Speediest of " +
+            "Speedrunners, The Destroyer of Overworlds, The Ruler of The Nether Realms," +
+            " and The Conqueror of the End Isles"),
             BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
 
     public LemmingEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -49,7 +50,6 @@ public class LemmingEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(5, new EscapeDangerGoal(this,1.5f));
         this.goalSelector.add(5, new AnimalMateGoal(this, 1.0));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.4));

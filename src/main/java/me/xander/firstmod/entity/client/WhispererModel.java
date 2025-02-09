@@ -12,9 +12,15 @@ import net.minecraft.util.math.MathHelper;
 public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
     private final ModelPart whisperer;
     private final ModelPart body;
+    private final ModelPart ring;
+    private final ModelPart ring2;
+    private final ModelPart ring3;
     public WhispererModel(ModelPart root) {
         this.whisperer = root.getChild("whisperer");
         this.body = whisperer.getChild("body");
+        this.ring = whisperer.getChild("ring");
+        this.ring2 = whisperer.getChild("ring2");
+        this.ring3 = whisperer.getChild("ring3");
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -58,6 +64,10 @@ public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
 
         this.animateMovement(WhispererAnimations.WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
         this.updateAnimation(entity.idleAnimationState, WhispererAnimations.IDLE, ageInTicks, 1f);
+        ring.visible = !entity.isTouchingWater();
+        ring2.visible = !entity.isTouchingWater();
+        ring3.visible = !entity.isTouchingWater();
+
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {

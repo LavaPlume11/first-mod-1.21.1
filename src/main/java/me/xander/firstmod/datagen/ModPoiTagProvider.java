@@ -18,7 +18,9 @@ public class ModPoiTagProvider extends FabricTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
-        this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                .add(ModVillagers.MAGIC_POI_KEY);
+
+            this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
+                    .add(ModVillagers.MAGIC_POI_KEY);
+
     }
 }

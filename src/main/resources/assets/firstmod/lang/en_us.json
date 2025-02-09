@@ -47,6 +47,7 @@
   "item.firstmod.mithril_sword":"Ancient Blade",
   "item.firstmod.refined_mithril_sword":"Refined Blade",
   "item.firstmod.nether_bow":"Nether Bow",
+  "item.firstmod.re_dead_sword":"ReDead Sword",
   "block.firstmod.crystallizer":"Crystallizer",
   "item.firstmod.raw_mithril":"Raw Mithril",
   "item.firstmod.thank_hat":"Thanksgiving Hat",
@@ -79,5 +80,6 @@
   "item.firstmod.mithril_horse_armor": "Crystal Horse Armor",
   "item.firstmod.catalyst": "Catalyst",
   "gui.firstmod.crystallizer": "Crystallizer",
-  "entity.minecraft.villager.cultist": "Cultist"
+  "entity.minecraft.villager.cultist": "Cultist",
+  "entity.firstmod.lemming": "Lemming"
 }

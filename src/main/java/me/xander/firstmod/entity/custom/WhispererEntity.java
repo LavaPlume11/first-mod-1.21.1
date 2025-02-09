@@ -9,12 +9,15 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -44,7 +47,7 @@ public class WhispererEntity extends AnimalEntity {
             --this.idleAnimationTimeout;
         }
     }
-
+    /*
     @Override
     public void tick() {
         super.tick();
@@ -53,9 +56,7 @@ public class WhispererEntity extends AnimalEntity {
         }
         this.setAir(this.getMaxAir());
     }
-
-
-
+    */
     public static DefaultAttributeContainer.Builder createWhispererAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
@@ -89,5 +90,10 @@ public class WhispererEntity extends AnimalEntity {
         return ModSounds.WHISPERER_IDLE;
     }
 
-
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if (source.isIn(DamageTypeTags.IS_DROWNING))
+            return false;
+        return super.damage(source, amount);
+    }
 }

@@ -51,6 +51,7 @@ public class ModItemGroups {
                        entries.add(ModItems.REFINED_MITHRIL_SWORD);
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModItems.LIGHT_KNIFE);
+                       entries.add(ModItems.RE_DEAD_SWORD);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);
                        entries.add(ModItems.MITHRIL_LEGGINGS);
