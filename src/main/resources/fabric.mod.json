@@ -9,7 +9,7 @@
     "homepage": "https://youtube.com/watch?v=dQw4w9WgXcQ"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/firstmod/art.png",
+  "icon": "assets/firstmod/textures/item/true_blade.png",
   "environment": "*",
   "entrypoints":{
     "fabric-datagen": [

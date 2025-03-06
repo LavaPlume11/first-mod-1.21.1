@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CrystallizerCatagory implements DisplayCategory<BasicDisplay> {
-    public static final Identifier TEXTURE = Identifier.of(first_mod.MOD_ID, "textures/gui/crystalizer/crystallizer_gui.png");
+    public static final Identifier TEXTURE = Identifier.of(first_mod.MOD_ID, "textures/gui/crystallizer/crystallizer_gui.png");
     public static final CategoryIdentifier<CrystallIzerDisplay> CRYSTALLIZER =
             CategoryIdentifier.of(first_mod.MOD_ID,"crystallizer");
 

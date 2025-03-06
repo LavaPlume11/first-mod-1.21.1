@@ -104,6 +104,8 @@ public class ModBlocks {
             new SaplingBlock(ModSaplingGenerators.BLACKWOOD,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).strength(3f)));
     public static final Block CRYSTALLIZER = registerBlock("crystallizer",
             new CrystallizerBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
+    public static final Block ECHO_GENERATOR = registerBlock("echo_generator",
+            new EchoGeneratorBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
     public static final Block BANANA_BUSH = registerBlockWithoutBlockItem("banana_bush",
             new BananaBushBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 

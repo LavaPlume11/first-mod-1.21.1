@@ -28,6 +28,7 @@
   "block.firstmod.mithril_trapdoor": "Mithril Trapdoor",
   "block.firstmod.banana_leaves": "Banana Leaves",
   "block.firstmod.stone_of_sword": "Sword Pedestal",
+  "block.firstmod.echo_generator": "Echo Generator",
   "item.firstmod.mithril_staff": "Staff of Mithril",
   "item.firstmod.damaged_mithril_sword":"Damaged Old Sword",
   "item.firstmod.mithril_sword_shard":"Light Shard",
@@ -78,8 +79,10 @@
   "block.firstmod.mithril_display_block": "Mithril Display Block",
   "gui.firstmod.display_block": "Display",
   "item.firstmod.mithril_horse_armor": "Crystal Horse Armor",
+  "item.firstmod.dice": "The 6-sided Magic Die, that only has 6 Sides",
   "item.firstmod.catalyst": "Catalyst",
   "gui.firstmod.crystallizer": "Crystallizer",
   "entity.minecraft.villager.cultist": "Cultist",
-  "entity.firstmod.lemming": "Lemming"
+  "entity.firstmod.lemming": "Lemming",
+  "entity.firstmod.whisperer": "Wandering Whisperer"
 }

@@ -4,11 +4,13 @@ import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.custom.CrystallizerBlockEntity;
 import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
+import me.xander.firstmod.block.entity.custom.EchoGeneratorBlockEntity;
 import me.xander.firstmod.block.entity.custom.StoneOfSwordBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import team.reborn.energy.api.EnergyStorage;
 
 public class ModBlockEntities {
     public static final BlockEntityType<DisplayBlockEntity> DISPLAY_BE =
@@ -20,9 +22,15 @@ public class ModBlockEntities {
     public static final BlockEntityType<StoneOfSwordBlockEntity> STONE_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID,"stone_be"),
                     BlockEntityType.Builder.create(StoneOfSwordBlockEntity::new, ModBlocks.STONE_OF_SWORD).build(null));
+    public static final BlockEntityType<EchoGeneratorBlockEntity> ECHO_GENERATOR_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "echo_generator_be"),
+                    BlockEntityType.Builder.create(EchoGeneratorBlockEntity::new, ModBlocks.ECHO_GENERATOR).build(null));
 
 
     public static void registerBlockEntities(){
         first_mod.LOGGER.info("Registering Block Entities for" + first_mod.MOD_ID);
+
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, ECHO_GENERATOR_BE);
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, CRYSTALLIZER_BE);
     }
 }

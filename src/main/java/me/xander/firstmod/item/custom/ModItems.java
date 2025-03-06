@@ -29,6 +29,7 @@ public class ModItems {
             .alwaysEdible().build())
     ));
     public static final Item DYNAMITE = registerItem("dynamite",  new Item(new Item.Settings()));
+    public static final Item DICE = registerItem("dice",  new DiceItem(new Item.Settings()));
     public static final Item XMAS_STICK = registerItem("xmas_stick",  new XmasStick(new Item.Settings().maxCount(1).maxDamage(1).fireproof()));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
     public static final Item MITHRIL = registerItem("mithril", new Item(new Item.Settings()));
@@ -38,6 +39,8 @@ public class ModItems {
 
     public static final Item DAMAGED_MITHRIL_SWORD = registerItem("damaged_mithril_sword", new DamagedSword(ModToolMaterial.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
             (ModToolMaterial.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
+    public static final Item DASH_SWORD = registerItem("dash_sword", new DashSword(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+            (ModToolMaterial.DAMAGED_SWORD,5,-2.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword",
             new MithrilSword(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ModToolMaterial.SWORD,9,-3.0f)).rarity(Rarity.RARE), StatusEffects.LEVITATION));

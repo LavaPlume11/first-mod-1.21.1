@@ -22,6 +22,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -31,6 +32,7 @@ import org.jetbrains.annotations.Nullable;
 public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = Properties.LIT;
+    public static BooleanProperty POWERED = Properties.POWERED;
     public static final MapCodec<StoneOfSwordBlock> CODEC = StoneOfSwordBlock.createCodec(StoneOfSwordBlock::new);
 
     // For Facing
@@ -49,7 +51,7 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING,LIT);
+        builder.add(FACING,LIT,POWERED);
     }
 
     @Override
@@ -95,20 +97,33 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     @Override
+    protected boolean emitsRedstonePower(BlockState state) {
+        return true;
+    }
+
+    @Override
+    protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+        return state.get(POWERED) ? 15 : 0;
+    }
+
+    @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
                                              PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof StoneOfSwordBlockEntity displayBlockEntity) {
             if (displayBlockEntity.isEmpty() && stack.isOf(Items.DIAMOND_SWORD) || stack.isOf(ModItems.MITHRIL_SWORD)|| stack.isOf(ModItems.RE_DEAD_SWORD)
                     || stack.isOf(ModItems.TRUE_BLADE)|| stack.isOf(ModItems.REFINED_MITHRIL_SWORD) || stack.isOf(Items.GOLDEN_SWORD) || stack.isOf(Items.IRON_SWORD) || stack.isOf(Items.STONE_SWORD)
                     || stack.isOf(Items.WOODEN_SWORD) || stack.isOf(ModItems.LIGHT_KNIFE) || stack.isOf(Items.NETHERITE_SWORD)|| stack.isOf(ModItems.GOD_STICK)|| stack.isOf(ModItems.BIG_SWORD)) {
-                if (displayBlockEntity.isEmpty()) {
+                if (displayBlockEntity.isEmpty()){
+                    setPowered(world,pos,state,true);
                     displayBlockEntity.setStack(0, stack);
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
-                    stack.decrement(1);
+                    if (!player.isCreative())
+                        stack.decrement(1);
                     displayBlockEntity.markDirty();
                     world.updateListeners(pos, state, state, 0);
                 }
             } else if (stack.isEmpty() && !player.isSneaking()) {
+                setPowered(world, pos, state,false);
                 ItemStack stackOnDisplay = displayBlockEntity.getStack(0);
                 player.setStackInHand(Hand.MAIN_HAND, stackOnDisplay);
                 world.playSound(player,pos,SoundEvents.ENTITY_ITEM_PICKUP,SoundCategory.BLOCKS,1f,1f);
@@ -123,6 +138,10 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     }
     public StoneOfSwordBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(POWERED, false));
+    }
+    private static void setPowered(World world, BlockPos pos, BlockState state, boolean powered) {
+        world.setBlockState(pos, state.with(POWERED, powered), 3);
     }
     private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,8,16);
 

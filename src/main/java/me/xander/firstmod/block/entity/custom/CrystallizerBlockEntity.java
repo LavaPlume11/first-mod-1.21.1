@@ -9,6 +9,7 @@ import me.xander.firstmod.recipe.CrystallizerRecipeInput;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.screen.custom.CrystallizerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,8 +28,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 import java.util.Optional;
 
@@ -43,6 +46,18 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     private int progress = 0;
     private int maxProgress = 72;
     private final int DEFAULT_MAX_PROGRESS = 72;
+
+    private static final int ENERGY_TRANSFER_AMOUNT = 220;
+
+    private static final int ENERGY_CRAFTING_AMOUNT = 20000;
+
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(97800, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
+        @Override
+        protected void onFinalCommit() {
+            markDirty();
+            getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    };
 
     public CrystallizerBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRYSTALLIZER_BE, pos, state);
@@ -97,6 +112,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         Inventories.writeNbt(nbt, inventory, registryLookup);
         nbt.putInt("crystallizer.progress",progress);
         nbt.putInt("crystallizer.max_progress",maxProgress);
+        nbt.putLong("crystallizer.energy", energyStorage.amount);
 
     }
 
@@ -105,6 +121,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         Inventories.readNbt(nbt,inventory,registryLookup);
         progress = nbt.getInt("crystallizer.progress");
         maxProgress = nbt.getInt("crystallizer.max_progress");
+        energyStorage.amount = nbt.getLong("crystallizer.energy");
         super.readNbt(nbt, registryLookup);
     }
 
@@ -114,6 +131,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         }
         if(hasRecipe() && canInsertIntoOutputSlot()) {
             increaseCraftingProgress();
+            useEnergyForCrafting();
             world.setBlockState(pos, state.with(CrystallizerBlock.LIT, true));
             markDirty(world, pos, state);
 
@@ -124,6 +142,13 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         } else {
             world.setBlockState(pos, state.with(CrystallizerBlock.LIT, false));
             resetProgress();
+        }
+    }
+
+    private void useEnergyForCrafting() {
+        try(Transaction transaction = Transaction.openOuter()) {
+            this.energyStorage.extract(ENERGY_CRAFTING_AMOUNT, transaction);
+            transaction.commit();
         }
     }
 
@@ -159,7 +184,12 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
             return false;
         }
         ItemStack output = recipe.get().value().getResult(null);
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft();
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.energyStorage.amount >= (long) ENERGY_CRAFTING_AMOUNT;
     }
 
     private Optional<RecipeEntry<CrystallizerRecipe>> getCurrentRecipe() {
@@ -177,5 +207,75 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     @Override
     public @Nullable Packet<ClientPlayPacketListener> toUpdatePacket() {
         return BlockEntityUpdateS2CPacket.create(this);
+    }
+    @Override
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        return createNbt(registryLookup);
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        Direction localDir = this.getWorld().getBlockState(pos).get(CrystallizerBlock.FACING);
+
+        if(side == null) {
+            return false;
+        }
+
+        if(side == Direction.DOWN) {
+            return false;
+        }
+
+        if(side == Direction.UP) {
+            return slot == INPUT_SLOT;
+        }
+
+        return switch (localDir) {
+            default -> //NORTH
+                    side == Direction.NORTH && slot == INPUT_SLOT ||
+                            side == Direction.EAST && slot == INPUT_SLOT ||
+                            side == Direction.WEST && slot == INPUT_SLOT;
+            case EAST ->
+                    side.rotateYCounterclockwise() == Direction.NORTH && slot == INPUT_SLOT ||
+                            side.rotateYCounterclockwise() == Direction.EAST && slot == INPUT_SLOT ||
+                            side.rotateYCounterclockwise() == Direction.WEST && slot == INPUT_SLOT;
+            case SOUTH ->
+                    side.getOpposite() == Direction.NORTH && slot == INPUT_SLOT ||
+                            side.getOpposite()  == Direction.EAST && slot == INPUT_SLOT ||
+                            side.getOpposite()  == Direction.WEST && slot == INPUT_SLOT;
+            case WEST ->
+                    side.rotateYClockwise() == Direction.NORTH && slot == INPUT_SLOT ||
+                            side.rotateYClockwise() == Direction.EAST && slot == INPUT_SLOT ||
+                            side.rotateYClockwise() == Direction.WEST && slot == INPUT_SLOT;
+        };
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        Direction localDir = this.getWorld().getBlockState(this.pos).get(CrystallizerBlock.FACING);
+
+        if(side == Direction.UP) {
+            return false;
+        }
+
+        // Down extract
+        if(side == Direction.DOWN) {
+            return slot == OUTPUT_SLOT;
+        }
+
+        // backside extract
+        // right extract
+        return switch (localDir) {
+            default ->  side == Direction.SOUTH && slot == OUTPUT_SLOT ||
+                    side == Direction.EAST && slot == OUTPUT_SLOT;
+
+            case EAST -> side.rotateYCounterclockwise() == Direction.SOUTH && slot == OUTPUT_SLOT ||
+                    side.rotateYCounterclockwise() == Direction.EAST && slot == OUTPUT_SLOT;
+
+            case SOUTH ->  side.getOpposite() == Direction.SOUTH && slot == OUTPUT_SLOT ||
+                    side.getOpposite() == Direction.EAST && slot == OUTPUT_SLOT;
+
+            case WEST -> side.rotateYClockwise() == Direction.SOUTH && slot == OUTPUT_SLOT ||
+                    side.rotateYClockwise() == Direction.EAST && slot == OUTPUT_SLOT;
+        };
     }
 }

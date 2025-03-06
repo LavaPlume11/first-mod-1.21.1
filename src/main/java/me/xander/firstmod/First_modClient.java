@@ -12,6 +12,7 @@ import me.xander.firstmod.screen.custom.DisplayScreen;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
+import me.xander.firstmod.screen.custom.EchoGeneratorScreen;
 import me.xander.firstmod.screen.custom.WarturtleScreen;
 import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
@@ -44,7 +45,7 @@ public class First_modClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
         HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);
-
+        HandledScreens.register(ModScreenHandlers.ECHO_GENERATOR_SCREEN_HANDLER, EchoGeneratorScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);

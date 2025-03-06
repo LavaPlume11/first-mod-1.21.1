@@ -78,6 +78,8 @@ public class first_mod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.WARTURTLE, WarturtleEntity.createWarturtleAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SLEIGH, SleighEntity.createSleighAttributes());
 
+
+
         ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());
 

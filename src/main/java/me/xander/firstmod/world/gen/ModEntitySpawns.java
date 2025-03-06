@@ -17,5 +17,12 @@ public class ModEntitySpawns {
 
         SpawnRestriction.register(ModEntities.LEMMING, SpawnLocationTypes.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
+
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN,BiomeKeys.DEEP_COLD_OCEAN,
+                        BiomeKeys.DEEP_OCEAN,BiomeKeys.COLD_OCEAN,BiomeKeys.FROZEN_OCEAN,BiomeKeys.DEEP_FROZEN_OCEAN),
+                SpawnGroup.CREATURE, ModEntities.WHISPERER,50,2,10);
+
+        SpawnRestriction.register(ModEntities.WHISPERER, SpawnLocationTypes.IN_WATER,
+                Heightmap.Type.OCEAN_FLOOR, AnimalEntity::isValidNaturalSpawn);
     }
 }

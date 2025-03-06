@@ -17,6 +17,7 @@
     "firstmod:mithril_trapdoor",
     "firstmod:mithril_pressure_plate",
     "firstmod:crystallizer",
-    "firstmod:mithril_display_block"
+    "firstmod:mithril_display_block",
+    "firstmod:echo_generator"
   ]
 }

@@ -47,6 +47,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MITHRIL_WALL);
         addDrop(ModBlocks.MITHRIL_DISPLAY_BLOCK);
         addDrop(ModBlocks.CRYSTALLIZER);
+        addDrop(ModBlocks.ECHO_GENERATOR);
         addDrop(ModBlocks.BLACKWOOD_LOG);addDrop(ModBlocks.BLACKWOOD_WOOD);addDrop(ModBlocks.STRIPPED_BLACKWOOD_LOG);
         addDrop(ModBlocks.STRIPPED_BLACKWOOD_WOOD);addDrop(ModBlocks.BLACKWOOD_PLANKS);addDrop
                 (ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING,0.0625f));
@@ -62,7 +63,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return this.dropsWithSilkTouch(
                 drop,
-                (LootPoolEntry.Builder<?>)this.applyExplosionDecay(
+                this.applyExplosionDecay(
                         drop,
                         ItemEntry.builder(item)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 5.0F)))

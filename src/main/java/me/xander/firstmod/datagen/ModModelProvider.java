@@ -28,6 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_DISPLAY_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ECHO_GENERATOR);
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         
 
@@ -84,6 +85,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATALYST, Models.GENERATED);
         itemModelGenerator.register(ModItems.XMAS_STICK, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,

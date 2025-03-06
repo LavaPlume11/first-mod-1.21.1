@@ -11,40 +11,40 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 
 import java.util.Optional;
 
-public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler> {
+public class EchoGeneratorScreen extends HandledScreen<EchoGeneratorScreenHandler> {
+
     private static final Identifier GUI_TEXTURE =
-            Identifier.of(first_mod.MOD_ID, "textures/gui/crystallizer/crystallizer_gui.png");
-    private static final Identifier ARROW_TEXTURE =
-            Identifier.of(first_mod.MOD_ID, "textures/gui/crystallizer/arrow_progress.png");
-    private static final Identifier CRYSTAL_TEXTURE =
-            Identifier.of("textures/block/amethyst_cluster.png");
-    public CrystallizerScreen(CrystallizerScreenHandler handler, PlayerInventory inventory, Text title) {
-        super(handler, inventory, title);
-    }
+            Identifier.of(first_mod.MOD_ID, "textures/gui/echo_generator/echo_generator_gui.png");
+    private static final Identifier LIT_PROGRESS_TEXTURE = Identifier.of("container/furnace/lit_progress");
     private EnergyInfoArea energyInfoArea;
 
-    private void assignEnergyInfoArea() {
-        energyInfoArea = new EnergyInfoArea(((width - backgroundWidth) / 2) + 156,
-                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage, 8, 46/*48*/);
-    }
-
-    private void renderEnergyAreaTooltips(DrawContext context, int pMouseX, int pMouseY, int x, int y) {
-        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 9, 8, 48)) {
-            context.drawTooltip(Screens.getTextRenderer(this), energyInfoArea.getTooltips(),
-                    Optional.empty(), pMouseX - x, pMouseY - y);
-        }
+    public EchoGeneratorScreen(EchoGeneratorScreenHandler handler, PlayerInventory inventory, Text title) {
+        super(handler, inventory, title);
     }
 
     @Override
     protected void init() {
         super.init();
-        // Get rid of title and Inventory title
-        titleY = 1000;
-        playerInventoryTitleY = 1000;
+        // Center title
+        titleX = (width - backgroundWidth) / 2;
+
         assignEnergyInfoArea();
+    }
+
+    private void assignEnergyInfoArea() {
+        energyInfoArea = new EnergyInfoArea(((width - backgroundWidth) / 2) + 156,
+                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage);
+    }
+
+    private void renderEnergyAreaTooltips(DrawContext context, int pMouseX, int pMouseY, int x, int y) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 11, 8, 64)) {
+            context.drawTooltip(Screens.getTextRenderer(this), energyInfoArea.getTooltips(),
+                    Optional.empty(), pMouseX - x, pMouseY - y);
+        }
     }
 
     @Override
@@ -62,26 +62,17 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
         RenderSystem.setShaderTexture(0, GUI_TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
+
         context.drawTexture(GUI_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
         energyInfoArea.draw(context);
-        renderProgressArrow(context, x, y);
-        renderProgressCrystal(context, x, y);
-
-
-
+        renderBurnProgress(context, x, y);
     }
 
-    private void renderProgressCrystal(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(CRYSTAL_TEXTURE,x + 104, y + 13 + 16 - handler.getScaledCrystalProgress(), 0,
-                    16 - handler.getScaledCrystalProgress(), 16, handler.getScaledCrystalProgress(),16, 16);
-        }
-    }
-
-    private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(ARROW_TEXTURE, x + 73, y + 35, 0,0,
-                    handler.getScaledArrowProgress(), 16,24,16);
+    private void renderBurnProgress(DrawContext context, int x, int y) {
+        if(handler.isBurning()) {
+            int l = MathHelper.ceil(this.handler.getFuelProgress() * 13.0f) + 1;
+            context.drawGuiTexture(LIT_PROGRESS_TEXTURE, 14, 14, 0, 14 - l, x + 80, y + 18 + 14 - l, 14, l);
         }
     }
 
@@ -91,8 +82,8 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
+
     private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, int width, int height) {
         return MouseUtil.isMouseOver(pMouseX, pMouseY, x + offsetX, y + offsetY, width, height);
     }
 }
-

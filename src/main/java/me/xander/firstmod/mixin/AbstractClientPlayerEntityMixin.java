@@ -2,6 +2,7 @@ package me.xander.firstmod.mixin;
 
 import com.mojang.authlib.GameProfile;
 import me.xander.firstmod.item.custom.ModItems;
+import me.xander.firstmod.item.custom.NetherBow;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,14 +43,25 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
             info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(),1.0f, f));
 
         }
-       if (this.isUsingItem() && itemStack.isOf(ModItems.NETHER_BOW)) {
-            int i = this.getItemUseTime();
-            float g = (float)i / 20.0f;
-            g = g > 1.0f ? 1.0f : (g * g);
-            f *= 1.0f - g * 0.15f;
-            info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(),1.0f, f));
 
-        }
+        if (this.isUsingItem() && itemStack.isOf(ModItems.NETHER_BOW)) {
+           if (NetherBow.isUsingFireCharge) {
+               int i = this.getItemUseTime();
+               float g = (float) i / 15.0f;
+               g = g > 2.0f ? 2.0f : (g * g);
+               f *= 1.0f - g * 0.15f;
+               info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(), 2.0f, f));
+
+           } else {
+               int i = this.getItemUseTime();
+               float g = (float) i / 20.0f;
+               g = g > 1.0f ? 1.0f : (g * g);
+               f *= 1.0f - g * 0.15f;
+               info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(), 1.0f, f));
+
+
+           }
+       }
 
 
     }
