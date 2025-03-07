@@ -30,6 +30,8 @@ public class ModItemGroups {
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.WHISPERER_SPAWN_EGG);
                        entries.add(ModItems.WARTURTLE_SPAWN_EGG);
+                       entries.add(ModBlocks.ECHO_GENERATOR);
+                       entries.add(ModBlocks.TANK);
                        entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
                        entries.add(ModBlocks.MITHRIL_DISPLAY_BLOCK);

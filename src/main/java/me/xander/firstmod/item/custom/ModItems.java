@@ -51,8 +51,8 @@ public class ModItems {
                     (ModToolMaterial.SWORD,15,-2.5f)).rarity(Rarity.RARE).fireproof()));
 
     public static final Item TRUE_BLADE = registerItem("true_blade",
-            new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,22,-2.1f)).rarity(Rarity.EPIC).fireproof()));
+            new TrueBlade(ModToolMaterial.SUPER_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterial.SUPER_SWORD,22,-2.1f)).rarity(Rarity.EPIC).fireproof()));
 
     public static final Item RE_DEAD_SWORD = registerItem("re_dead_sword",
             new ReDeadSword(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers

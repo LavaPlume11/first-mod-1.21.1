@@ -34,7 +34,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MITHRIL_PRESSURE_PLATE)
                 .add(ModBlocks.CRYSTALLIZER)
                 .add(ModBlocks.MITHRIL_DISPLAY_BLOCK)
-                .add(ModBlocks.ECHO_GENERATOR);
+                .add(ModBlocks.ECHO_GENERATOR)
+                .add(ModBlocks.TANK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.RUBY_BLOCK)

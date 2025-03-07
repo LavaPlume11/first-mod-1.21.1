@@ -12,8 +12,10 @@ import java.util.function.Supplier;
 public enum ModToolMaterial implements ToolMaterial {
   MITHRIL(4,1000,6.5f,3.5f,10,
           ()-> Ingredient.ofItems(ModItems.MITHRIL)),
-    SWORD(5,2500,3.5f,9.5f,26,
+    SWORD(5,2000,3.5f,9.5f,26,
             ()-> Ingredient.ofItems(ModItems.MITHRIL_SWORD_SHARD)),
+    SUPER_SWORD(5,2500,3.5f,9.5f,26,
+            ()-> Ingredient.ofItems(ModItems.CATALYST)),
          DAMAGED_SWORD(2,25,1.5f,2.5f,1,
                  ()-> Ingredient.ofItems(ModItems.RAW_MITHRIL)),
     LIGHT(1,5,1.5f,1.5f,1,

@@ -124,7 +124,7 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
         }
 
         if(hasFuelItemInSlot()) {
-            if(!isBurningFuel() & !isFullOnPower()) {
+            if(!isBurningFuel() && !isFullOnPower()) {
                 startBurning();
             }
         }
@@ -141,7 +141,7 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private boolean isFullOnPower() {
-        return this.energyStorage.amount >= 228000;
+        return (this.energyStorage.amount) >= 228000;
     }
 
     private void pushEnergyToAboveNeighbour() {

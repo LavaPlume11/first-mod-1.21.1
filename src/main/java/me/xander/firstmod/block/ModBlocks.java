@@ -106,6 +106,8 @@ public class ModBlocks {
             new CrystallizerBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
     public static final Block ECHO_GENERATOR = registerBlock("echo_generator",
             new EchoGeneratorBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
+    public static final Block TANK = registerBlock("tank",
+            new TankBlock(AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()));
     public static final Block BANANA_BUSH = registerBlockWithoutBlockItem("banana_bush",
             new BananaBushBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 

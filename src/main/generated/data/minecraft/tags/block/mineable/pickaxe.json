@@ -18,6 +18,7 @@
     "firstmod:mithril_pressure_plate",
     "firstmod:crystallizer",
     "firstmod:mithril_display_block",
-    "firstmod:echo_generator"
+    "firstmod:echo_generator",
+    "firstmod:tank"
   ]
 }

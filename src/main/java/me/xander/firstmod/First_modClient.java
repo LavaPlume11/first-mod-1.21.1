@@ -2,18 +2,16 @@ package me.xander.firstmod;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
+import me.xander.firstmod.block.renderer.TankBlockEntityRenderer;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.particle.BloodParticle;
 import me.xander.firstmod.screen.ModScreenHandlers;
-import me.xander.firstmod.screen.custom.CrystallizerScreen;
-import me.xander.firstmod.screen.custom.DisplayScreen;
+import me.xander.firstmod.screen.custom.*;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
-import me.xander.firstmod.screen.custom.EchoGeneratorScreen;
-import me.xander.firstmod.screen.custom.WarturtleScreen;
 import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -33,6 +31,7 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MITHRIL_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TANK, RenderLayer.getTranslucent());
         ModScreenHandlers.registerScreenHandlers();
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MITHRIL_WATER, ModFluids.FLOWING_MITHRIL_WATER,
@@ -42,10 +41,12 @@ public class First_modClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.DISPLAY_BE, DisplayBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.STONE_BE, StoneOfSwordBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.TANK_BE, TankBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
         HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);
         HandledScreens.register(ModScreenHandlers.ECHO_GENERATOR_SCREEN_HANDLER, EchoGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.TANK_SCREEN_HANDLER, TankScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);

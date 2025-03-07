@@ -29,6 +29,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_DISPLAY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ECHO_GENERATOR);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANK);
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         
 

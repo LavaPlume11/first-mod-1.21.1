@@ -9,13 +9,18 @@ import me.xander.firstmod.recipe.CrystallizerRecipeInput;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.screen.custom.CrystallizerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -56,6 +61,23 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         protected void onFinalCommit() {
             markDirty();
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    };
+    public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
+        @Override
+        protected FluidVariant getBlankVariant() {
+            return FluidVariant.blank();
+        }
+
+        @Override
+        protected long getCapacity(FluidVariant fluidVariant) {
+            return (FluidConstants.BUCKET / 81) * 16; // 1 Bucket = 81000 Droplets = 1000mb || *16 ==> 16,000mb = 16 Buckets
+        }
+
+        @Override
+        protected void onFinalCommit() {
+            markDirty();
+            getWorld().updateListeners(pos,getCachedState(),getCachedState(),3);
         }
     };
 
@@ -113,6 +135,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         nbt.putInt("crystallizer.progress",progress);
         nbt.putInt("crystallizer.max_progress",maxProgress);
         nbt.putLong("crystallizer.energy", energyStorage.amount);
+        SingleVariantStorage.writeNbt(this.fluidStorage, FluidVariant.CODEC, nbt, registryLookup);
 
     }
 
@@ -122,12 +145,16 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         progress = nbt.getInt("crystallizer.progress");
         maxProgress = nbt.getInt("crystallizer.max_progress");
         energyStorage.amount = nbt.getLong("crystallizer.energy");
+        SingleVariantStorage.readNbt(fluidStorage, FluidVariant.CODEC, FluidVariant::blank ,nbt, registryLookup);
         super.readNbt(nbt, registryLookup);
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if(world.isClient()) {
             return;
+        }
+        if (hasEnergyItem()) {
+            consumeEnergyItem();
         }
         if(hasRecipe() && canInsertIntoOutputSlot()) {
             increaseCraftingProgress();
@@ -137,11 +164,63 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
 
             if(hasCraftingFinished()) {
                 craftItem();
+                useFluidForCrafting();
                 resetProgress();
             }
         } else {
             world.setBlockState(pos, state.with(CrystallizerBlock.LIT, false));
             resetProgress();
+        }
+        if (hasBucketInFluidSlot()) {
+            fillFluidTank();
+        }
+    }
+
+    private void consumeEnergyItem() {
+        if (this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE)) {
+            try (Transaction transaction = Transaction.openOuter()) {
+                this.energyStorage.insert(this.energyStorage.maxInsert, transaction);
+
+                inventory.set(ENERGY_ITEM_SLOT, new ItemStack(ModItems.REFINED_MITHRIL_SWORD));
+                transaction.commit();
+            }
+        } else {
+            try (Transaction transaction = Transaction.openOuter()) {
+                this.energyStorage.insert(7000, transaction);
+                inventory.set(ENERGY_ITEM_SLOT, ItemStack.EMPTY);
+                transaction.commit();
+            }
+        }
+    }
+
+    private boolean hasEnergyItem() {
+        return this.getStack(ENERGY_ITEM_SLOT).isOf(Items.SCULK_CATALYST) || this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE);
+    }
+
+    private void fillFluidTank() {
+        if(inventory.get(0).isOf(Items.LAVA_BUCKET) && (fluidStorage.variant.isOf(Fluids.LAVA) || fluidStorage.isResourceBlank())) {
+            try(Transaction transaction = Transaction.openOuter()) {
+                this.fluidStorage.insert(FluidVariant.of(Fluids.LAVA), 1000, transaction);
+                inventory.set(0, new ItemStack(Items.BUCKET));
+                transaction.commit();
+            }
+        } else if(inventory.get(0).isOf(Items.WATER_BUCKET) && (fluidStorage.variant.isOf(Fluids.WATER) || fluidStorage.isResourceBlank())) {
+            try(Transaction transaction = Transaction.openOuter()) {
+                this.fluidStorage.insert(FluidVariant.of(Fluids.WATER), 1000, transaction);
+                inventory.set(0, new ItemStack(Items.BUCKET));
+                transaction.commit();
+            }
+        }
+    }
+
+    private boolean hasBucketInFluidSlot() {
+        return inventory.get(FLUID_ITEM_SLOT).isOf(Items.LAVA_BUCKET) || inventory.get(FLUID_ITEM_SLOT).isOf(Items.WATER_BUCKET);
+    }
+
+    private void useFluidForCrafting() {
+        try(Transaction transaction = Transaction.openOuter()) {
+            this.fluidStorage.extract(this.fluidStorage.variant, 10000, transaction);
+            transaction.commit();
         }
     }
 
@@ -184,8 +263,12 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
             return false;
         }
         ItemStack output = recipe.get().value().getResult(null);
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output)
+                && hasEnoughEnergyToCraft() && hasEnoughFluidToCraft();
+    }
 
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft();
+    private boolean hasEnoughFluidToCraft() {
+        return this.fluidStorage.getAmount() >= 10000;
     }
 
     private boolean hasEnoughEnergyToCraft() {
@@ -231,21 +314,21 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
 
         return switch (localDir) {
             default -> //NORTH
-                    side == Direction.NORTH && slot == INPUT_SLOT ||
-                            side == Direction.EAST && slot == INPUT_SLOT ||
-                            side == Direction.WEST && slot == INPUT_SLOT;
+                    side == Direction.NORTH && slot == FLUID_ITEM_SLOT ||
+                            side == Direction.EAST && slot == FLUID_ITEM_SLOT ||
+                            side == Direction.WEST && slot == FLUID_ITEM_SLOT;
             case EAST ->
-                    side.rotateYCounterclockwise() == Direction.NORTH && slot == INPUT_SLOT ||
-                            side.rotateYCounterclockwise() == Direction.EAST && slot == INPUT_SLOT ||
-                            side.rotateYCounterclockwise() == Direction.WEST && slot == INPUT_SLOT;
+                    side.rotateYCounterclockwise() == Direction.NORTH && slot == FLUID_ITEM_SLOT ||
+                            side.rotateYCounterclockwise() == Direction.EAST && slot == FLUID_ITEM_SLOT ||
+                            side.rotateYCounterclockwise() == Direction.WEST && slot == FLUID_ITEM_SLOT;
             case SOUTH ->
-                    side.getOpposite() == Direction.NORTH && slot == INPUT_SLOT ||
-                            side.getOpposite()  == Direction.EAST && slot == INPUT_SLOT ||
-                            side.getOpposite()  == Direction.WEST && slot == INPUT_SLOT;
+                    side.getOpposite() == Direction.NORTH && slot == FLUID_ITEM_SLOT ||
+                            side.getOpposite()  == Direction.EAST && slot == FLUID_ITEM_SLOT ||
+                            side.getOpposite()  == Direction.WEST && slot == FLUID_ITEM_SLOT;
             case WEST ->
-                    side.rotateYClockwise() == Direction.NORTH && slot == INPUT_SLOT ||
-                            side.rotateYClockwise() == Direction.EAST && slot == INPUT_SLOT ||
-                            side.rotateYClockwise() == Direction.WEST && slot == INPUT_SLOT;
+                    side.rotateYClockwise() == Direction.NORTH && slot == FLUID_ITEM_SLOT ||
+                            side.rotateYClockwise() == Direction.EAST && slot == FLUID_ITEM_SLOT ||
+                            side.rotateYClockwise() == Direction.WEST && slot == FLUID_ITEM_SLOT;
         };
     }
 
@@ -271,8 +354,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
             case EAST -> side.rotateYCounterclockwise() == Direction.SOUTH && slot == OUTPUT_SLOT ||
                     side.rotateYCounterclockwise() == Direction.EAST && slot == OUTPUT_SLOT;
 
-            case SOUTH ->  side.getOpposite() == Direction.SOUTH && slot == OUTPUT_SLOT ||
-                    side.getOpposite() == Direction.EAST && slot == OUTPUT_SLOT;
+            case SOUTH ->  side.getOpposite() == Direction.SOUTH && slot == FLUID_ITEM_SLOT ||
+                    side.getOpposite() == Direction.EAST && slot == FLUID_ITEM_SLOT;
 
             case WEST -> side.rotateYClockwise() == Direction.SOUTH && slot == OUTPUT_SLOT ||
                     side.rotateYClockwise() == Direction.EAST && slot == OUTPUT_SLOT;

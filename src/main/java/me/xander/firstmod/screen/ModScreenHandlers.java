@@ -1,10 +1,7 @@
 package me.xander.firstmod.screen;
 
 import me.xander.first_mod;
-import me.xander.firstmod.screen.custom.CrystallizerScreenHandler;
-import me.xander.firstmod.screen.custom.DisplayScreenHandler;
-import me.xander.firstmod.screen.custom.EchoGeneratorScreenHandler;
-import me.xander.firstmod.screen.custom.WarturtleScreenHandler;
+import me.xander.firstmod.screen.custom.*;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -26,6 +23,9 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<EchoGeneratorScreenHandler> ECHO_GENERATOR_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"echo_generator_screen_handler"),
                     new ExtendedScreenHandlerType<>(EchoGeneratorScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<TankScreenHandler> TANK_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"tank_screen_handler"),
+                    new ExtendedScreenHandlerType<>(TankScreenHandler::new, BlockPos.PACKET_CODEC));
     public static void registerScreenHandlers() {
         first_mod.LOGGER.info("Registering Screen Handlers for"+ first_mod.MOD_ID);
     }

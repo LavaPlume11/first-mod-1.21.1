@@ -2,10 +2,7 @@ package me.xander.firstmod.block.entity;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
-import me.xander.firstmod.block.entity.custom.CrystallizerBlockEntity;
-import me.xander.firstmod.block.entity.custom.DisplayBlockEntity;
-import me.xander.firstmod.block.entity.custom.EchoGeneratorBlockEntity;
-import me.xander.firstmod.block.entity.custom.StoneOfSwordBlockEntity;
+import me.xander.firstmod.block.entity.custom.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -25,6 +22,9 @@ public class ModBlockEntities {
     public static final BlockEntityType<EchoGeneratorBlockEntity> ECHO_GENERATOR_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "echo_generator_be"),
                     BlockEntityType.Builder.create(EchoGeneratorBlockEntity::new, ModBlocks.ECHO_GENERATOR).build(null));
+    public static final BlockEntityType<TankBlockEntity> TANK_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "tank_be"),
+                    BlockEntityType.Builder.create(TankBlockEntity::new, ModBlocks.TANK).build(null));
 
 
     public static void registerBlockEntities(){
