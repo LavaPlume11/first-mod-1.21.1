@@ -33,6 +33,7 @@ public class ModItemGroups {
                        entries.add(ModBlocks.ECHO_GENERATOR);
                        entries.add(ModBlocks.TANK);
                        entries.add(ModBlocks.CRYSTALLIZER);
+                       entries.add(ModBlocks.COMPRESSOR);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
                        entries.add(ModBlocks.MITHRIL_DISPLAY_BLOCK);
                        entries.add(ModBlocks.MITHRIL_ORE);

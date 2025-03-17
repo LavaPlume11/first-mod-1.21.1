@@ -17,6 +17,15 @@ public class ModRecipes {
                     return "crystallizing";
                 }
             });
+    public static final RecipeSerializer<CompressorRecipe> COMPRESSOR_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(first_mod.MOD_ID, "compressing"), new CompressorRecipe.Serializer());
+    public static final RecipeType<CompressorRecipe> COMPRESSOR_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(first_mod.MOD_ID,"compressing"), new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "compressing";
+                }
+            });
 
 
 

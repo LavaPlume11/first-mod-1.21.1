@@ -25,6 +25,9 @@ public class ModBlockEntities {
     public static final BlockEntityType<TankBlockEntity> TANK_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "tank_be"),
                     BlockEntityType.Builder.create(TankBlockEntity::new, ModBlocks.TANK).build(null));
+    public static final BlockEntityType<CompressorBlockEntity> COMPRESSOR_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "compressor_be"),
+                    BlockEntityType.Builder.create(CompressorBlockEntity::new, ModBlocks.COMPRESSOR).build(null));
 
 
     public static void registerBlockEntities(){
@@ -32,5 +35,6 @@ public class ModBlockEntities {
 
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, ECHO_GENERATOR_BE);
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, CRYSTALLIZER_BE);
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, COMPRESSOR_BE);
     }
 }

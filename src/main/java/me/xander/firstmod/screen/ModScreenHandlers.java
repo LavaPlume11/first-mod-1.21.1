@@ -26,6 +26,9 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<TankScreenHandler> TANK_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"tank_screen_handler"),
                     new ExtendedScreenHandlerType<>(TankScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<CompressorScreenHandler> COMPRESSOR_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"compressor_screen_handler"),
+                    new ExtendedScreenHandlerType<>(CompressorScreenHandler::new, BlockPos.PACKET_CODEC));
     public static void registerScreenHandlers() {
         first_mod.LOGGER.info("Registering Screen Handlers for"+ first_mod.MOD_ID);
     }

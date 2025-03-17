@@ -1,0 +1,14 @@
+{
+  "type": "firstmod:compressing",
+  "ingredient": {
+    "item": "minecraft:gold_ingot"
+  },
+  "secondary_ingredient": {
+    "item": "minecraft:netherite_scrap"
+
+  },
+  "result": {
+    "id": "minecraft:netherite_ingot",
+    "count": 1
+  }
+}

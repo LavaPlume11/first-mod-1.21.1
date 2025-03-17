@@ -178,12 +178,14 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
 
     private void consumeEnergyItem() {
         if (this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE)) {
-            try (Transaction transaction = Transaction.openOuter()) {
-                this.energyStorage.insert(this.energyStorage.maxInsert, transaction);
-
-                inventory.set(ENERGY_ITEM_SLOT, new ItemStack(ModItems.REFINED_MITHRIL_SWORD));
-                transaction.commit();
+            for (int i = 0; i < 100; i++) {
+                try (Transaction transaction = Transaction.openOuter()) {
+                    this.energyStorage.insert(this.energyStorage.maxInsert, transaction);
+                    inventory.set(ENERGY_ITEM_SLOT, new ItemStack(ModItems.REFINED_MITHRIL_SWORD));
+                    transaction.commit();
+                }
             }
+
         } else {
             try (Transaction transaction = Transaction.openOuter()) {
                 this.energyStorage.insert(7000, transaction);

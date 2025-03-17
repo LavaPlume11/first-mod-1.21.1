@@ -53,6 +53,7 @@ public record CrystallizerRecipe(Ingredient inputItem, ItemStack output) impleme
     public RecipeType<?> getType() {
         return ModRecipes.CRYSTALLIZER_TYPE;
     }
+
     public static class Serializer implements RecipeSerializer<CrystallizerRecipe> {
         public static final MapCodec<CrystallizerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(CrystallizerRecipe::inputItem),

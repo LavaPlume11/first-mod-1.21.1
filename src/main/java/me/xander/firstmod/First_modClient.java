@@ -47,6 +47,7 @@ public class First_modClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);
         HandledScreens.register(ModScreenHandlers.ECHO_GENERATOR_SCREEN_HANDLER, EchoGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.TANK_SCREEN_HANDLER, TankScreen::new);
+        HandledScreens.register(ModScreenHandlers.COMPRESSOR_SCREEN_HANDLER, CompressorScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);

@@ -22,6 +22,7 @@
   "block.minecraft.empty": "Empty",
   "block.firstmod.blackwood_wood": "Blackwood Wood",
   "block.firstmod.tank": "Liquid Tank",
+  "block.firstmod.compressor": "Compressor",
   "firstmod.tooltip.liquid.amount.with.capacity":"%s / %s mB",
   "firstmod.tooltip.liquid.amount": "%s mB",
   "block.firstmod.stripped_blackwood_log": "Stripped Blackwood Log",

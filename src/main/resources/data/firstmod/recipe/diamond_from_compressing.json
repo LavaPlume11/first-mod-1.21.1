@@ -1,0 +1,14 @@
+{
+  "type": "firstmod:compressing",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "secondary_ingredient": {
+    "item": "minecraft:lava_bucket"
+
+  },
+  "result": {
+    "id": "minecraft:diamond",
+    "count": 1
+  }
+}
