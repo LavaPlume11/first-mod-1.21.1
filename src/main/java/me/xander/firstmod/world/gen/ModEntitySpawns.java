@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnLocationTypes;
 import net.minecraft.entity.SpawnRestriction;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.BiomeKeys;
@@ -23,6 +24,6 @@ public class ModEntitySpawns {
                 SpawnGroup.CREATURE, ModEntities.WHISPERER,50,2,10);
 
         SpawnRestriction.register(ModEntities.WHISPERER, SpawnLocationTypes.IN_WATER,
-                Heightmap.Type.OCEAN_FLOOR, AnimalEntity::isValidNaturalSpawn);
+                Heightmap.Type.OCEAN_FLOOR, HostileEntity::canSpawnIgnoreLightLevel);
     }
 }

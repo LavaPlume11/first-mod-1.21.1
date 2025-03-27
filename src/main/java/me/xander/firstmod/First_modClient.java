@@ -1,6 +1,7 @@
 package me.xander.firstmod;
 
 import me.xander.first_mod;
+import me.xander.firstmod.block.renderer.MelterBlockEntityRenderer;
 import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.block.renderer.TankBlockEntityRenderer;
 import me.xander.firstmod.entity.ModEntities;
@@ -32,6 +33,7 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TANK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MELTER, RenderLayer.getTranslucent());
         ModScreenHandlers.registerScreenHandlers();
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MITHRIL_WATER, ModFluids.FLOWING_MITHRIL_WATER,
@@ -42,12 +44,14 @@ public class First_modClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.DISPLAY_BE, DisplayBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.STONE_BE, StoneOfSwordBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.TANK_BE, TankBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MELTER_BE, MelterBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
         HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);
         HandledScreens.register(ModScreenHandlers.ECHO_GENERATOR_SCREEN_HANDLER, EchoGeneratorScreen::new);
         HandledScreens.register(ModScreenHandlers.TANK_SCREEN_HANDLER, TankScreen::new);
         HandledScreens.register(ModScreenHandlers.COMPRESSOR_SCREEN_HANDLER, CompressorScreen::new);
+        HandledScreens.register(ModScreenHandlers.MELTER_SCREEN_HANDLER, MelterScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);

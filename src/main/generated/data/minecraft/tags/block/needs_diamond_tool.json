@@ -12,6 +12,8 @@
     "firstmod:mithril_slab",
     "firstmod:mithril_stairs",
     "firstmod:mithril_trapdoor",
+    "firstmod:compressor",
+    "firstmod:melter",
     "firstmod:mithril_pressure_plate"
   ]
 }

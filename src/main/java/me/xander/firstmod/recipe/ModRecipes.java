@@ -27,6 +27,16 @@ public class ModRecipes {
                 }
             });
 
+    public static final RecipeSerializer<MelterRecipe> MELTER_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(first_mod.MOD_ID, "melting"), new MelterRecipe.Serializer());
+    public static final RecipeType<MelterRecipe> MELTER_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(first_mod.MOD_ID,"melting"), new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "melting";
+                }
+            });
+
 
 
     public static void registerRecipes() {

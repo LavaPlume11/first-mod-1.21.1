@@ -28,6 +28,9 @@ public class ModBlockEntities {
     public static final BlockEntityType<CompressorBlockEntity> COMPRESSOR_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "compressor_be"),
                     BlockEntityType.Builder.create(CompressorBlockEntity::new, ModBlocks.COMPRESSOR).build(null));
+    public static final BlockEntityType<MelterBlockEntity> MELTER_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "melter_be"),
+                    BlockEntityType.Builder.create(MelterBlockEntity::new, ModBlocks.MELTER).build(null));
 
 
     public static void registerBlockEntities(){

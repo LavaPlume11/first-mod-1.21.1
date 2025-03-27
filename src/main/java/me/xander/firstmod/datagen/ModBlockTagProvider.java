@@ -35,6 +35,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRYSTALLIZER)
                 .add(ModBlocks.MITHRIL_DISPLAY_BLOCK)
                 .add(ModBlocks.ECHO_GENERATOR)
+                .add(ModBlocks.COMPRESSOR)
+                .add(ModBlocks.MELTER)
                 .add(ModBlocks.TANK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -56,6 +58,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MITHRIL_SLAB)
                 .add(ModBlocks.MITHRIL_STAIRS)
                 .add(ModBlocks.MITHRIL_TRAPDOOR)
+                .add(ModBlocks.COMPRESSOR)
+                .add(ModBlocks.MELTER)
                 .add(ModBlocks.MITHRIL_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.SOUND_BLOCK);

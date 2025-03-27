@@ -33,6 +33,7 @@ public class ModItems {
     public static final Item XMAS_STICK = registerItem("xmas_stick",  new XmasStick(new Item.Settings().maxCount(1).maxDamage(1).fireproof()));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
     public static final Item MITHRIL = registerItem("mithril", new Item(new Item.Settings()));
+    public static final Item MELTED_METAL = registerItem("melted_metal", new Item(new Item.Settings().maxCount(1)));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));

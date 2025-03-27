@@ -6,7 +6,6 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
@@ -15,7 +14,6 @@ public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
     private final ModelPart ring;
     private final ModelPart ring2;
     private final ModelPart ring3;
-
     public WhispererModel(ModelPart root) {
         this.whisperer = root.getChild("whisperer");
         this.body = whisperer.getChild("body");
@@ -29,7 +27,7 @@ public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
         ModelPartData whisperer = modelPartData.addChild("whisperer", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 
         ModelPartData ring = whisperer.addChild("ring", ModelPartBuilder.create().uv(0, 16).cuboid(-8.0F, 0.0F, 6.0F, 14.0F, 0.0F, 2.0F, new Dilation(0.0F))
-                .uv(32, 6).cuboid(-8.0F, -1.0F, -4.0F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -6.0F, 0.0F, 0.0F, 0.7854F,  0.0F));
+                .uv(32, 6).cuboid(-8.0F, -1.0F, -4.0F, 2.0F, 2.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -6.0F, 0.0F, 0.0F, 0.7854F, 0.0F));
 
         ModelPartData cube_r1 = ring.addChild("cube_r1", ModelPartBuilder.create().uv(0, 22).cuboid(-12.0F, 0.0F, -1.0F, 14.0F, 0.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(7.0F, 0.0F, -4.0F, 0.0F, 1.5708F, 0.0F));
 
@@ -55,8 +53,8 @@ public class WhispererModel extends SinglePartEntityModel<WhispererEntity> {
 
         ModelPartData cube_r9 = ring3.addChild("cube_r9", ModelPartBuilder.create().uv(32, 0).cuboid(-12.0F, 0.0F, -1.0F, 14.0F, 0.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-7.0F, 0.0F, 4.0F, 0.0F, -1.5708F, 0.0F));
 
-        ModelPartData body = whisperer.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -13.0F, -4.0F,8.0F, 8.0F, 8.0F, new Dilation(-0.5F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-        return TexturedModelData.of(modelData, 64, 64);                                                                                                                                                                              /*0.0F*/   /*0.0F*/        /*0.0F*/
+        ModelPartData body = whisperer.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -13.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+        return TexturedModelData.of(modelData, 64, 64);                                                                                                                                                                   /*0.0F*/   /*0.0F*/        /*0.0F*/
     }
 
     @Override

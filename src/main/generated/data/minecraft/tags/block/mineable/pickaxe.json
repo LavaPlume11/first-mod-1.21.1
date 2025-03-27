@@ -19,6 +19,8 @@
     "firstmod:crystallizer",
     "firstmod:mithril_display_block",
     "firstmod:echo_generator",
+    "firstmod:compressor",
+    "firstmod:melter",
     "firstmod:tank"
   ]
 }

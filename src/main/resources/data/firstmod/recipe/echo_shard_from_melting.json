@@ -1,0 +1,19 @@
+{
+  "type": "firstmod:melting",
+  "ingredient1": {
+    "item": "minecraft:gold_ingot"
+  },
+  "ingredient2": {
+    "item": "minecraft:emerald"
+
+  },
+  "ingredient3": {
+    "item": "minecraft:diamond"
+
+  },
+  "result": {
+    "id": "minecraft:echo_shard"
+  },
+  "heat": 2
+
+}

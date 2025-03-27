@@ -22,6 +22,8 @@
   "block.minecraft.empty": "Empty",
   "block.firstmod.blackwood_wood": "Blackwood Wood",
   "block.firstmod.tank": "Liquid Tank",
+  "block.firstmod.melter": "Melting Device",
+  "item.firstmod.melted_metal": "Molten Metal",
   "block.firstmod.compressor": "Compressor",
   "firstmod.tooltip.liquid.amount.with.capacity":"%s / %s mB",
   "firstmod.tooltip.liquid.amount": "%s mB",
