@@ -6,13 +6,16 @@ import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.block.renderer.TankBlockEntityRenderer;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
+import me.xander.firstmod.events.HudRenderHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.particle.BloodParticle;
+import me.xander.firstmod.renderer.feature.WardenPendentRenderer;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.*;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
+import me.xander.firstmod.util.ModKeyBindings;
 import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -21,9 +24,14 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.entity.PlayerEntityRenderer;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 
 public class First_modClient implements ClientModInitializer {
 
@@ -52,6 +60,7 @@ public class First_modClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.TANK_SCREEN_HANDLER, TankScreen::new);
         HandledScreens.register(ModScreenHandlers.COMPRESSOR_SCREEN_HANDLER, CompressorScreen::new);
         HandledScreens.register(ModScreenHandlers.MELTER_SCREEN_HANDLER, MelterScreen::new);
+        HandledScreens.register(ModScreenHandlers.POWER_AMPLIFIER_SCREEN_HANDLER, PowerAmplifierScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.LION, LionModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LION, LionRenderer::new);
@@ -73,10 +82,24 @@ public class First_modClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SLEIGH, SleighRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
+        HudRenderCallback.EVENT.register(new HudRenderHandler());
+
+        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((
+                entityType, livingEntityRenderer, registrationHelper, context) -> {
+            if (livingEntityRenderer instanceof PlayerEntityRenderer playerRenderer) {
+                PlayerEntityModel<AbstractClientPlayerEntity> playerModel = playerRenderer.getModel();
+                registrationHelper.register(new WardenPendentRenderer(playerRenderer));
+            }
+        });
+
+
+
 
         ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, BloodParticle.Factory::new);
 
         ModModelPredicates.registerModelPredicates();
+        ModKeyBindings.registerKeyBindings();
 
     }
+
 }

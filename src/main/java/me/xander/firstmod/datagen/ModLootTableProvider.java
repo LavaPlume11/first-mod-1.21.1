@@ -49,6 +49,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CRYSTALLIZER);
         addDrop(ModBlocks.ECHO_GENERATOR);
         addDrop(ModBlocks.TANK);
+        addDrop(ModBlocks.SPARKLER_BLOCK);
         addDrop(ModBlocks.BLACKWOOD_LOG);addDrop(ModBlocks.BLACKWOOD_WOOD);addDrop(ModBlocks.STRIPPED_BLACKWOOD_LOG);
         addDrop(ModBlocks.STRIPPED_BLACKWOOD_WOOD);addDrop(ModBlocks.BLACKWOOD_PLANKS);addDrop
                 (ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING,0.0625f));

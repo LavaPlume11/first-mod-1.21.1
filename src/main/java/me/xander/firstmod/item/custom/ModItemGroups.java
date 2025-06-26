@@ -36,6 +36,7 @@ public class ModItemGroups {
                        entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModBlocks.COMPRESSOR);
                        entries.add(ModBlocks.MELTER);
+                       entries.add(ModBlocks.POWER_AMPLIFIER);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
                        entries.add(ModBlocks.MITHRIL_DISPLAY_BLOCK);
                        entries.add(ModBlocks.MITHRIL_ORE);
@@ -50,6 +51,12 @@ public class ModItemGroups {
                        entries.add(ModBlocks.MITHRIL_TRAPDOOR);
                        entries.add(ModBlocks.MITHRIL_WALL);
                        entries.add(ModBlocks.MITHRIL_SLAB);
+                       entries.add(ModItems.WARDEN_PENDENT);
+                       entries.add(ModItems.DIAMOND_WARDEN_PENDENT);
+                       entries.add(ModItems.GEMS);
+                       entries.add(ModItems.GEM_CLUSTER);
+                       entries.add(ModItems.POWER_GEM);
+                       entries.add(ModItems.POWER_CELL);
                        entries.add(ModBlocks.STONE_OF_SWORD);
                        entries.add(ModItems.DAMAGED_MITHRIL_SWORD);
                        entries.add(ModItems.MITHRIL_SWORD);
@@ -57,6 +64,7 @@ public class ModItemGroups {
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModItems.LIGHT_KNIFE);
                        entries.add(ModItems.RE_DEAD_SWORD);
+                       entries.add(ModItems.LIGHTNING_HELMET);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);
                        entries.add(ModItems.MITHRIL_LEGGINGS);

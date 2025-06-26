@@ -1,24 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "equipment",
-  "key": {
-    "G": {
-      "item": "minecraft:redstone_block"
-    },
-    "M": {
-      "item": "firstmod:mithril_sword_shard"
-    },
-    "N": {
-      "item": "minecraft:nether_star"
-    },
-    "S": {
+  "ingredients": [
+    {
       "item": "firstmod:mithril_sword"
+    },
+    {
+      "item": "firstmod:power_gem"
     }
-  },
-  "pattern": [
-    " NM",
-    "NSN",
-    "GN "
   ],
   "result": {
     "count": 1,

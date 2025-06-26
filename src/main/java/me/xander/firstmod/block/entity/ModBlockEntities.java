@@ -31,6 +31,9 @@ public class ModBlockEntities {
     public static final BlockEntityType<MelterBlockEntity> MELTER_BE =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "melter_be"),
                     BlockEntityType.Builder.create(MelterBlockEntity::new, ModBlocks.MELTER).build(null));
+    public static final BlockEntityType<PowerAmplifierBlockEntity> POWER_AMPLIFIER_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "power_amplifier_be"),
+                    BlockEntityType.Builder.create(PowerAmplifierBlockEntity::new, ModBlocks.POWER_AMPLIFIER).build(null));
 
 
     public static void registerBlockEntities(){

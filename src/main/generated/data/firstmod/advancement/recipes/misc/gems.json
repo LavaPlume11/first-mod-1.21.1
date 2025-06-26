@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gem_cluster": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:gem_cluster"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gems"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gem_cluster"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gems"
+    ]
+  }
+}

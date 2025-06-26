@@ -32,6 +32,9 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<MelterScreenHandler> MELTER_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"melter_screen_handler"),
                     new ExtendedScreenHandlerType<>(MelterScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<PowerAmplifierScreenHandler> POWER_AMPLIFIER_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(first_mod.MOD_ID,"power_amplifier_screen_handler"),
+                    new ExtendedScreenHandlerType<>(PowerAmplifierScreenHandler::new, BlockPos.PACKET_CODEC));
     public static void registerScreenHandlers() {
         first_mod.LOGGER.info("Registering Screen Handlers for"+ first_mod.MOD_ID);
     }

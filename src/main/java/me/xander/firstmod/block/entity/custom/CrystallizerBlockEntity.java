@@ -196,7 +196,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     private boolean hasEnergyItem() {
-        return this.getStack(ENERGY_ITEM_SLOT).isOf(Items.SCULK_CATALYST) || this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE);
+        return this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.POWER_CELL) || this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE);
     }
 
     private void fillFluidTank() {

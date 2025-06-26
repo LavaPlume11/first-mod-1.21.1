@@ -4,7 +4,7 @@
         "frametime":2,
 		"frames": 
 		[
-		0, 1, 2, 3,
+		0, 1,
 		{
         "index": 3,
         "time": 3

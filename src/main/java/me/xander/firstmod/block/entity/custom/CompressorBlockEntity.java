@@ -42,7 +42,6 @@ import java.util.Optional;
 
 public class CompressorBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory{
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
-    private final DefaultedList<ItemStack> inspectionInventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
 
     private static final int INSPECT_SLOT = 0;
     private static final int INPUT_SLOT = 1;
@@ -146,10 +145,6 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
     }
     public List<Text> getTooltips() {
             return List.of(Text.literal(inspectionProgress+" / " + maxInspectionProgress + "q"));
-    }
-    public List<Text> getRecipeTooltips() {
-        Text text = Text.translatable(currentInspectedItem.getItem().getDefaultStack().getTranslationKey());
-        return List.of(Text.literal("Currently selected recipe: " + text));
     }
     public void tick(World world, BlockPos pos, BlockState state) {
         if(world.isClient()) {

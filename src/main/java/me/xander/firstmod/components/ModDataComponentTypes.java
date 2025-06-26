@@ -1,5 +1,6 @@
 package me.xander.firstmod.components;
 
+import com.mojang.serialization.Codec;
 import me.xander.first_mod;
 import net.minecraft.component.ComponentType;
 import net.minecraft.registry.Registries;
@@ -11,6 +12,7 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
     public static final ComponentType<BlockPos> COORDINATES = register("coordinates", builder -> builder.codec(BlockPos.CODEC));
+    public static final ComponentType<Float> STAFF_STATE = register("staff_state", builder -> builder.codec(Codec.FLOAT));
 
 
 

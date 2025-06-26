@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minecraft:item/stick"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "firstmod:staff_state": 0.1
+      },
+      "model": "firstmod:item/magic_staff_state_fire"
+    },
+    {
+      "predicate": {
+      "firstmod:staff_state": 0.2
+    },
+      "model": "firstmod:item/magic_staff_state_water"
+    }
+  ]
+}

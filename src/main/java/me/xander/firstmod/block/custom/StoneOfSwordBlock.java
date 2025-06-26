@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.SwordItem;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.ItemTags;
@@ -66,14 +67,15 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     }
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        // only client
+        if (state.get(POWERED)) {
+            // only client
+            double xPos = pos.getX() + 0.5f;
+            double yPos = pos.getY() + 0.25f;
+            double zPos = pos.getZ() + 0.5f;
+            double offset = random.nextDouble() * 0.6 - 0.3;
 
-        double xPos = pos.getX() + 0.5f;
-        double yPos = pos.getY() + 0.25f;
-        double zPos = pos.getZ() + 0.5f;
-        double offset = random.nextDouble() * 0.6 - 0.3;
-
-        world.addParticle(ParticleTypes.ELECTRIC_SPARK, xPos + offset,yPos + offset,zPos + offset, 0.0,0.5,0.0);;
+            world.addParticle(ParticleTypes.ELECTRIC_SPARK, xPos + offset, yPos + offset, zPos + offset, 0.0, 0.5, 0.0);
+        }
 
 
     }
@@ -110,15 +112,12 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
                                              PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof StoneOfSwordBlockEntity displayBlockEntity) {
-            if (displayBlockEntity.isEmpty() && stack.isOf(Items.DIAMOND_SWORD) || stack.isOf(ModItems.MITHRIL_SWORD)|| stack.isOf(ModItems.RE_DEAD_SWORD)
-                    || stack.isOf(ModItems.TRUE_BLADE)|| stack.isOf(ModItems.REFINED_MITHRIL_SWORD) || stack.isOf(Items.GOLDEN_SWORD) || stack.isOf(Items.IRON_SWORD) || stack.isOf(Items.STONE_SWORD)
-                    || stack.isOf(Items.WOODEN_SWORD) || stack.isOf(ModItems.LIGHT_KNIFE) || stack.isOf(Items.NETHERITE_SWORD)|| stack.isOf(ModItems.GOD_STICK)|| stack.isOf(ModItems.BIG_SWORD)) {
+            if (displayBlockEntity.isEmpty() && stack.getItem() instanceof SwordItem) {
                 if (displayBlockEntity.isEmpty()){
                     setPowered(world,pos,state,true);
                     displayBlockEntity.setStack(0, stack);
                     world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
-                    if (!player.isCreative())
-                        stack.decrement(1);
+                    stack.decrement(1);
                     displayBlockEntity.markDirty();
                     world.updateListeners(pos, state, state, 0);
                 }
@@ -132,8 +131,7 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
                 world.updateListeners(pos,state,state,0);
             }
         }
-
-
+        
         return ItemActionResult.SUCCESS;
     }
     public StoneOfSwordBlock(Settings settings) {

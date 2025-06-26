@@ -4,7 +4,7 @@
     "item": "minecraft:gold_ingot"
   },
   "ingredient2": {
-    "item": "minecraft:stick"
+    "item": "minecraft:diamond"
 
   },
   "ingredient3": {
@@ -14,6 +14,6 @@
   "result": {
     "id": "firstmod:mithril_sword_shard"
   },
-  "heat": 1
+  "heat": 2
 
 }

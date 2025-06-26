@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "O": {
+      "item": "minecraft:lightning_rod"
+    }
+  },
+  "pattern": [
+    "COC",
+    "C C",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:lightning_helmet"
+  }
+}

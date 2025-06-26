@@ -9,7 +9,7 @@
     "homepage": "https://youtube.com/watch?v=dQw4w9WgXcQ"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/firstmod/textures/item/true_blade.png",
+  "icon": "assets/firstmod/art.png",
   "environment": "*",
   "entrypoints":{
     "fabric-datagen": [
@@ -32,6 +32,8 @@
     "fabricloader": "0.16.7",
     "fabric": "*",
     "fabric-api": "*",
+    "fabric-key-binding-api-v1": "*",
     "minecraft": "1.21.1"
   }
+
 }

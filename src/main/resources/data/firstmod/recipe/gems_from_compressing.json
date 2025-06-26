@@ -1,0 +1,14 @@
+{
+  "type": "firstmod:compressing",
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "secondary_ingredient": {
+    "item": "minecraft:diamond"
+
+  },
+  "result": {
+    "id": "firstmod:gems",
+    "count": 1
+  }
+}

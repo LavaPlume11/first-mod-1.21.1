@@ -25,17 +25,7 @@ public class ModLootTableModifiers {
             }
 
         });
-        LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
-            if (LootTables.DESERT_PYRAMID_CHEST.equals(registryKey)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.15f)) // Drops 15% of the time
-                        .with(ItemEntry.builder(ModItems.MITHRIL_SWORD_SHARD))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 
-                builder.pool(poolBuilder.build());
-            }
-        });
         LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
             if (LootTables.END_CITY_TREASURE_CHEST.equals(registryKey)) {
                 LootPool.Builder poolBuilder = LootPool.builder()

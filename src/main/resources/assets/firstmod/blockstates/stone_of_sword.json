@@ -1,7 +1,15 @@
 {
   "variants": {
-    "": {
-      "model": "firstmod:block/stone_of_sword"
-    }
+    "facing=north": {
+      "model": "firstmod:block/stone_of_sword"},
+    "facing=south": {
+      "model": "firstmod:block/stone_of_sword",
+      "y": 180},
+    "facing=east": {
+      "model": "firstmod:block/stone_of_sword",
+      "y": 90},
+    "facing=west": {
+      "model": "firstmod:block/stone_of_sword",
+      "y": 270}
   }
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_mithril_sword": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "firstmod:mithril_sword"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_nether_star"
+      "has_mithril_sword"
     ]
   ],
   "rewards": {

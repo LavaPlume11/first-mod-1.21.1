@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "firstmod:gem_cluster"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "firstmod:gems"
+  }
+}

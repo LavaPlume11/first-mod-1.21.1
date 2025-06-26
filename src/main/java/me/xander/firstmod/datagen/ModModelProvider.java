@@ -31,6 +31,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ECHO_GENERATOR);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MELTER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POWER_AMPLIFIER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPARKLER_BLOCK);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.COMPRESSOR, TexturedModel.ORIENTABLE);
@@ -74,6 +76,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIAMOND_WARTURTLE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_WARTURTLE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_WARTURTLE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WARDEN_PENDENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DYNAMITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
@@ -82,6 +85,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.LIGHTNING_HELMET));
         itemModelGenerator.register(ModItems.MITHRIL_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TRUE_BLADE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LIGHT_KNIFE, Models.HANDHELD);
@@ -91,6 +95,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.XMAS_STICK, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MELTED_METAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEMS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AMETHYST_GEMS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_WARDEN_PENDENT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEM_CLUSTER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POWER_GEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POWER_CELL, Models.GENERATED);
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,

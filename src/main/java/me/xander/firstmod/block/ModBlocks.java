@@ -112,8 +112,17 @@ public class ModBlocks {
             new MelterBlock(AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()));
     public static final Block TANK = registerBlock("tank",
             new TankBlock(AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()));
+    public static final Block POWER_AMPLIFIER = registerBlock("power_amplifier",
+            new PowerAmplifierBlock(AbstractBlock.Settings.create().strength(2f).requiresTool()));
     public static final Block BANANA_BUSH = registerBlockWithoutBlockItem("banana_bush",
             new BananaBushBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
+    public static final Block SPARKLER_BLOCK = registerBlock("sparkler_block",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.YELLOW)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(2.0F, 2.0F)
+                    .sounds(BlockSoundGroup.FROGLIGHT)));
 
 
 

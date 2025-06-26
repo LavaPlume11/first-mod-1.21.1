@@ -21,6 +21,8 @@
     "firstmod:echo_generator",
     "firstmod:compressor",
     "firstmod:melter",
+    "firstmod:power_amplifier",
+    "firstmod:sparkler_block",
     "firstmod:tank"
   ]
 }

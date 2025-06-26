@@ -37,6 +37,15 @@ public class ModArmorMaterials {
                 map.put(ArmorItem.Type.BODY, 5);
             }), 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, () -> Ingredient.ofItems(Items.LEATHER),
                     List.of(new ArmorMaterial.Layer(Identifier.of(first_mod.MOD_ID, "holiday"))), 0, 0));
+    public static final RegistryEntry<ArmorMaterial> LIGHTNING = registerArmorMaterial("lightning",
+            () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.BOOTS, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 4);
+                map.put(ArmorItem.Type.CHESTPLATE, 8);
+                map.put(ArmorItem.Type.HELMET, 7);
+                map.put(ArmorItem.Type.BODY, 6);
+            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> Ingredient.ofItems(Items.COPPER_INGOT),
+                    List.of(new ArmorMaterial.Layer(Identifier.of(first_mod.MOD_ID, "lightning"))), 0, 0));
 
 
     public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material) {
