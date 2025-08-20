@@ -9,6 +9,7 @@ import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.events.HudRenderHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.particle.BloodParticle;
+import me.xander.firstmod.particle.StickyFeatherParticle;
 import me.xander.firstmod.renderer.feature.WardenPendentRenderer;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.*;
@@ -82,6 +83,7 @@ public class First_modClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SLEIGH, SleighRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.FIRE_BLAST, FireBlastEntityRenderer::new);
         HudRenderCallback.EVENT.register(new HudRenderHandler());
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((
@@ -96,6 +98,7 @@ public class First_modClient implements ClientModInitializer {
 
 
         ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, BloodParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(first_mod.STICKY_FEATHER_PARTICLE, StickyFeatherParticle.Factory::new);
 
         ModModelPredicates.registerModelPredicates();
         ModKeyBindings.registerKeyBindings();

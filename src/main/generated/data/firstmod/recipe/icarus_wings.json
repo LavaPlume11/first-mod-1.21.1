@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "firstmod:sticky_feather"
+    }
+  },
+  "pattern": [
+    "SIS",
+    "SBS",
+    "SIS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:icarus_wings"
+  }
+}

@@ -70,7 +70,7 @@ public class WardenPendent extends Item implements Equipment {
                     double z = player.getZ() - (player.getZ() - vec3d5.z * (double) 4.0F);
                     Vec3d vec3d6 = new Vec3d(x, y, z);
 
-                    Vec3d vec3d = player.getPos().add(player.getAttachments().getPoint(EntityAttachmentType.PASSENGER, 0, player.getYaw()));
+                    Vec3d vec3d = player.getPos().add(player.getAttachments().getPoint(EntityAttachmentType.WARDEN_CHEST, 0, player.getYaw()));
                     Vec3d vec3d3 = vec3d6.normalize();
                     int i = MathHelper.floor(vec3d6.length()) + (int) range;
                     for (int j = 1; j < i; ++j) {

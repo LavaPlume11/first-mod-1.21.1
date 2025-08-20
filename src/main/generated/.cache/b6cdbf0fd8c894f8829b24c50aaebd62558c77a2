@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-24T16:49:16.8744196	Cool Stuff/Block Loot Tables
+// 1.21.1	2025-08-09T22:22:51.7656043	First Mod/Block Loot Tables
 d20d54e54afd9af82d86585d0fdae04e959fa662 data\firstmod\loot_table\blocks\deepslate_mithril_ore.json
 a51c65ec69c46658dc21d530fe360c1e7a888085 data\firstmod\loot_table\blocks\mithril_door.json
 b57f1d4344a3f57251ff74b8549e89ce4618179d data\firstmod\loot_table\blocks\ruby_block.json
@@ -14,8 +14,8 @@ ea300b9e0347ea2aebf8a5af222925a5b5a7e29a data\firstmod\loot_table\blocks\mithril
 f2bf291e307b8d3764209e53753b7376aaceca2a data\firstmod\loot_table\blocks\banana_leaves.json
 0d0fb1ebd5ecb38b1f4522237f36f104620483a0 data\firstmod\loot_table\blocks\echo_generator.json
 eefb60fdfb814461e1e7f71b6e3b4188a95cd547 data\firstmod\loot_table\blocks\nether_mithril_ore.json
-39801fbfc8aa3f59dd22f932fa05f45ae57c5c7f data\firstmod\loot_table\blocks\sound_block.json
 ac487dc17d014c4e36d499e5c446bf49a97ebbe1 data\firstmod\loot_table\blocks\tank.json
+39801fbfc8aa3f59dd22f932fa05f45ae57c5c7f data\firstmod\loot_table\blocks\sound_block.json
 9adeaacde7866a35c2290e659cfc5c619cdfe17b data\firstmod\loot_table\blocks\mithril_slab.json
 b90fb9a894e980e79b7b24a18dde2dd4ec4d9588 data\firstmod\loot_table\blocks\stripped_blackwood_wood.json
 96ba598138523511687d2f2bdafe16a322fb7111 data\firstmod\loot_table\blocks\blackwood_log.json

@@ -44,7 +44,7 @@ public class StaffItem extends Item {
     private void doEffectForState(World world, PlayerEntity user) {
         BlockPos playerPos = user.getBlockPos();
         ItemStack thisStack = user.getStackInHand(Hand.MAIN_HAND);
-        if (user.getStackInHand(Hand.MAIN_HAND).get(ModDataComponentTypes.STAFF_STATE )!= null) {
+        if (user.getStackInHand(Hand.MAIN_HAND).get(ModDataComponentTypes.STAFF_STATE)!= null) {
             if (thisStack.get(ModDataComponentTypes.STAFF_STATE) == 1f) {
                 Vec3d vec3d = user.getRotationVec(1.0F);
                 double x = user.getX() - (user.getX() - vec3d.x * (double) 4.0F);

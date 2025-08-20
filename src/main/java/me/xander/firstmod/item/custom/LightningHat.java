@@ -1,7 +1,5 @@
 package me.xander.firstmod.item.custom;
 
-import me.xander.first_mod;
-import me.xander.firstmod.util.ModKeyBindings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -28,9 +26,7 @@ public class LightningHat extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (ModKeyBindings.ALT_KEY_BINDING.isPressed()) {
-            doLightning(stack, world, entity);
-        }
+        doLightning(stack, world, entity);
         super.inventoryTick(stack, world, entity, slot, selected);
     }
     public void doLightning(ItemStack stack, World world, Entity entity) {

@@ -59,6 +59,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerDoor(ModBlocks.MITHRIL_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.MITHRIL_TRAPDOOR);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotated(ModBlocks.BASIC_COMPUTER, TexturedModel.ORIENTABLE);
     }
 
     @Override
@@ -101,6 +102,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GEM_CLUSTER, Models.GENERATED);
         itemModelGenerator.register(ModItems.POWER_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.POWER_CELL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.STICKY_FEATHER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LOCATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,

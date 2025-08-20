@@ -1,0 +1,33 @@
+{
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "firstmod:item/lava_saber"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"firstmod:lava_state": 0.1
+			},
+			"model": "firstmod:item/lava_saber_off"
+		},
+		{
+			"predicate": {
+				"firstmod:lava_state": 0.2
+			},
+			"model": "firstmod:item/lava_saber_growing"
+		},
+		{
+			"predicate": {
+				"firstmod:lava_state": 0.3
+			},
+			"model": "firstmod:item/lava_saber_shrinking"
+		},
+		{
+			"predicate": {
+				"firstmod:lava_state": 0.4
+			},
+			"model": "firstmod:item/lava_saber_on"
+		}
+	]
+
+}

@@ -5,12 +5,12 @@
     "C": {
       "item": "minecraft:copper_ingot"
     },
-    "O": {
+    "L": {
       "item": "minecraft:lightning_rod"
     }
   },
   "pattern": [
-    "COC",
+    "CLC",
     "C C",
     "   "
   ],

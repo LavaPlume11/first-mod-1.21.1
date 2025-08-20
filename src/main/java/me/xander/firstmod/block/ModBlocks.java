@@ -80,6 +80,8 @@ public class ModBlocks {
                     .requiresTool()
                     .strength(7.0F, 7.0F)
                     .sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block BASIC_COMPUTER = registerBlock("basic_computer",
+            new BasicComputerBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block MITHRIL_DISPLAY_BLOCK = registerBlock("mithril_display_block",
             new DisplayBlock(AbstractBlock.Settings.copy(ModBlocks.MITHRIL_BLOCK).strength(7f).nonOpaque()));
     public static final Block BLACKWOOD_LOG = registerBlock("blackwood_log",

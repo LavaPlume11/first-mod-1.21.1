@@ -57,9 +57,31 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.POWER_GEM), conditionsFromItem(ModItems.POWER_GEM))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.POWER_CELL)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModItems.ICARUS_WINGS)
+                .pattern("SIS")
+                .pattern("SBS")
+                .pattern("SIS")
+                .input('B', Items.IRON_BLOCK)
+                .input('I', Items.IRON_INGOT)
+                .input('S', ModItems.STICKY_FEATHER)
+                .criterion(hasItem(ModItems.STICKY_FEATHER), conditionsFromItem(ModItems.STICKY_FEATHER))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.ICARUS_WINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.LOCATOR)
+                .pattern("SSI")
+                .pattern("SMS")
+                .pattern("ISS")
+                .input('M', Items.BREEZE_ROD)
+                .input('I', Items.COPPER_INGOT)
+                .input('S', Items.IRON_INGOT)
+                .criterion(hasItem(Items.BREEZE_ROD), conditionsFromItem(Items.BREEZE_ROD))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.LOCATOR)));
+
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.MITHRIL_SWORD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.DAMAGED_MITHRIL_SWORD)
-                        .criterion("has_shard", conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_SWORD)));
+                .criterion("has_shard", conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_SWORD)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STICKY_FEATHER).input(Items.FEATHER).input(Items.HONEYCOMB).input(Items.HONEYCOMB).input(Items.HONEYCOMB)
+                .criterion("has_feather", conditionsFromItem(Items.FEATHER)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.STICKY_FEATHER)));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.REFINED_MITHRIL_SWORD).input(ModItems.MITHRIL_SWORD).input(ModItems.POWER_GEM)
                 .criterion("has_mithril_sword", conditionsFromItem(ModItems.MITHRIL_SWORD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.REFINED_MITHRIL_SWORD)));
         offerBlasting(exporter, BANANA_SMELTABLE,RecipeCategory.MISC, ModItems.BURNT_BANANA,
@@ -83,11 +105,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.MITHRIL_DISPLAY_BLOCK)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.LIGHTNING_HELMET)
-                .pattern("COC")
+                .pattern("CLC")
                 .pattern("C C")
                 .pattern("   ")
                 .input('C', Items.COPPER_INGOT)
-                .input('O', Blocks.LIGHTNING_ROD)
+                .input('L', Blocks.LIGHTNING_ROD)
             .criterion(hasItem(Blocks.LIGHTNING_ROD), conditionsFromItem(Blocks.LIGHTNING_ROD))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.LIGHTNING_HELMET)));
 

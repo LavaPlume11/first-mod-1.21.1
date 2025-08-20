@@ -19,6 +19,7 @@ public class ModItemGroups {
                        entries.add(ModItems.RAW_MITHRIL);
                        entries.add(ModFluids.MITHRIL_WATER_BUCKET);
                        entries.add(ModItems.MELTED_METAL);
+                       entries.add(ModItems.STICKY_FEATHER);
                        entries.add(ModItems.BANANA);
                        entries.add(ModBlocks.BANANA_LEAVES);
                        entries.add(ModItems.BURNT_BANANA);
@@ -64,6 +65,7 @@ public class ModItemGroups {
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModItems.LIGHT_KNIFE);
                        entries.add(ModItems.RE_DEAD_SWORD);
+                       entries.add(ModItems.ICARUS_WINGS);
                        entries.add(ModItems.LIGHTNING_HELMET);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);

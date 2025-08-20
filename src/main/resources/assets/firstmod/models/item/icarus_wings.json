@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "firstmod:item/icarus_wings"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "firstmod:is_broken": 1
+      },
+      "model": "firstmod:item/broken_icarus_wings"
+    }
+  ]
+}

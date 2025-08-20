@@ -30,6 +30,8 @@ public class ModEntities {
     public static final EntityType<DisplayBlockEntityEntity> DISPLAY_ENTITY = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "display_entity"),
             EntityType.Builder.create(DisplayBlockEntityEntity::new, SpawnGroup.MISC).dimensions(1.0f,1.0f).build());
+    public static final EntityType<FireBlastProjectileEntity> FIRE_BLAST = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "fire_blast"),EntityType.Builder.<FireBlastProjectileEntity>create(FireBlastProjectileEntity::new, SpawnGroup.MISC).dimensions(0.5f,0.5f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

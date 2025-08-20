@@ -4,7 +4,7 @@ import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
-import me.xander.firstmod.item.ModToolMaterial;
+import me.xander.firstmod.item.ModToolMaterials;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -36,7 +36,7 @@ public class ModItems {
     public static final Item DIAMOND_WARDEN_PENDENT = registerItem("diamond_warden_pendent",  new WardenPendent(new Item.Settings().maxDamage(500),
             60, 50.0, 40.0F, 6.0, 1.15, 1));
 
-
+    public static final Item LOCATOR = registerItem("locator", new LocatorItem(new Item.Settings()));
     public static final Item DICE = registerItem("dice",  new DiceItem(new Item.Settings()));
     public static final Item XMAS_STICK = registerItem("xmas_stick",  new XmasStick(new Item.Settings().maxCount(1).maxDamage(1).fireproof()));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
@@ -51,23 +51,26 @@ public class ModItems {
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));
 
-    public static final Item DAMAGED_MITHRIL_SWORD = registerItem("damaged_mithril_sword", new DamagedSword(ModToolMaterial.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-            (ModToolMaterial.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
+    public static final Item DAMAGED_MITHRIL_SWORD = registerItem("damaged_mithril_sword", new DamagedSword(ModToolMaterials.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+            (ModToolMaterials.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item DASH_SWORD = registerItem("dash_sword", new DashSword(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-            (ModToolMaterial.DAMAGED_SWORD,5,-2.4f)).rarity(Rarity.UNCOMMON)));
+            (ModToolMaterials.DAMAGED_SWORD,5,-2.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword",
-            new MithrilSword(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,9,-3.0f)).rarity(Rarity.RARE), StatusEffects.LEVITATION));
+            new MithrilSword(ModToolMaterials.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterials.SWORD,9,-3.0f)).rarity(Rarity.RARE), StatusEffects.LEVITATION));
     public static final Item NETHER_BOW = registerItem("nether_bow",
             new NetherBow(new Item.Settings().maxDamage(200)));
     public static final Item REFINED_MITHRIL_SWORD = registerItem("refined_mithril_sword",
-            new SwordItem(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,15,-2.5f)).rarity(Rarity.RARE).fireproof()));
+            new SwordItem(ModToolMaterials.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterials.SWORD,15,-2.5f)).rarity(Rarity.RARE).fireproof()));
 
     public static final Item TRUE_BLADE = registerItem("true_blade",
-            new TrueBlade(ModToolMaterial.SUPER_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SUPER_SWORD,22,-2.1f)).rarity(Rarity.EPIC).fireproof()));
+            new TrueBlade(ModToolMaterials.SUPER_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterials.SUPER_SWORD, 0,-2.1f)).rarity(Rarity.EPIC).fireproof()));
 
+    public static final Item LAVA_SABER = registerItem("lava_saber",
+            new LavaSword(ModToolMaterials.LAVA, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterials.LAVA, 5 ,-2.1f)).rarity(Rarity.RARE).fireproof()));
     public static final Item RE_DEAD_SWORD = registerItem("re_dead_sword",
             new ReDeadSword(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.IRON,1,-2.1f)).rarity(Rarity.RARE)));
@@ -75,10 +78,10 @@ public class ModItems {
             new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.DIAMOND,5,-3.5f)).rarity(Rarity.RARE).fireproof()));
     public static final Item LIGHT_KNIFE = registerItem("light_knife",
-            new LightKnife(ModToolMaterial.LIGHT,new Item.Settings()));
+            new LightKnife(ModToolMaterials.LIGHT,new Item.Settings()));
     public static final Item BIG_SWORD = registerItem("big_sword",
             new BloodSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ToolMaterials.DIAMOND,9,-3.1f)).rarity(Rarity.RARE).fireproof()));
+                    (ToolMaterials.DIAMOND,6,-3.1f)).rarity(Rarity.RARE).fireproof()));
     public static final Item LION_SPAWN_EGG = registerItem("lion_spawn_egg",
             new SpawnEggItem(ModEntities.LION,0x365837,0x4866354, new Item.Settings()));
     public static final Item WHISPERER_SPAWN_EGG = registerItem("whisperer_spawn_egg",
@@ -102,8 +105,8 @@ public class ModItems {
     public static final Item LIGHTNING_HELMET = registerItem("lightning_helmet", new LightningHat(ModArmorMaterials.LIGHTNING,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(17))));
     public static final Item GOD_STICK = registerItem("god_stick",
-            new godStick(ModToolMaterial.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
-                    (ModToolMaterial.SWORD,1,-0.4f)), StatusEffects.LEVITATION));
+            new godStick(ModToolMaterials.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ModToolMaterials.SWORD,1,-0.4f)), StatusEffects.LEVITATION));
     public static final Item WHIP = registerItem("whip",  new WhipItem(new Item.Settings().maxCount(1)));
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor",
             new AnimalArmorItem(ModArmorMaterials.MITHRIL_ARMOR, AnimalArmorItem.Type.EQUESTRIAN,false,new Item.Settings().maxDamage(800)));
@@ -127,12 +130,12 @@ public class ModItems {
             new WarturtleArmorItem(ArmorMaterials.NETHERITE, new Item.Settings().maxDamage(800)));
     public static final Item MITHRIL_WARTURTLE_ARMOR = registerItem("mithril_warturtle_armor",
             new WarturtleArmorItem(ModArmorMaterials.MITHRIL_ARMOR, new Item.Settings().maxDamage(1000)));
-
+    public static final Item ICARUS_WINGS = registerItem("icarus_wings", new IcarusWings(new Item.Settings().maxDamage(216)));
+    public static final Item STICKY_FEATHER = registerItem("sticky_feather", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),
                 new Item(new Item.Settings()));
-
         return Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name), item);
     }
     public static void registerModItems() {

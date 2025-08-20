@@ -8,11 +8,16 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.UUID;
 import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
-    public static final ComponentType<BlockPos> COORDINATES = register("coordinates", builder -> builder.codec(BlockPos.CODEC));
     public static final ComponentType<Float> STAFF_STATE = register("staff_state", builder -> builder.codec(Codec.FLOAT));
+    public static final ComponentType<PlayerOwnerComponent> PLAYER_OWNER = register("player_owner", builder ->
+            builder.codec(PlayerOwnerComponent.CODEC).packetCodec(PlayerOwnerComponent.PACKET_CODEC));
+    public static final ComponentType<Float> LAVA_STATE = register("lava_state", builder -> builder.codec(Codec.FLOAT));
+    public static final ComponentType<Boolean> BROKEN = register("is_broken", builder -> builder.codec(Codec.BOOL));
+
 
 
 

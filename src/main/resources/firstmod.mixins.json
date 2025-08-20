@@ -4,10 +4,13 @@
   "package": "me.xander.firstmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ModEntityDataSaverMixin"
+    "LivingEntityMixin",
+    "ModEntityDataSaverMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",
+    "ElytraFeatureRendererMixin",
     "ItemRendererMixin",
     "ModelLoaderMixin"
   ],

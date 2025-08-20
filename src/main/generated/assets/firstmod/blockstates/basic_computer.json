@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "firstmod:block/basic_computer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "firstmod:block/basic_computer"
+    },
+    "facing=south": {
+      "model": "firstmod:block/basic_computer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "firstmod:block/basic_computer",
+      "y": 270
+    }
+  }
+}

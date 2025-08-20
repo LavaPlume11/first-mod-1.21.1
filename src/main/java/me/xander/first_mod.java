@@ -10,7 +10,6 @@ import me.xander.firstmod.enchantment.ModEnchantmentEffects;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.custom.*;
 import me.xander.firstmod.events.AttackEntityHandler;
-import me.xander.firstmod.events.HudRenderHandler;
 import me.xander.firstmod.events.PlayerCopyHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItemGroups;
@@ -21,8 +20,6 @@ import me.xander.firstmod.util.ModLootTableModifiers;
 import me.xander.firstmod.villager.ModVillagers;
 import me.xander.firstmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -33,7 +30,6 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potions;
@@ -76,31 +72,28 @@ public class first_mod implements ModInitializer {
         ModLootTableModifiers.modifyLootTables();
         ModEnchantmentEffects.registerEnchantmentEffects();
         ModBlockEntities.registerBlockEntities();
+        ModWorldGeneration.generateModWorldGeneration();
+
         FabricDefaultAttributeRegistry.register(ModEntities.LION, LionEntity.createLionAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.LEMMING, LemmingEntity.createLemmingAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WHISPERER, WhispererEntity.createWhispererAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WARTURTLE, WarturtleEntity.createWarturtleAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SLEIGH, SleighEntity.createSleighAttributes());
 
-
-
-        ModWorldGeneration.generateModWorldGeneration();
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());
-
-
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
         CommandRegistrationCallback.EVENT.register(ReturnHomeCommand::register);
         ServerPlayerEvents.COPY_FROM.register(new PlayerCopyHandler());
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
                 entries.addAfter(Items.GOLDEN_CARROT, BANANA));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
                 entries.addAfter(Items.TRIDENT, SPEAR));
 
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.WEAVING, Items.COBWEB, ModPotions.STICKY_POTION));
-
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(ModPotions.STICKY_POTION, Items.REDSTONE, ModPotions.LONG_STICKY_POTION));
+
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "blood_particle"), BLOOD_PARTICLE);
+        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sticky_feather_particle"), STICKY_FEATHER_PARTICLE);
 
 
     }
@@ -132,6 +125,7 @@ public class first_mod implements ModInitializer {
 
     }
     public static final SimpleParticleType BLOOD_PARTICLE = FabricParticleTypes.simple();
+    public static final SimpleParticleType STICKY_FEATHER_PARTICLE = FabricParticleTypes.simple();
 
 
 
