@@ -4,6 +4,7 @@ import me.xander.firstmod.item.custom.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -19,9 +20,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Redirect(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean customElytraFlight(ItemStack instance, Item item) {
-            boolean originalResult = instance.isOf(item);
-            boolean isCustom = instance.isOf(ModItems.ICARUS_WINGS);
-            return originalResult || isCustom;
+        return instance.getItem() instanceof ElytraItem;
         }
     }
 

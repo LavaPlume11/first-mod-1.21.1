@@ -1,4 +1,4 @@
-package me.xander.firstmod.util;
+package me.xander.firstmod.inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

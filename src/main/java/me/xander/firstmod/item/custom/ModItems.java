@@ -28,6 +28,7 @@ public class ModItems {
             .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 10, 9), 1.0F)
             .alwaysEdible().build())));
     public static final Item DYNAMITE = registerItem("dynamite",  new Item(new Item.Settings()));
+    public static final Item POCKET_STORAGE = registerItem("pocket_storage", new PocketStorageItem(new Item.Settings().maxCount(1)));
 
 
     public static final Item WARDEN_PENDENT = registerItem("warden_pendent",  new WardenPendent(new Item.Settings().maxDamage(100),

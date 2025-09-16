@@ -29,6 +29,7 @@ public class ModItemGroups {
                        entries.add(ModItems.THANK_HAT);
                        entries.add(ModItems.XMAS_HAT);
                        entries.add(ModItems.GUITAR);
+                       entries.add(ModItems.POCKET_STORAGE);
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.WHISPERER_SPAWN_EGG);
                        entries.add(ModItems.WARTURTLE_SPAWN_EGG);

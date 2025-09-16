@@ -43,14 +43,12 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     @Redirect(method = "render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/entity/LivingEntity;FFFFFF)V",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean onRender(ItemStack instance, Item item) {
-        boolean ogResult = instance.isOf(item);
-        boolean newResult = instance.isOf(ModItems.ICARUS_WINGS);
-        return ogResult || newResult;
+        return instance.getItem() instanceof ElytraItem;
     }
 
     @Inject(method = "render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/entity/LivingEntity;FFFFFF)V",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/model/ElytraEntityModel;render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;II)V"), cancellable = true)
-    private void icarusWings(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
+    private void customWings(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
         ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
         if (itemStack.isOf(ModItems.ICARUS_WINGS)) {
             if (ElytraItem.isUsable(itemStack)) {

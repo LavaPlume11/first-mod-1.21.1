@@ -108,10 +108,11 @@ public class IcarusWings extends ElytraItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        if (isBarColored) {
+      /*  if (isBarColored) {
             return barColor;
         } else {
+        */
             return super.getItemBarColor(stack);
-        }
+        //}
     }
 }

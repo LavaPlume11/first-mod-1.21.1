@@ -24,13 +24,13 @@ public abstract class ModEntityDataSaverMixin implements IEntityDataSaver {
         return persistentData;
     }
     @Inject(method = "writeNbt", at = @At("HEAD"))
-    protected void ingectWriteMethod(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> info) {
+    protected void injectWriteMethod(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> info) {
         if (this.persistentData != null) {
             nbt.put("firstmod.custom_data",persistentData);
         }
     }
     @Inject(method = "readNbt", at = @At("HEAD"))
-    protected void ingectReadMethod(NbtCompound nbt, CallbackInfo info) {
+    protected void injectReadMethod(NbtCompound nbt, CallbackInfo info) {
         if (nbt.contains("firstmod.custom_data",10)) {
             this.persistentData = nbt.getCompound("firstmod.custom_data");
         }
