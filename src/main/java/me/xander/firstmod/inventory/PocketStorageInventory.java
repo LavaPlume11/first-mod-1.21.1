@@ -3,18 +3,22 @@ package me.xander.firstmod.inventory;
 import me.xander.firstmod.item.custom.ModItems;
 import net.minecraft.block.entity.EnderChestBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 
 public class PocketStorageInventory extends SimpleInventory {
 
 
 	public PocketStorageInventory() {
-		super(27);
+		super(18);
 	}
 
 

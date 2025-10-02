@@ -2,12 +2,15 @@ package me.xander.firstmod.item.custom;
 
 import me.xander.firstmod.inventory.PocketStorageInventory;
 import me.xander.firstmod.inventory.PocketStorageAccess;
+import me.xander.firstmod.screen.custom.StorageScreenHandler;
 import me.xander.firstmod.util.ModKeyBindings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -41,7 +44,6 @@ public class PocketStorageItem extends Item {
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
-
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient)
@@ -54,7 +56,8 @@ public class PocketStorageItem extends Item {
                 pocketStorageInventory.clear();
             }
             player.openHandledScreen(new SimpleNamedScreenHandlerFactory((i, playerInventory, playerEntity) ->
-                    GenericContainerScreenHandler.createGeneric9x3(i, playerInventory, pocketStorageInventory), Text.of("Pocket Dimension")));
+                   // GenericContainerScreenHandler.createGeneric9x3(i, playerInventory, pocketStorageInventory), Text.of("Pocket Dimension"
+                    StorageScreenHandler.createMod9x2(i,playerInventory,pocketStorageInventory),Text.of("Pocket Dimension")));
 
     }
 
