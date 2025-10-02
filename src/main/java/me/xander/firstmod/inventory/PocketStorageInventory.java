@@ -28,7 +28,7 @@ public class PocketStorageInventory extends SimpleInventory {
 			this.setStack(i, ItemStack.EMPTY);
 		}
 
-		for(i = 0; i < list.size(); ++i) {
+		for(i = 0; i < list.size(); ++i)  {
 			NbtCompound nbtCompound = list.getCompound(i);
 			int j = nbtCompound.getByte("Slot") & 255;
 			if (j >= 0 && j < this.size()) {
