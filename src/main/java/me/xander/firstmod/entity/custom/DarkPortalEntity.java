@@ -1,0 +1,65 @@
+package me.xander.firstmod.entity.custom;
+
+import me.xander.first_mod;
+import me.xander.firstmod.components.ModDataComponentTypes;
+import me.xander.firstmod.item.custom.ModItems;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.world.World;
+
+public class DarkPortalEntity extends Entity {
+    public DarkPortalEntity(EntityType<?> type, World world) {
+        super(type, world);
+    }
+
+    @Override
+    protected void initDataTracker(DataTracker.Builder builder) {
+    }
+
+    @Override
+    protected void readCustomDataFromNbt(NbtCompound nbt) {
+    }
+
+    @Override
+    protected void writeCustomDataToNbt(NbtCompound nbt) {
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (!this.getWorld().isClient()) {
+            ServerWorld world = (ServerWorld) this.getWorld();
+            if(this.age % 5 == 0)
+                world.spawnParticles(first_mod.DARK_PORTAL_PARTICLE,this.getX(), this.getY() + 0.5, this.getZ(),1,0.01,0.01,0.01, 0.03);
+        }
+    }
+
+    @Override
+    public boolean canHit() {
+        return true;
+    }
+
+    @Override
+    public ActionResult interact(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if(!this.getWorld().isClient()) {
+            if (itemStack.isOf(ModItems.DARK_PORTAL_SETTER) && player.isSneaking()) {
+                itemStack.set(ModDataComponentTypes.USED, false);
+                this.discard();
+            }
+        }
+        return super.interact(player, hand);
+    }
+
+    @Override
+    public void onPlayerCollision(PlayerEntity player) {
+        //yo dude, like add an effect or something, that would be like, really chill
+    }
+}

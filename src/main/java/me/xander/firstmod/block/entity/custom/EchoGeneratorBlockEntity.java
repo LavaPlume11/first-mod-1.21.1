@@ -1,13 +1,12 @@
 package me.xander.firstmod.block.entity.custom;
 
-import me.xander.firstmod.block.entity.ImplementedInventory;
+import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.screen.custom.EchoGeneratorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;

@@ -79,6 +79,7 @@ public class first_mod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.WHISPERER, WhispererEntity.createWhispererAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WARTURTLE, WarturtleEntity.createWarturtleAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SLEIGH, SleighEntity.createSleighAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.STEAM_GOLEM, SteamGolemEntity.createSteamGolemAttributes());
 
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
@@ -94,6 +95,7 @@ public class first_mod implements ModInitializer {
 
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "blood_particle"), BLOOD_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sticky_feather_particle"), STICKY_FEATHER_PARTICLE);
+        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "dark_portal_particle"), DARK_PORTAL_PARTICLE);
 
 
     }
@@ -126,6 +128,7 @@ public class first_mod implements ModInitializer {
     }
     public static final SimpleParticleType BLOOD_PARTICLE = FabricParticleTypes.simple();
     public static final SimpleParticleType STICKY_FEATHER_PARTICLE = FabricParticleTypes.simple();
+    public static final SimpleParticleType DARK_PORTAL_PARTICLE = FabricParticleTypes.simple();
 
 
 

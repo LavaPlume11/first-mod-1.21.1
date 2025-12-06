@@ -77,6 +77,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.BREEZE_ROD), conditionsFromItem(Items.BREEZE_ROD))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.LOCATOR)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOCK_OF_THE_SEA)
+                .pattern(" P ")
+                .pattern("PHP")
+                .pattern(" P ")
+                .input('P', Items.PRISMARINE_SHARD)
+                .input('H', Items.HEART_OF_THE_SEA)
+                .criterion(hasItem(Items.HEART_OF_THE_SEA), conditionsFromItem(Items.HEART_OF_THE_SEA))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.BLOCK_OF_THE_SEA)));
+
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.MITHRIL_SWORD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.DAMAGED_MITHRIL_SWORD)
                 .criterion("has_shard", conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_SWORD)));

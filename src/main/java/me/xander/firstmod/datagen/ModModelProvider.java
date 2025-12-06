@@ -33,6 +33,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MELTER);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POWER_AMPLIFIER);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPARKLER_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLOCK_OF_THE_SEA);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPEAKER_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRIDGE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEAM_VENT);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.COMPRESSOR, TexturedModel.ORIENTABLE);

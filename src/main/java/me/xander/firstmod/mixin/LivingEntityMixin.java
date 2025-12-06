@@ -1,6 +1,5 @@
 package me.xander.firstmod.mixin;
 
-import me.xander.firstmod.item.custom.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

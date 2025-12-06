@@ -1,6 +1,6 @@
 package me.xander.firstmod.entity.custom;
 
-import me.xander.firstmod.entity.ModEntities;
+import me.xander.firstmod.entity.ai.goal.CustomTargetGoal;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
@@ -10,25 +10,18 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.TimeHelper;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.UUID;
 
 public class WhispererEntity extends HostileEntity implements Monster {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-
     public WhispererEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -38,13 +31,11 @@ public class WhispererEntity extends HostileEntity implements Monster {
         this.goalSelector.add(5, new WanderAroundGoal(this, 0.8));
         this.goalSelector.add(6, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this));
-        this.targetSelector.add(5, new FleeEntityGoal<>(this, PlayerEntity.class, 8, 0.3, 0.5));
         this.goalSelector.add(4, new MeleeAttackGoal(this, (double) 1.0F, false));
-        this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<DrownedEntity>(this, DrownedEntity.class, true));
+        this.targetSelector.add(2, new CustomTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new CustomTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
 
     }
-
 
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
@@ -66,10 +57,10 @@ public class WhispererEntity extends HostileEntity implements Monster {
 
     public static DefaultAttributeContainer.Builder createWhispererAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
                 .add(EntityAttributes.GENERIC_WATER_MOVEMENT_EFFICIENCY, 5)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32);
     }
 
@@ -95,4 +86,10 @@ public class WhispererEntity extends HostileEntity implements Monster {
         return super.damage(source, amount);
     }
 
+    @Override
+    public boolean onKilledOther(ServerWorld world, LivingEntity other) {
+        if (other instanceof ZombieEntity && !(other instanceof DrownedEntity))
+            world.spawnParticles(ParticleTypes.BUBBLE, other.getX(), other.getY(), other.getZ(), 12, 0.1,0.1,0.1, 0.4);
+        return super.onKilledOther(world, other);
+    }
 }

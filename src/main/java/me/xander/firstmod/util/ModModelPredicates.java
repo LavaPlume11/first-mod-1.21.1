@@ -14,8 +14,19 @@ public class ModModelPredicates {
         registerCustomBow(ModItems.NETHER_BOW);
         registerLavaSaber(ModItems.LAVA_SABER);
         registerElytra(ModItems.ICARUS_WINGS);
+        registerUsable(ModItems.DARK_PORTAL_SETTER);
     }
-
+    private static void registerUsable(Item item) {
+        ModelPredicateProviderRegistry.register(item, Identifier.of(first_mod.MOD_ID, "usable"), (stack, world, entity, seed) -> {
+                if(stack.get(ModDataComponentTypes.USED) == null) {
+                    return 0f;
+                } else  if (stack.get(ModDataComponentTypes.USED) == false){
+                    return 0f;
+                } else {
+                    return 0.1f;
+                }
+                });
+    }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, Identifier.ofVanilla("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {

@@ -17,6 +17,8 @@ public class ModDataComponentTypes {
             builder.codec(PlayerOwnerComponent.CODEC).packetCodec(PlayerOwnerComponent.PACKET_CODEC));
     public static final ComponentType<Float> LAVA_STATE = register("lava_state", builder -> builder.codec(Codec.FLOAT));
     public static final ComponentType<Boolean> BROKEN = register("is_broken", builder -> builder.codec(Codec.BOOL));
+    public static final ComponentType<Boolean> USED = register("is_used", builder -> builder.codec(Codec.BOOL));
+    public static final ComponentType<BlockPos> PORTAL_POS = register("portal_pos", blockPosBuilder -> blockPosBuilder.codec(BlockPos.CODEC));
 
 
 

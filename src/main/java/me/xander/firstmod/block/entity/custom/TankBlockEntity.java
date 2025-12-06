@@ -1,14 +1,12 @@
 package me.xander.firstmod.block.entity.custom;
 
-import me.xander.firstmod.block.custom.CrystallizerBlock;
-import me.xander.firstmod.block.entity.ImplementedInventory;
+import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.block.entity.fluid.FluidUtils;
 import me.xander.firstmod.screen.custom.TankScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
-import net.fabricmc.fabric.api.transfer.v1.fluid.base.SingleFluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
@@ -17,7 +15,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;

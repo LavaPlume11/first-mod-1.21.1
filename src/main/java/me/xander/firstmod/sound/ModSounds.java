@@ -9,6 +9,8 @@ import net.minecraft.util.Identifier;
 public class ModSounds {
     public static final SoundEvent GUITAR_RIFF = registerSoundEvent("guitar_riff");
     public static final SoundEvent WHISPERER_IDLE = registerSoundEvent("whisperer_idle");
+    public static final SoundEvent WELCOME_MESSAGE = registerSoundEvent("welcome_message");
+    public static final SoundEvent PORTAL_BOOM = registerSoundEvent("portal_boom");
 
 
     private static SoundEvent registerSoundEvent(String name) {

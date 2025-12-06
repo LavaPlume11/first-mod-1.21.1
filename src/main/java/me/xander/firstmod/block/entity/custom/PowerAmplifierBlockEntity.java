@@ -1,20 +1,16 @@
 package me.xander.firstmod.block.entity.custom;
 
-import me.xander.first_mod;
-import me.xander.firstmod.block.entity.ImplementedInventory;
+import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.screen.custom.PowerAmplifierScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;

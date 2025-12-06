@@ -1,4 +1,4 @@
-package me.xander.firstmod.block.entity;
+package me.xander.firstmod.inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

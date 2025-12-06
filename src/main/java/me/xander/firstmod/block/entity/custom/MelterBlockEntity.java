@@ -1,8 +1,7 @@
 package me.xander.firstmod.block.entity.custom;
 
-import me.xander.firstmod.block.entity.ImplementedInventory;
+import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
-import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.recipe.MelterRecipe;
 import me.xander.firstmod.recipe.MelterRecipeInput;
@@ -17,7 +16,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;

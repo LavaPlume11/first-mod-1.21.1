@@ -30,6 +30,7 @@ public class ModItemGroups {
                        entries.add(ModItems.XMAS_HAT);
                        entries.add(ModItems.GUITAR);
                        entries.add(ModItems.POCKET_STORAGE);
+                       entries.add(ModItems.DARK_PORTAL_SETTER);
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.WHISPERER_SPAWN_EGG);
                        entries.add(ModItems.WARTURTLE_SPAWN_EGG);
@@ -53,6 +54,8 @@ public class ModItemGroups {
                        entries.add(ModBlocks.MITHRIL_TRAPDOOR);
                        entries.add(ModBlocks.MITHRIL_WALL);
                        entries.add(ModBlocks.MITHRIL_SLAB);
+                       entries.add(ModBlocks.BLOCK_OF_THE_SEA);
+                       entries.add(ModBlocks.STEAM_VENT);
                        entries.add(ModItems.WARDEN_PENDENT);
                        entries.add(ModItems.DIAMOND_WARDEN_PENDENT);
                        entries.add(ModItems.GEMS);

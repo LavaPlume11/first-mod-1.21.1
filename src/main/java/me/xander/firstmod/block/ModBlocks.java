@@ -5,6 +5,7 @@ import me.xander.firstmod.block.custom.*;
 import me.xander.firstmod.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -29,6 +30,8 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.METAL)));
     public static final Block SOUND_BLOCK = registerBlock("sound_block",
             new SoundBlock(AbstractBlock.Settings.copy(Blocks.NOTE_BLOCK)));
+    public static final Block SPEAKER_BLOCK = registerBlock("speaker",
+            new SpeakerBlock(AbstractBlock.Settings.copy(Blocks.NOTE_BLOCK)));
 
     public static final Block MITHRIL_STAIRS = registerBlock("mithril_stairs",
             new StairsBlock(ModBlocks.MITHRIL_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
@@ -125,6 +128,17 @@ public class ModBlocks {
                     .requiresTool()
                     .strength(2.0F, 2.0F)
                     .sounds(BlockSoundGroup.FROGLIGHT)));
+    public static final Block BLOCK_OF_THE_SEA = registerBlock("block_of_the_sea",
+            new WhispererGolemSpawner(AbstractBlock.Settings.copy(Blocks.PRISMARINE)));
+    public static final Block BRIDGE_BLOCK = registerBlockWithoutBlockItem("bridge_block",
+            new BridgeBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GRAY)
+                    .dropsNothing()
+                    .hardness(200f)
+                    .pistonBehavior(PistonBehavior.BLOCK)
+                    .nonOpaque()));
+    public static final Block STEAM_VENT = registerBlock("steam_vent",
+            new SteamVent(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
 
 

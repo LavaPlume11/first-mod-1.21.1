@@ -7,7 +7,9 @@
     "LivingEntityMixin",
     "ModEntityDataSaverMixin",
     "PlayerEntityMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    ,
+    "ZombieEntityMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",

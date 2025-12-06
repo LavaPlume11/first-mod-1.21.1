@@ -39,6 +39,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MELTER)
                 .add(ModBlocks.POWER_AMPLIFIER)
                 .add(ModBlocks.SPARKLER_BLOCK)
+                .add(ModBlocks.BLOCK_OF_THE_SEA)
                 .add(ModBlocks.TANK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)

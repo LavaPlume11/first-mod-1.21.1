@@ -1,7 +1,7 @@
 package me.xander.firstmod.block.entity.custom;
 
 import me.xander.firstmod.block.custom.CrystallizerBlock;
-import me.xander.firstmod.block.entity.ImplementedInventory;
+import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.recipe.CrystallizerRecipe;

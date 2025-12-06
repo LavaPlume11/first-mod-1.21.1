@@ -9,6 +9,7 @@ import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.events.HudRenderHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.particle.BloodParticle;
+import me.xander.firstmod.particle.DarkPortalParticle;
 import me.xander.firstmod.particle.StickyFeatherParticle;
 import me.xander.firstmod.renderer.feature.WardenPendentRenderer;
 import me.xander.firstmod.screen.ModScreenHandlers;
@@ -32,6 +33,7 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
+import net.minecraft.client.render.entity.model.IronGolemEntityModel;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 
 public class First_modClient implements ClientModInitializer {
@@ -43,6 +45,7 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TANK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MELTER, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BRIDGE_BLOCK, RenderLayer.getTranslucent());
         ModScreenHandlers.registerScreenHandlers();
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MITHRIL_WATER, ModFluids.FLOWING_MITHRIL_WATER,
@@ -82,8 +85,13 @@ public class First_modClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.SLEIGH, SleighModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SLEIGH, SleighRenderer::new);
 
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.STEAM_GOLEM, IronGolemEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.STEAM_GOLEM, SteamGolemRenderer::new);
+
         EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.FIRE_BLAST, FireBlastEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.DARK_PORTAL, DarkPortalEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.DARK_SNARE, DarkSnareEntityRenderer::new);
         HudRenderCallback.EVENT.register(new HudRenderHandler());
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((
@@ -99,6 +107,7 @@ public class First_modClient implements ClientModInitializer {
 
         ParticleFactoryRegistry.getInstance().register(first_mod.BLOOD_PARTICLE, BloodParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(first_mod.STICKY_FEATHER_PARTICLE, StickyFeatherParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(first_mod.DARK_PORTAL_PARTICLE, DarkPortalParticle.Factory::new);
 
         ModModelPredicates.registerModelPredicates();
         ModKeyBindings.registerKeyBindings();

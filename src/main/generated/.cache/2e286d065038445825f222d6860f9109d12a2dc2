@@ -1,7 +1,8 @@
-// 1.21.1	2025-08-30T13:50:10.3385038	First Mod/Recipes
+// 1.21.1	2025-12-06T15:12:37.0430062	First Mod/Recipes
 8471dd603fe2f255f3ede81af0cc2a781498c338 data\firstmod\recipe\mithril.json
 1ed69c0cceffa2f77b1fee4cb1dd4fdc35d188fe data\firstmod\recipe\locator.json
 b42857099a8d73fa3e8c0497e3f2538d945fd1c4 data\firstmod\advancement\recipes\misc\sound_block.json
+c8e1f57e449b560cc09bbfdc33d33dda4aa8c9b1 data\firstmod\advancement\recipes\building_blocks\block_of_the_sea.json
 1f26c9104313c0ff8c34c732ecd619b76a3447ef data\firstmod\advancement\recipes\combat\refined_mithril_sword.json
 5f53b2db4af7a6c56ea617980c431cbc1131747d data\firstmod\recipe\power_gem.json
 a7dc6c3425202d1d7504d9cbb9a3e26cc04d80ac data\firstmod\recipe\mithril_from_smelting_raw_mithril.json
@@ -10,13 +11,14 @@ a7dc6c3425202d1d7504d9cbb9a3e26cc04d80ac data\firstmod\recipe\mithril_from_smelt
 269b89d2d0f6d930963add7801e6d21472f3716f data\firstmod\advancement\recipes\decorations\mithril_block.json
 f82465482d3a36ba24e2b82931f4902a4608bf04 data\firstmod\advancement\recipes\combat\tomahawk.json
 26543cd3d29bd36d8ae900fcc8efe87ba1ac5b37 data\firstmod\recipe\sticky_feather.json
-8cfdfcc50056a412ea25f95f546daecf417992e2 data\firstmod\recipe\mithril_horse_armor.json
 76d8045b3f5ea2d879b00d7dbfceda3aed5b992c data\firstmod\recipe\tomahawk.json
+8cfdfcc50056a412ea25f95f546daecf417992e2 data\firstmod\recipe\mithril_horse_armor.json
 6757e842801dd8674535d6978708a082111c9450 data\firstmod\recipe\mithril_from_blasting_raw_mithril.json
 cbfda40032241bfae07876e2a916924c02f02013 data\firstmod\advancement\recipes\building_blocks\mithril_display_block.json
 dabb34bfda9b237e8814f49518df28bf0e635e72 data\firstmod\advancement\recipes\misc\spear.json
 790db2b356a82a7a562c17194bca8895ab150f3c data\firstmod\advancement\recipes\building_blocks\crystallizer.json
 3fc2f24ec5233d421c8f43f64052b55bd408881f data\firstmod\recipe\power_cell.json
+5ef5b894e29f974dfd56462053ed0474de8b9cdf data\firstmod\recipe\block_of_the_sea.json
 249c6e774a95669b670de940bc83383fd1e37cb3 data\firstmod\recipe\lightning_helmet.json
 060c0f359852834eca9848401a9a639970c98946 data\firstmod\recipe\burnt_banana_from_blasting_banana.json
 e86e1cae4351d68262d1836756526bf29674660f data\firstmod\recipe\icarus_wings.json

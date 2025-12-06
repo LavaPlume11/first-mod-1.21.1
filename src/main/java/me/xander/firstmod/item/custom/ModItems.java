@@ -30,7 +30,6 @@ public class ModItems {
     public static final Item DYNAMITE = registerItem("dynamite",  new Item(new Item.Settings()));
     public static final Item POCKET_STORAGE = registerItem("pocket_storage", new PocketStorageItem(new Item.Settings().maxCount(1)));
 
-
     public static final Item WARDEN_PENDENT = registerItem("warden_pendent",  new WardenPendent(new Item.Settings().maxDamage(100),
             120, 30.0, 20.0F, 2.0, 0.05, 20));
 
@@ -49,6 +48,7 @@ public class ModItems {
     public static final Item POWER_CELL = registerItem("power_cell", new PowerCell(new Item.Settings().maxCount(1).maxDamage(250)));
     public static final Item AMETHYST_GEMS = registerItem("amethyst_gems", new Item(new Item.Settings().maxCount(16)));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
+    public static final Item DARK_PORTAL_SETTER = registerItem("dark_portal_setter", new DarkPortalSetter(new Item.Settings().maxCount(1)));
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));
 

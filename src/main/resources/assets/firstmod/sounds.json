@@ -16,5 +16,18 @@
       "firstmod:whisper4"
 
     ]
+  },
+  "welcome_message": {
+    "subtitle": "sounds.firstmod.welcome",
+    "sounds": [
+      "firstmod:welcome_message"
+
+    ]
+  },
+  "portal_boom": {
+    "subtitle": "sounds.firstmod.portal_boom",
+    "sounds": [
+      "firstmod:portal_boom"
+    ]
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "firstmod:item/dark_portal_setter_used"
+  }
+}
