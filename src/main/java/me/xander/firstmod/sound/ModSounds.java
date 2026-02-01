@@ -11,6 +11,7 @@ public class ModSounds {
     public static final SoundEvent WHISPERER_IDLE = registerSoundEvent("whisperer_idle");
     public static final SoundEvent WELCOME_MESSAGE = registerSoundEvent("welcome_message");
     public static final SoundEvent PORTAL_BOOM = registerSoundEvent("portal_boom");
+    public static final SoundEvent STICKING = registerSoundEvent("stick");
 
 
     private static SoundEvent registerSoundEvent(String name) {

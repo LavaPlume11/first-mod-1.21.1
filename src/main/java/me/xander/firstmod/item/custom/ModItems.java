@@ -133,6 +133,9 @@ public class ModItems {
             new WarturtleArmorItem(ModArmorMaterials.MITHRIL_ARMOR, new Item.Settings().maxDamage(1000)));
     public static final Item ICARUS_WINGS = registerItem("icarus_wings", new IcarusWings(new Item.Settings().maxDamage(216)));
     public static final Item STICKY_FEATHER = registerItem("sticky_feather", new Item(new Item.Settings()));
+    public static final Item DRAGON_SCALE = registerItem("dragon_scale", new Item(new Item.Settings().maxCount(16)));
+    public static final Item DRAGONSCALE_WINGS = registerItem("dragonscale_wings", new DragonscaleWings(new Item.Settings().maxDamage(1000)));
+
 
     private static Item registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),

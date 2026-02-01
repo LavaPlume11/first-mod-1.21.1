@@ -9,6 +9,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import team.reborn.energy.api.EnergyStorage;
 
 public class ModLootTableModifiers {
 
@@ -23,10 +24,18 @@ public class ModLootTableModifiers {
 
                 builder.pool(poolBuilder.build());
             }
+            if (LootTables.END_CITY_TREASURE_CHEST.equals(registryKey)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.10f)) // Drops 10% of the time
+                        .with(ItemEntry.builder(ModItems.DRAGON_SCALE))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
-        });
+                builder.pool(poolBuilder.build());
 
-        LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
+            }
+
+       /* LootTableEvents.MODIFY.register((registryKey, builder, lootTableSource, wrapperLookup) -> {
             if (LootTables.END_CITY_TREASURE_CHEST.equals(registryKey)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -38,12 +47,21 @@ public class ModLootTableModifiers {
                         .with(ItemEntry.builder(ModItems.MITHRIL_LEGGINGS))
                         .conditionally(RandomChanceLootCondition.builder(0.05f))
                         .with(ItemEntry.builder(ModItems.MITHRIL_BOOTS))
+                        .conditionally(RandomChanceLootCondition.builder(0.90f)) // Drops 5% of the time
+                        .with(ItemEntry.builder(ModItems.DRAGON_SCALE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 builder.pool(poolBuilder.build());
             }
 
 
+
+
+        });
+
+        */
         });
     }
 }
+
+

@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:end/dragon_egg",
+  "criteria": {
+    "crafted_scales": {
+      "conditions": {
+        "recipe_id": "firstmod:dragon_scale_from_dragon_egg"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    }
+  },
+  "display": {
+    "description": "Break Down the Dragon Egg",
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "minecraft:dragon_egg"
+    },
+    "title": "Extinction"
+  },
+  "requirements": [
+    [
+      "crafted_scales"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

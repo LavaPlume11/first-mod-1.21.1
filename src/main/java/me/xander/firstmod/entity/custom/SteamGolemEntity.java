@@ -1,9 +1,10 @@
 package me.xander.firstmod.entity.custom;
 
-import me.xander.first_mod;
-import me.xander.firstmod.entity.ai.goal.CustomTargetGoal;
+import me.xander.firstmod.entity.ai.goal.SteamGolemTargetGoal;
+import me.xander.firstmod.entity.ai.goal.WhispererTargetGoal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -22,6 +23,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class SteamGolemEntity extends IronGolemEntity {
     int particleCount = 0;
@@ -39,7 +41,7 @@ public class SteamGolemEntity extends IronGolemEntity {
         this.targetSelector.add(3, new ActiveTargetGoal(this, MobEntity.class, 5, false, false, (entity) -> {
             return entity instanceof Monster && !(entity instanceof CreeperEntity);
         }));
-        this.targetSelector.add(2, new CustomTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.add(2, new SteamGolemTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.add(4, new UniversalAngerGoal(this, false));
     }
     public static DefaultAttributeContainer.Builder createSteamGolemAttributes() {

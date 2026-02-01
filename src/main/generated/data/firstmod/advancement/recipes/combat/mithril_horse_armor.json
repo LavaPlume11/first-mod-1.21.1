@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mithril_horse_armor"
+        "recipe": "firstmod:mithril_horse_armor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mithril_horse_armor"
+      "firstmod:mithril_horse_armor"
     ]
   }
 }

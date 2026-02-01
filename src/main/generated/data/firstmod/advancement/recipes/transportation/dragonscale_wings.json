@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dragon_scale": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:dragon_scale"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "firstmod:dragonscale_wings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dragon_scale"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "firstmod:dragonscale_wings"
+    ]
+  }
+}

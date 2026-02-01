@@ -1,7 +1,7 @@
 package me.xander.firstmod.mixin;
 
 import com.mojang.authlib.GameProfile;
-import me.xander.firstmod.inventory.PocketStorageAccess;
+import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;

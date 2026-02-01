@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:sticky_feather"
+        "recipe": "firstmod:sticky_feather"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:sticky_feather"
+      "firstmod:sticky_feather"
     ]
   }
 }

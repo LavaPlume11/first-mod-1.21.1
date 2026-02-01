@@ -37,6 +37,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPEAKER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRIDGE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEAM_VENT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORRUPTION_BLOCK);
+        blockStateModelGenerator.registerWallPlant(ModBlocks.CORRUPTION_VINES);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.COMPRESSOR, TexturedModel.ORIENTABLE);
@@ -109,6 +111,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.POWER_CELL, Models.GENERATED);
         itemModelGenerator.register(ModItems.STICKY_FEATHER, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOCATOR, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));
         itemModelGenerator.register(ModItems.LEMMING_SPAWN_EGG,

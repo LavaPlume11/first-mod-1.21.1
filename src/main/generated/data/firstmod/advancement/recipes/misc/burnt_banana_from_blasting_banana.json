@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:burnt_banana_from_blasting_banana"
+        "recipe": "firstmod:burnt_banana_from_blasting_banana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:burnt_banana_from_blasting_banana"
+      "firstmod:burnt_banana_from_blasting_banana"
     ]
   }
 }

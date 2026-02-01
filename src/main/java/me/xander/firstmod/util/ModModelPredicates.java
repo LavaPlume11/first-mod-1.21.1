@@ -15,6 +15,7 @@ public class ModModelPredicates {
         registerLavaSaber(ModItems.LAVA_SABER);
         registerElytra(ModItems.ICARUS_WINGS);
         registerUsable(ModItems.DARK_PORTAL_SETTER);
+        registerElytra(ModItems.DRAGONSCALE_WINGS);
     }
     private static void registerUsable(Item item) {
         ModelPredicateProviderRegistry.register(item, Identifier.of(first_mod.MOD_ID, "usable"), (stack, world, entity, seed) -> {

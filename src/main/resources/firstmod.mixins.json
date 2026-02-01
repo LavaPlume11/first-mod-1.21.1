@@ -8,14 +8,14 @@
     "ModEntityDataSaverMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
-    ,
     "ZombieEntityMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",
     "ElytraFeatureRendererMixin",
     "ItemRendererMixin",
-    "ModelLoaderMixin"
+    "ModelLoaderMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

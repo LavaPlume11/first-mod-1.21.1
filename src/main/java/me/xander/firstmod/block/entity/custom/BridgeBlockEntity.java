@@ -11,13 +11,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 public class BridgeBlockEntity extends BlockEntity {
-    int age = 0;
+    private int age = 0;
+    private int timer = 200;
     public BridgeBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BRIDGE_BLOCK_BE, pos, state);
     }
     public void tick(World world, BlockPos pos, BlockState state, Direction direction, int count) {
         age++;
-        if(age >= 200) {
+        if(age >= timer) {
             world.removeBlock(pos, false);
             world.removeBlockEntity(pos);
         }
@@ -37,5 +38,8 @@ public class BridgeBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+    public void setTimer(int time) {
+        timer = time;
     }
 }

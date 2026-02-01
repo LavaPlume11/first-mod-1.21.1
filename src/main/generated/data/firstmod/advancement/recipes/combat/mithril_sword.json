@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mithril_sword"
+        "recipe": "firstmod:mithril_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mithril_sword"
+      "firstmod:mithril_sword"
     ]
   }
 }

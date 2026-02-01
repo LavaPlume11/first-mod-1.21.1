@@ -15,6 +15,9 @@ public class ModKeyBindings {
 
     public static final KeyBinding ALT_KEY_BINDING = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.firstmod.alt",
             InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, "category.firstmod.test"));
+
+    public static final KeyBinding C_KEY_BINDING = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.firstmod.c",
+            InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category.firstmod.test"));
     public static void registerKeyBindings() {
         first_mod.LOGGER.info("Registering Key Bindings for"+ first_mod.MOD_ID);
     }

@@ -1,6 +1,6 @@
 package me.xander.firstmod.entity.custom;
 
-import me.xander.firstmod.entity.ai.goal.CustomTargetGoal;
+import me.xander.firstmod.entity.ai.goal.WhispererTargetGoal;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
@@ -32,8 +32,8 @@ public class WhispererEntity extends HostileEntity implements Monster {
         this.goalSelector.add(6, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this));
         this.goalSelector.add(4, new MeleeAttackGoal(this, (double) 1.0F, false));
-        this.targetSelector.add(2, new CustomTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new CustomTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
+        this.targetSelector.add(2, new WhispererTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new WhispererTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
 
     }
 

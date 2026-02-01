@@ -103,6 +103,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 1.2f, 100, "mithril");
         offerSmelting(exporter, MITHRIL_SMELTABLE,RecipeCategory.MISC, ModItems.MITHRIL,
                 1.7f, 500, "mithril");
+        offerShapelessRecipe(exporter, ModItems.DRAGON_SCALE, Items.DRAGON_EGG, "dragon", 16);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_DISPLAY_BLOCK)
                 .pattern(" O ")
                 .pattern("CSC")
@@ -157,6 +159,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.TOMAHAWK)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ModItems.DRAGONSCALE_WINGS)
+                .pattern("OOO")
+                .pattern("OEO")
+                .pattern("OOO")
+                .input('O', ModItems.DRAGON_SCALE)
+                .input('E', Items.ELYTRA)
+                .criterion(hasItem(ModItems.DRAGON_SCALE), conditionsFromItem(ModItems.DRAGON_SCALE))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.DRAGONSCALE_WINGS)));
 
     }
 }

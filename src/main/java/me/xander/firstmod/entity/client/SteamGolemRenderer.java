@@ -9,6 +9,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.IronGolemEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.RotationAxis;
 
 public class SteamGolemRenderer extends MobEntityRenderer<SteamGolemEntity, IronGolemEntityModel<SteamGolemEntity>> {
     public SteamGolemRenderer(EntityRendererFactory.Context context) {
@@ -23,10 +24,6 @@ public class SteamGolemRenderer extends MobEntityRenderer<SteamGolemEntity, Iron
     @Override
     public void render(SteamGolemEntity livingEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
-        if (livingEntity.isBaby()) {
-            matrixStack.scale(0.5f,0.5f,0.5f);
-        }
-
         super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 }

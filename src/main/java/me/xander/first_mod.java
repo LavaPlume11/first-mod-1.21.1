@@ -5,14 +5,17 @@ import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.command.ReturnHomeCommand;
 import me.xander.firstmod.command.SetHomeCommand;
 import me.xander.firstmod.components.ModDataComponentTypes;
+import me.xander.firstmod.data.ModData;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.enchantment.ModEnchantmentEffects;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.custom.*;
 import me.xander.firstmod.events.AttackEntityHandler;
+import me.xander.firstmod.events.ModServerEvents;
 import me.xander.firstmod.events.PlayerCopyHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItemGroups;
+import me.xander.firstmod.networking.ModPackets;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.sound.ModSounds;
@@ -85,10 +88,6 @@ public class first_mod implements ModInitializer {
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
         CommandRegistrationCallback.EVENT.register(ReturnHomeCommand::register);
         ServerPlayerEvents.COPY_FROM.register(new PlayerCopyHandler());
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
-                entries.addAfter(Items.GOLDEN_CARROT, BANANA));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
-                entries.addAfter(Items.TRIDENT, SPEAR));
 
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.WEAVING, Items.COBWEB, ModPotions.STICKY_POTION));
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(ModPotions.STICKY_POTION, Items.REDSTONE, ModPotions.LONG_STICKY_POTION));
@@ -96,8 +95,9 @@ public class first_mod implements ModInitializer {
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "blood_particle"), BLOOD_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sticky_feather_particle"), STICKY_FEATHER_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "dark_portal_particle"), DARK_PORTAL_PARTICLE);
-
-
+        ModServerEvents.runServerEvents();
+        ModData.registerModData();
+        ModPackets.registerServer();
     }
     private static void registerStrippables() {
         StrippableBlockRegistry.register(ModBlocks.BLACKWOOD_LOG, ModBlocks.STRIPPED_BLACKWOOD_LOG);

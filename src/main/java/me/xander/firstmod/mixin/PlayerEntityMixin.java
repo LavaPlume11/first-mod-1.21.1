@@ -2,14 +2,11 @@ package me.xander.firstmod.mixin;
 
 import me.xander.firstmod.inventory.PocketStorageInventory;
 import me.xander.firstmod.item.custom.ModItems;
-import me.xander.firstmod.inventory.PocketStorageAccess;
-import net.minecraft.component.EnchantmentEffectComponentTypes;
-import net.minecraft.enchantment.EnchantmentHelper;
+import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

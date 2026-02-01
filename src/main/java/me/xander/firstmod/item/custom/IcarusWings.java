@@ -2,6 +2,7 @@ package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
 import me.xander.firstmod.components.ModDataComponentTypes;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -108,11 +109,15 @@ public class IcarusWings extends ElytraItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-      /*  if (isBarColored) {
-            return barColor;
+        if (MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST) != null) {
+            ItemStack chestStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST);
+            if (isBarColored && stack == chestStack) {
+                return barColor;
+            } else {
+                return super.getItemBarColor(stack);
+            }
         } else {
-        */
             return super.getItemBarColor(stack);
-        //}
+        }
     }
 }

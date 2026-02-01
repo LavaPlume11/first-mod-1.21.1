@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version '1.14-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -24,6 +24,10 @@ repositories {
 		content {
 			includeGroup "curse.maven"
 		}
+	}
+	maven {
+		name = "Terraformers"
+		url = "https://maven.terraformersmc.com/"
 	}
 }
 
@@ -52,6 +56,7 @@ dependencies {
 	modImplementation "curse.maven:techreborn-233564:5939581"
 	modImplementation "curse.maven:reborncore-237903:5939580"
 	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.0'
+	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 processResources {

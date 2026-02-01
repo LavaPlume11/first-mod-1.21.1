@@ -20,6 +20,7 @@ public class ModItemGroups {
                        entries.add(ModFluids.MITHRIL_WATER_BUCKET);
                        entries.add(ModItems.MELTED_METAL);
                        entries.add(ModItems.STICKY_FEATHER);
+                       entries.add(ModItems.DRAGON_SCALE);
                        entries.add(ModItems.BANANA);
                        entries.add(ModBlocks.BANANA_LEAVES);
                        entries.add(ModItems.BURNT_BANANA);
@@ -56,6 +57,8 @@ public class ModItemGroups {
                        entries.add(ModBlocks.MITHRIL_SLAB);
                        entries.add(ModBlocks.BLOCK_OF_THE_SEA);
                        entries.add(ModBlocks.STEAM_VENT);
+                       entries.add(ModBlocks.CORRUPTION_BLOCK);
+                       entries.add(ModBlocks.CORRUPTION_VINES);
                        entries.add(ModItems.WARDEN_PENDENT);
                        entries.add(ModItems.DIAMOND_WARDEN_PENDENT);
                        entries.add(ModItems.GEMS);
@@ -70,6 +73,7 @@ public class ModItemGroups {
                        entries.add(ModItems.LIGHT_KNIFE);
                        entries.add(ModItems.RE_DEAD_SWORD);
                        entries.add(ModItems.ICARUS_WINGS);
+                       entries.add(ModItems.DRAGONSCALE_WINGS);
                        entries.add(ModItems.LIGHTNING_HELMET);
                        entries.add(ModItems.MITHRIL_HELMET);
                        entries.add(ModItems.MITHRIL_CHESTPLATE);

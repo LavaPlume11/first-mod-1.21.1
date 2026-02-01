@@ -1,6 +1,8 @@
 package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
+import me.xander.firstmod.corruption.CorruptionHandler;
+import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
@@ -17,6 +19,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -58,38 +61,7 @@ public class godStick extends SwordItem {
 
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        double range = 30.0;
-        if (!world.isClient) {
-            ServerWorld serverWorld = (ServerWorld) world;
-            Vec3d vec3d5 = user.getRotationVec(1.0F);
-            double x = user.getX() - (user.getX() - vec3d5.x * (double) 4.0F);
-            double y = user.getY() - (user.getY() - vec3d5.y * (double) 4.0F);
-            double z = user.getZ() - (user.getZ() - vec3d5.z * (double) 4.0F);
-            Vec3d vec3d6 = new Vec3d(x, y, z);
-
-            Vec3d vec3d = user.getPos().add(user.getAttachments().getPoint(EntityAttachmentType.PASSENGER, 0, user.getYaw()));
-            Vec3d vec3d2 = /*target.getEyePos().subtract(vec3d)*/vec3d6;
-            Vec3d vec3d3 = vec3d2.normalize();
-            int i = MathHelper.floor(vec3d2.length()) + (int)range;
-            for (int j = 1; j < i; ++j) {
-                Vec3d vec3d4 = vec3d.add(vec3d3.multiply((double) j));
-                serverWorld.spawnParticles(ParticleTypes.SONIC_BOOM, vec3d4.x, vec3d4.y, vec3d4.z, 1, (double) 0.0F, (double) 0.0F, (double) 0.0F, (double) 0.0F);
-                Vec3d direction = user.getRotationVector().normalize();
-                for (LivingEntity entity : world.getEntitiesByClass(LivingEntity.class, user.getBoundingBox().expand(range), e -> e != user)) {
-                    Vec3d entityPos = entity.getPos();
-                    Vec3d playerToEntity = entityPos.subtract(user.getPos()).normalize();
-
-                    // Check if the entity is roughly in front of the player
-                    if (direction.dotProduct(playerToEntity) > 0.9) { // Adjust the threshold
-                        applySonicBoomEffects(entity, direction);
-                    }
-                }
-
-
-            }
-            world.playSound(null,user.getBlockPos(),SoundEvents.ENTITY_WARDEN_SONIC_BOOM, SoundCategory.PLAYERS,10,1);
-        }
-
+         
             return TypedActionResult.success(user.getStackInHand(hand));
     }
     private void applySonicBoomEffects(LivingEntity entity, Vec3d direction) {
@@ -110,18 +82,15 @@ public class godStick extends SwordItem {
     }
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        BlockPos pos = context.getBlockPos().up(); // Position above the block
-        if (!world.isClient) {
-            world.playSound(null,context.getBlockPos(),SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.HOSTILE,1,1);
+        if (!context.getPlayer().isSneaking()) {
+            if (!context.getWorld().isClient())
+                    CorruptionHandler.addCorruption(((ServerPlayerEntity) context.getPlayer()), 1);
+            context.getPlayer().playSound(ModSounds.STICKING);
 
-            // server particals
-            ((ServerWorld) world).spawnParticles(ParticleTypes.SCULK_SOUL, context.getBlockPos().getX() + 0.5f, context.getBlockPos().getY()
-            + 1.0f,context.getBlockPos().getZ()+0.5f,500,6.0,4.5,0.01,-0.8);
-
-
+        }else {
+            if (!context.getWorld().isClient())
+                CorruptionHandler.setCorruption(((ServerPlayerEntity) context.getPlayer()), 0);
         }
-
         return ActionResult.SUCCESS;
     }
 

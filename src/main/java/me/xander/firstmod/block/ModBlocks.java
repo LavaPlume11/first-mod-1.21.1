@@ -2,6 +2,8 @@ package me.xander.firstmod.block;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.custom.*;
+import me.xander.firstmod.corruption.CorruptionBlock;
+import me.xander.firstmod.corruption.CorruptionVines;
 import me.xander.firstmod.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
@@ -139,6 +141,14 @@ public class ModBlocks {
                     .nonOpaque()));
     public static final Block STEAM_VENT = registerBlock("steam_vent",
             new SteamVent(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block CORRUPTION_BLOCK = registerBlock("corruption_block",
+            new CorruptionBlock(AbstractBlock.Settings.create().strength(2f).mapColor(MapColor.PURPLE).ticksRandomly().dropsNothing()));
+    public static final Block CORRUPTION_VINES = registerBlock("corruption_vines",
+            new CorruptionVines(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_PURPLE)
+                    .strength(-1.0F, 3600000.0F).dropsNothing()
+                    .sounds(BlockSoundGroup.SCULK).nonOpaque()
+                    .luminance(CorruptionVines.getLuminanceSupplier(9)).burnable().pistonBehavior(PistonBehavior.BLOCK)));
 
 
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "O": {
+      "item": "firstmod:dragon_scale"
+    }
+  },
+  "pattern": [
+    "OOO",
+    "OEO",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:dragonscale_wings"
+  }
+}

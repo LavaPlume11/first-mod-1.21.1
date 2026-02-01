@@ -29,5 +29,12 @@
     "sounds": [
       "firstmod:portal_boom"
     ]
+  },
+  "stick": {
+    "subtitle": "sounds.firstmod.stick",
+    "sounds": [
+      "firstmod:stick_1"
+
+    ]
   }
 }

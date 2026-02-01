@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:icarus_wings"
+        "recipe": "firstmod:icarus_wings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:icarus_wings"
+      "firstmod:icarus_wings"
     ]
   }
 }

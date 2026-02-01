@@ -1,10 +1,12 @@
 package me.xander.firstmod.mixin;
 
 import com.mojang.authlib.GameProfile;
+import me.xander.firstmod.item.custom.DragonscaleWings;
 import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.item.custom.NetherBow;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -65,4 +67,5 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
 
 
     }
+
 }
