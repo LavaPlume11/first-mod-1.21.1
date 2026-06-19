@@ -59,6 +59,7 @@ public class ModItemGroups {
                        entries.add(ModBlocks.STEAM_VENT);
                        entries.add(ModBlocks.CORRUPTION_BLOCK);
                        entries.add(ModBlocks.CORRUPTION_VINES);
+                       entries.add(ModItems.CORRUPTION_SWORD);
                        entries.add(ModItems.WARDEN_PENDENT);
                        entries.add(ModItems.DIAMOND_WARDEN_PENDENT);
                        entries.add(ModItems.GEMS);
@@ -72,6 +73,7 @@ public class ModItemGroups {
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModItems.LIGHT_KNIFE);
                        entries.add(ModItems.RE_DEAD_SWORD);
+                       entries.add(ModItems.SHODDY_WINGS);
                        entries.add(ModItems.ICARUS_WINGS);
                        entries.add(ModItems.DRAGONSCALE_WINGS);
                        entries.add(ModItems.LIGHTNING_HELMET);

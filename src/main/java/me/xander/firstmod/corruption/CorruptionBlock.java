@@ -1,6 +1,7 @@
 package me.xander.firstmod.corruption;
 
 import me.xander.first_mod;
+import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.data.ModData;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.block.Block;
@@ -12,6 +13,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +40,10 @@ public class CorruptionBlock extends Block {
                  if (posList.get(i).getZ() < pos.south(10).getZ() && posList.get(i).getZ() > pos.north(10).getZ()) {
                      if((posList.get(i).getY() < pos.up(20).getY() && posList.get(i).getY() > pos.down(20).getY())) {
                          if (CorruptionHandler.getCorruption(players.get(i)) <= 5) {
-                             CorruptionHandler.addCorruption(players.get(i), 1);
-                             players.get(i).playSoundToPlayer(ModSounds.STICKING, SoundCategory.NEUTRAL, 1f, 1f);
+                             if (!players.get(i).isCreative()) {
+                                 CorruptionHandler.addCorruption(players.get(i), 1);
+                                 players.get(i).playSoundToPlayer(ModSounds.STICKING, SoundCategory.NEUTRAL, 1f, 1f);
+                             }
                          }
                      }
                  }
@@ -51,5 +55,26 @@ public class CorruptionBlock extends Block {
     @Override
     protected boolean hasRandomTicks(BlockState state) {
         return true;
+    }
+
+    public void spreadVines(World world, BlockPos pos) {
+        if (world.getBlockState(pos.up()).isReplaceable()) {
+            world.setBlockState(pos.up(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
+        if (world.getBlockState(pos.down()).isReplaceable()) {
+            world.setBlockState(pos.down(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
+        if (world.getBlockState(pos.west()).isReplaceable()) {
+            world.setBlockState(pos.west(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
+        if (world.getBlockState(pos.east()).isReplaceable()) {
+            world.setBlockState(pos.east(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
+        if (world.getBlockState(pos.north()).isReplaceable()) {
+            world.setBlockState(pos.north(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
+        if (world.getBlockState(pos.south()).isReplaceable()) {
+            world.setBlockState(pos.south(), ModBlocks.CORRUPTION_VINES.getDefaultState());
+        }
     }
 }

@@ -17,7 +17,7 @@ public class ModEntities {
             EntityType.Builder.create(LemmingEntity::new, SpawnGroup.CREATURE).dimensions(0.5f,0.5f).build());
     public static final EntityType<WhispererEntity> WHISPERER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "whisperer"),
-            EntityType.Builder.create(WhispererEntity::new, SpawnGroup.CREATURE).dimensions(1f,1f).build());
+            EntityType.Builder.create(WhispererEntity::new, SpawnGroup.WATER_CREATURE).dimensions(1f,1f).build());
     public static final EntityType<WarturtleEntity> WARTURTLE = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "warturtle"),
             EntityType.Builder.create(WarturtleEntity::new, SpawnGroup.CREATURE).dimensions(2.5f,1.5f).build());
@@ -39,6 +39,9 @@ public class ModEntities {
     public static final EntityType<SteamGolemEntity> STEAM_GOLEM = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "steam_golem"),
             EntityType.Builder.create(SteamGolemEntity::new, SpawnGroup.MISC).dimensions(1.4f,2.7f).maxTrackingRange(10).build());
+    public static final EntityType<GrazeEntity> GRAZE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "graze"),
+            EntityType.Builder.create(GrazeEntity::new, SpawnGroup.MISC).dimensions(0.8f,1.2f).build());
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

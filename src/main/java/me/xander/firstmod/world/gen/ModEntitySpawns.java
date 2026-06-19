@@ -21,7 +21,7 @@ public class ModEntitySpawns {
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN,BiomeKeys.DEEP_COLD_OCEAN,
                         BiomeKeys.DEEP_OCEAN,BiomeKeys.COLD_OCEAN,BiomeKeys.FROZEN_OCEAN,BiomeKeys.DEEP_FROZEN_OCEAN),
-                SpawnGroup.CREATURE, ModEntities.WHISPERER,50,2,10);
+                SpawnGroup.WATER_CREATURE, ModEntities.WHISPERER,50,2,10);
 
         SpawnRestriction.register(ModEntities.WHISPERER, SpawnLocationTypes.IN_WATER,
                 Heightmap.Type.OCEAN_FLOOR, HostileEntity::canSpawnIgnoreLightLevel);

@@ -1,9 +1,11 @@
 package me.xander.firstmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.custom.StoneOfSwordBlockEntity;
 import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.item.custom.ModItems;
+import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -115,8 +117,13 @@ public class StoneOfSwordBlock extends BlockWithEntity implements BlockEntityPro
             if (displayBlockEntity.isEmpty() && stack.getItem() instanceof SwordItem) {
                 if (displayBlockEntity.isEmpty()){
                     setPowered(world,pos,state,true);
-                    displayBlockEntity.setStack(0, stack);
-                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
+                    if (stack.isOf(Items.DIAMOND_SWORD) && world.getBlockState(pos.down()).getBlock() == ModBlocks.CORRUPTION_BLOCK) {
+                        displayBlockEntity.setStack(0, stack.copyComponentsToNewStack(ModItems.CORRUPTION_SWORD, 1));
+                        world.playSound(player, pos, ModSounds.STICKING, SoundCategory.BLOCKS, 3f, 1f);
+                    } else {
+                        displayBlockEntity.setStack(0, stack);
+                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
+                    }
                     stack.decrement(1);
                     displayBlockEntity.markDirty();
                     world.updateListeners(pos, state, state, 0);

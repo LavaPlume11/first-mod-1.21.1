@@ -73,6 +73,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BURNT_BANANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RE_DEAD_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CORRUPTION_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GUITAR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WHIP, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DAMAGED_MITHRIL_SWORD, Models.HANDHELD);
@@ -112,6 +113,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STICKY_FEATHER, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOCATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHODDY_WINGS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));

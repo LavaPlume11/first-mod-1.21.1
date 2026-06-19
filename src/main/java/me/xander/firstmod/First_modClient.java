@@ -37,6 +37,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
@@ -98,6 +99,9 @@ public class First_modClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.STEAM_GOLEM, IronGolemEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.STEAM_GOLEM, SteamGolemRenderer::new);
 
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.GRAZE, GrazeEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.GRAZE, GrazeEntityRenderer::new);
+
         EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.FIRE_BLAST, FireBlastEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.DARK_PORTAL, DarkPortalEntityRenderer::new);
@@ -112,7 +116,6 @@ public class First_modClient implements ClientModInitializer {
                 registrationHelper.register(new WardenPendentRenderer(playerRenderer));
             }
         });
-
 
 
 

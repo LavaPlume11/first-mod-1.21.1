@@ -83,6 +83,7 @@ public class first_mod implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.WARTURTLE, WarturtleEntity.createWarturtleAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SLEIGH, SleighEntity.createSleighAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.STEAM_GOLEM, SteamGolemEntity.createSteamGolemAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.GRAZE, GrazeEntity.createGrazeAttributes());
 
         AttackEntityCallback.EVENT.register(new AttackEntityHandler());
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);

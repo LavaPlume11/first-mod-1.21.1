@@ -2,6 +2,7 @@ package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
+import me.xander.firstmod.corruption.CorruptionSword;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.ModToolMaterials;
@@ -135,6 +136,10 @@ public class ModItems {
     public static final Item STICKY_FEATHER = registerItem("sticky_feather", new Item(new Item.Settings()));
     public static final Item DRAGON_SCALE = registerItem("dragon_scale", new Item(new Item.Settings().maxCount(16)));
     public static final Item DRAGONSCALE_WINGS = registerItem("dragonscale_wings", new DragonscaleWings(new Item.Settings().maxDamage(1000)));
+    public static final Item SHODDY_WINGS = registerItem("shoddy_wings", new ShoddyWings(new Item.Settings().maxDamage(100)));
+    public static final Item CORRUPTION_SWORD = registerItem("corruption_sword",
+            new CorruptionSword(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+                    (ToolMaterials.DIAMOND,3,-2.1f)).maxDamage(1561).rarity(Rarity.RARE)));
 
 
     private static Item registerItem(String name, Item item) {

@@ -73,5 +73,11 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
             matrixStack.pop();
             ci.cancel();
         }
+        if (itemStack.isOf(ModItems.SHODDY_WINGS)) {
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(Identifier.of(first_mod.MOD_ID, "textures/entity/shoddy_wings.png")), itemStack.hasGlint());
+            this.elytra.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV);
+            matrixStack.pop();
+            ci.cancel();
+        }
     }
 }
