@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "firstmod:mithril_block"
+    },
+    "N": {
+      "item": "firstmod:mithril_display_block"
+    },
+    "S": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "pattern": [
+    "CNC",
+    "CSC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:compressor"
+  }
+}

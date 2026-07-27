@@ -9,7 +9,6 @@ import me.xander.firstmod.recipe.CompressorRecipeInput;
 import me.xander.firstmod.recipe.ModRecipes;
 import me.xander.firstmod.screen.custom.CompressorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -31,7 +30,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,7 +44,7 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
     private static final int ENERGY_TRANSFER_AMOUNT = 320;
     private static final int ENERGY_CRAFTING_AMOUNT = 5000;
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(1000000, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
+   /* public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(1000000, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
         @Override
         protected void onFinalCommit() {
             markDirty();
@@ -54,6 +52,9 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
         }
     };
 
+    */
+    public int energyStorage = 0;
+    public final int energyStorageMax = 1000000;
     private final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
@@ -123,7 +124,7 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
         nbt.putInt("compressor.max_progress",maxProgress);
         nbt.putInt("compressor.inspection_progress",inspectionProgress);
         nbt.putInt("compressor.max_inspection_progress",maxInspectionProgress);
-        nbt.putLong("compressor.energy",energyStorage.amount);
+        nbt.putInt("compressor.energy",energyStorage);
         nbt.put("compressor.inspected_item", currentInspectedItem.encode(registryLookup));
 
     }
@@ -135,7 +136,7 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
         maxProgress = nbt.getInt("compressor.max_progress");
         inspectionProgress = nbt.getInt("compressor.inspection_progress");
         maxInspectionProgress = nbt.getInt("compressor.max_inspection_progress");
-        energyStorage.amount = nbt.getLong("compressor.energy");
+        energyStorage = nbt.getInt("compressor.energy");
         currentInspectedItem = ItemStack.fromNbt(registryLookup, nbt.get("compressor.inspected_item")).get();
         super.readNbt(nbt, registryLookup);
     }
@@ -217,10 +218,7 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void useEnergyForCrafting() {
-        try(Transaction transaction = Transaction.openOuter()) {
-            this.energyStorage.extract(ENERGY_CRAFTING_AMOUNT, transaction);
-            transaction.commit();
-        }
+           // this.energyStorage -= ENERGY_CRAFTING_AMOUNT;
     }
 
     private void increaseCraftingProgress() {
@@ -231,7 +229,9 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
         return this.getStack(OUTPUT_SLOT).isEmpty() ||
                 this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
-
+    public void addEnergy(int energy) {
+        this.energyStorage += energy;
+    }
     private boolean hasRecipe() {
         Optional<RecipeEntry<CompressorRecipe>> recipe = getCurrentRecipe();
         if (recipe.isEmpty())
@@ -242,7 +242,8 @@ public class CompressorBlockEntity extends BlockEntity implements ExtendedScreen
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasInspection() && hasEnoughEnergyToCraft();
     }
     private boolean hasEnoughEnergyToCraft() {
-        return this.energyStorage.amount >= (long) ENERGY_CRAFTING_AMOUNT;
+        //return this.energyStorage >=  ENERGY_CRAFTING_AMOUNT;
+        return true;
     }
     private boolean hasInspection() {
         Optional<RecipeEntry<CompressorRecipe>> recipe = getCurrentRecipe();

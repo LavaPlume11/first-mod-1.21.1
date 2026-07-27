@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "C": {
-      "item": "minecraft:iron_ingot"
+    "I": {
+      "item": "minecraft:red_wool"
     },
     "S": {
-      "item": "minecraft:stick"
+      "item": "minecraft:string"
     }
   },
   "pattern": [
-    "CCC",
-    "CSC",
-    " S "
+    " SI",
+    "SIS",
+    "IS "
   ],
   "result": {
     "count": 1,
-    "id": "firstmod:tomahawk"
+    "id": "firstmod:guitar"
   }
 }

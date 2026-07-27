@@ -8,14 +8,21 @@
     "ModEntityDataSaverMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
-    "ZombieEntityMixin"
+    "SlotMixin",
+    "ZombieEntityMixin",
+    "accessor.ArmorMaterialAccessor",
+    "accessor.ArmorMaterialLayerAccessor"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",
+    "ArmorFeatureRendererMixin",
     "ElytraFeatureRendererMixin",
+    "InGameHudMixin",
     "ItemRendererMixin",
+    "LivingEntityRendererMixin",
     "ModelLoaderMixin",
-    "PlayerEntityRendererMixin"
+    "PlayerEntityRendererMixin",
+    "accessor.HeartTypeAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

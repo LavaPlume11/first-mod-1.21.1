@@ -29,13 +29,13 @@ public class ModItemGroups {
                        entries.add(ModItems.CATALYST);
                        entries.add(ModItems.THANK_HAT);
                        entries.add(ModItems.XMAS_HAT);
+                       entries.add(ModItems.XMAS_STICK);
                        entries.add(ModItems.GUITAR);
                        entries.add(ModItems.POCKET_STORAGE);
                        entries.add(ModItems.DARK_PORTAL_SETTER);
+                       entries.add(ModItems.CLONE_CREATOR);
                        entries.add(ModItems.LEMMING_SPAWN_EGG);
                        entries.add(ModItems.WHISPERER_SPAWN_EGG);
-                       entries.add(ModItems.WARTURTLE_SPAWN_EGG);
-                       entries.add(ModBlocks.ECHO_GENERATOR);
                        entries.add(ModBlocks.TANK);
                        entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModBlocks.COMPRESSOR);
@@ -57,6 +57,9 @@ public class ModItemGroups {
                        entries.add(ModBlocks.MITHRIL_SLAB);
                        entries.add(ModBlocks.BLOCK_OF_THE_SEA);
                        entries.add(ModBlocks.STEAM_VENT);
+                       entries.add(ModItems.TYRINITE);
+                       entries.add(ModItems.TYRINITE_STEW);
+                       entries.add(ModBlocks.TYRINITE_GEM);
                        entries.add(ModBlocks.CORRUPTION_BLOCK);
                        entries.add(ModBlocks.CORRUPTION_VINES);
                        entries.add(ModItems.CORRUPTION_SWORD);
@@ -81,14 +84,9 @@ public class ModItemGroups {
                        entries.add(ModItems.MITHRIL_CHESTPLATE);
                        entries.add(ModItems.MITHRIL_LEGGINGS);
                        entries.add(ModItems.MITHRIL_BOOTS);
-                       entries.add(ModItems.IRON_WARTURTLE_ARMOR);
-                       entries.add(ModItems.GOLD_WARTURTLE_ARMOR);
-                       entries.add(ModItems.DIAMOND_WARTURTLE_ARMOR);
-                       entries.add(ModItems.NETHERITE_WARTURTLE_ARMOR);
-                       entries.add(ModItems.MITHRIL_WARTURTLE_ARMOR);
+                       entries.add(ModItems.TRAP_REMOTE);
                        entries.add(ModItems.BIG_SWORD);
                        entries.add(ModItems.NETHER_BOW);
-                       entries.add(ModItems.TOMAHAWK);
                    }).build());
 
 

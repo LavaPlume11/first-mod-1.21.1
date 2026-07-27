@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "G": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "GEG",
+    "G G",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:thank_hat"
+  }
+}

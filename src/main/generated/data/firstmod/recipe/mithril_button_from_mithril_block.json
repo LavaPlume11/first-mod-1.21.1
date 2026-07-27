@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mithril",
+  "ingredients": [
+    {
+      "item": "firstmod:mithril_block"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:mithril_button"
+  }
+}

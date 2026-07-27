@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_chest"
+    },
+    "G": {
+      "item": "minecraft:end_crystal"
+    },
+    "R": {
+      "item": "minecraft:shulker_shell"
+    },
+    "S": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "RER",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:pocket_storage"
+  }
+}

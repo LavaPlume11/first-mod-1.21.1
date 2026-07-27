@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "firstmod:tyrinite"
+    }
+  },
+  "pattern": [
+    " G ",
+    "GGG",
+    " G "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:tyrinite_gem"
+  }
+}

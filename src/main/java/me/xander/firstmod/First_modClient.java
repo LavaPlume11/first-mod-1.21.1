@@ -4,20 +4,17 @@ import me.xander.first_mod;
 import me.xander.firstmod.block.renderer.MelterBlockEntityRenderer;
 import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
 import me.xander.firstmod.block.renderer.TankBlockEntityRenderer;
-import me.xander.firstmod.corruption.CorruptionHandler;
-import me.xander.firstmod.data.ModData;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.events.HudRenderHandler;
 import me.xander.firstmod.events.ModClientEvents;
 import me.xander.firstmod.events.ModWorldRenderEvents;
 import me.xander.firstmod.fluid.ModFluids;
-import me.xander.firstmod.networking.ClientboundPackets;
 import me.xander.firstmod.networking.ModPackets;
-import me.xander.firstmod.networking.packet.CorruptionPayload;
 import me.xander.firstmod.particle.BloodParticle;
 import me.xander.firstmod.particle.DarkPortalParticle;
 import me.xander.firstmod.particle.StickyFeatherParticle;
+import me.xander.firstmod.renderer.feature.CorruptionRenderer;
 import me.xander.firstmod.renderer.feature.WardenPendentRenderer;
 import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.*;
@@ -28,8 +25,6 @@ import me.xander.firstmod.util.ModKeyBindings;
 import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
@@ -37,14 +32,14 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.model.Dilation;
+import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.*;
-import net.minecraft.text.Text;
 
 public class First_modClient implements ClientModInitializer {
 
@@ -57,6 +52,7 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MELTER, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BRIDGE_BLOCK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CORRUPTION_VINES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TYRINITE_GEM, RenderLayer.getTranslucent());
         ModScreenHandlers.registerScreenHandlers();
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MITHRIL_WATER, ModFluids.FLOWING_MITHRIL_WATER,
@@ -102,6 +98,10 @@ public class First_modClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.GRAZE, GrazeEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.GRAZE, GrazeEntityRenderer::new);
 
+
+        EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.CLONE,  CloneEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.CLONE, CloneEntityRenderer::new);
+
         EntityRendererRegistry.register(ModEntities.DISPLAY_ENTITY, DisplayBlockEntityEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.FIRE_BLAST, FireBlastEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.DARK_PORTAL, DarkPortalEntityRenderer::new);
@@ -112,8 +112,8 @@ public class First_modClient implements ClientModInitializer {
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((
                 entityType, livingEntityRenderer, registrationHelper, context) -> {
             if (livingEntityRenderer instanceof PlayerEntityRenderer playerRenderer) {
-                PlayerEntityModel<AbstractClientPlayerEntity> playerModel = playerRenderer.getModel();
                 registrationHelper.register(new WardenPendentRenderer(playerRenderer));
+                registrationHelper.register(new CorruptionRenderer(playerRenderer));
             }
         });
 

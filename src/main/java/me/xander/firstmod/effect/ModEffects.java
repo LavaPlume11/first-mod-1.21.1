@@ -16,6 +16,8 @@ public class ModEffects {
                     .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
                             Identifier.of(first_mod.MOD_ID, "sticky"),-0.25f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+    public static final  RegistryEntry<StatusEffect> PURIFICATION = registerStatusEffect("purification",
+            new PurificationEffect(StatusEffectCategory.BENEFICIAL, 9957419));
 
    private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
        return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(first_mod.MOD_ID, name), statusEffect);

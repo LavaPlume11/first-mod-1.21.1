@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:emerald"
+    },
+    "D": {
+      "item": "minecraft:ender_eye"
+    },
+    "E": {
+      "item": "firstmod:warden_pendent"
+    },
+    "F": {
+      "item": "minecraft:end_crystal"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEF",
+    "GHI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:diamond_warden_pendent"
+  }
+}

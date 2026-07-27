@@ -182,20 +182,6 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("do_drugs", ConsumeItemCriterion.Conditions.item(ModItems.CATALYST))
                 .build(consumer, first_mod.MOD_ID + "/do_drugs");
 
-        AdvancementEntry getTomahawk = Advancement.Builder.create()
-                .parent(getRawMithril)
-                .display(
-                        ModItems.TOMAHAWK,
-                        Text.literal("A Throwable Axe"),
-                        Text.literal("Obtain a Tomahawk"),
-                        null,
-                        AdvancementFrame.TASK,
-                        true,
-                        true,
-                        false
-                )
-                .criterion("got_tomahawk", InventoryChangedCriterion.Conditions.items(ModItems.TOMAHAWK))
-                .build(consumer, first_mod.MOD_ID + "/get_tomahawk");
     }
 }
 

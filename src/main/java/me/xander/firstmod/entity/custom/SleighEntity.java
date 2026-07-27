@@ -42,10 +42,6 @@ public class SleighEntity extends AbstractHorseEntity {
         return ModEntities.SLEIGH.create(world);
     }
 
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(3, new EscapeDangerGoal(this,5));
-    }
 
     /* RIDEABLE */
     @Override
@@ -65,7 +61,9 @@ public class SleighEntity extends AbstractHorseEntity {
                 return ActionResult.success(this.getWorld().isClient);
             }
         }
+        this.jump();
         return super.interactMob(player, hand);
+
     }
 
     @Override
@@ -77,4 +75,5 @@ public class SleighEntity extends AbstractHorseEntity {
     public boolean isBreedingItem(ItemStack stack) {
         return stack.isOf(ModItems.BANANA);
     }
+
 }

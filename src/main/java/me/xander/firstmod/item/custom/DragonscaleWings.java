@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DragonscaleWings extends ElytraItem {
     public EndCrystalEntity connectedCrystal;
-    public boolean doCrystalFirstPerson = true;
+    public boolean doCrystalFirstPerson = false;
 
     public DragonscaleWings(Settings settings) {
         super(settings);

@@ -32,12 +32,11 @@ public class EchoGeneratorScreen extends HandledScreen<EchoGeneratorScreenHandle
         // Center title
         titleX = (width - backgroundWidth) / 2;
 
-        assignEnergyInfoArea();
     }
 
     private void assignEnergyInfoArea() {
         energyInfoArea = new EnergyInfoArea(((width - backgroundWidth) / 2) + 156,
-                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage);
+                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage, handler.blockEntity.energyStorageMax);
     }
 
     private void renderEnergyAreaTooltips(DrawContext context, int pMouseX, int pMouseY, int x, int y) {

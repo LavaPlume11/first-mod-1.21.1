@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "minecraft:sculk_vein"
+    },
+    "M": {
+      "item": "minecraft:blaze_rod"
+    },
+    "S": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    " SI",
+    "SMS",
+    "IS "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:dark_portal_setter"
+  }
+}

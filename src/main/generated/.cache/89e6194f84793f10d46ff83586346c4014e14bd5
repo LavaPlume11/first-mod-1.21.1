@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-22T14:44:27.5039492	First Mod/Advancements
+// 1.21.1	2026-07-26T19:18:32.9773676	First Mod/Advancements
 780b10510469fbd91edd2c33d67fab6a7b86a5be data\minecraft\advancement\firstmod\get_true_blade.json
 d1e8dbbab5653054f1bf721470ace809d8b383be data\minecraft\advancement\firstmod\get_mithril_block.json
 0a5fbbdea78d74fd94d5da1bbbbf68c54e5f871e data\minecraft\advancement\firstmod\get_refined_blade.json
@@ -7,6 +7,5 @@ d5febd68ff0dfb6bef09fa2e14218fba4c01ef09 data\minecraft\advancement\firstmod\get
 9ae819b9910844f6313db113fc479bee5bec574f data\minecraft\advancement\firstmod\get_damaged_blade.json
 a02c41ae46634a4e81367358eeef6334c5e5760f data\minecraft\advancement\firstmod\do_drugs.json
 430cd183b673e62735f51c1297a6f9263cf28f30 data\minecraft\advancement\firstmod\get_raw_mithril.json
-59f0692544b3a9699f7b29422a05232cd03b832c data\minecraft\advancement\firstmod\get_tomahawk.json
 762b830f6ef12c31934c6957864bab6ade751010 data\minecraft\advancement\firstmod\get_ancient_blade.json
 24a21f86315437662c1c9b7f6fd44745593fef24 data\minecraft\advancement\firstmod\get_mithril_armor.json

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:tinted_glass"
+    },
+    "E": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "F": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "pattern": [
+    " C ",
+    "FEF",
+    " G "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:clone_creator"
+  }
+}

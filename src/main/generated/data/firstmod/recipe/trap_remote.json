@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "I": {
-      "item": "minecraft:copper_ingot"
+      "item": "minecraft:redstone"
     },
     "M": {
       "item": "minecraft:breeze_rod"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "firstmod:locator"
+    "id": "firstmod:trap_remote"
   }
 }

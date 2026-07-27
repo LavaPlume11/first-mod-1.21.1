@@ -149,7 +149,9 @@ public class ModBlocks {
                     .strength(-1.0F, 3600000.0F).dropsNothing()
                     .sounds(BlockSoundGroup.SCULK).nonOpaque()
                     .luminance(CorruptionVines.getLuminanceSupplier(9)).burnable().pistonBehavior(PistonBehavior.BLOCK)));
-
+    public static final Block TYRINITE_GEM = registerBlock("tyrinite_gem",
+            new TyriniteGem(AbstractBlock.Settings.create().strength(2f).mapColor(MapColor.GREEN).ticksRandomly().dropsNothing()
+                    .requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

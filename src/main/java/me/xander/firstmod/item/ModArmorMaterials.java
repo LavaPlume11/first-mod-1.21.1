@@ -18,7 +18,8 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ModArmorMaterials {
+public class ModArmorMaterials  {
+
     public static final RegistryEntry<ArmorMaterial> MITHRIL_ARMOR = registerArmorMaterial("mithril",
         () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
             map.put(ArmorItem.Type.BOOTS, 7);
@@ -27,7 +28,7 @@ public class ModArmorMaterials {
             map.put(ArmorItem.Type.HELMET, 9);
             map.put(ArmorItem.Type.BODY, 10);
         }), 20, SoundEvents.AMBIENT_CAVE, () -> Ingredient.ofItems(ModItems.MITHRIL),
-                List.of(new ArmorMaterial.Layer(Identifier.of(first_mod.MOD_ID, "mithril"))), 0, 0));
+                List.of(new ArmorMaterial.Layer(Identifier.of(first_mod.MOD_ID, "mithril"), "", false)), 0, 0));
     public static final RegistryEntry<ArmorMaterial> HOLIDAY = registerArmorMaterial("holiday",
             () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
                 map.put(ArmorItem.Type.BOOTS, 2);
@@ -51,6 +52,7 @@ public class ModArmorMaterials {
     public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material) {
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(first_mod.MOD_ID, name), material.get());
     }
+
 }
 
 

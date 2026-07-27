@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:red_nether_bricks"
+    },
+    "R": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "  E",
+    " ER",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:big_sword"
+  }
+}

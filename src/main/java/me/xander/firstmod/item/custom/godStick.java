@@ -3,6 +3,7 @@ package me.xander.firstmod.item.custom;
 import me.xander.first_mod;
 import me.xander.firstmod.corruption.CorruptionHandler;
 import me.xander.firstmod.sound.ModSounds;
+import me.xander.firstmod.util.mixin.PlayerEntityAccess;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
@@ -31,6 +32,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class godStick extends SwordItem {
@@ -88,8 +90,10 @@ public class godStick extends SwordItem {
             context.getPlayer().playSound(ModSounds.STICKING);
 
         }else {
-            if (!context.getWorld().isClient())
+            if (!context.getWorld().isClient()) {
                 CorruptionHandler.setCorruption(((ServerPlayerEntity) context.getPlayer()), 0);
+                ((PlayerEntityAccess) context.getPlayer()).first_mod_template_1_21_1$setCorruptedKills(new ArrayList<>());
+            }
         }
         return ActionResult.SUCCESS;
     }

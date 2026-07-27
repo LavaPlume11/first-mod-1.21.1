@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "firstmod:tyrinite"
+    },
+    {
+      "item": "firstmod:tyrinite"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:oxeye_daisy"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:tyrinite_stew"
+  }
+}

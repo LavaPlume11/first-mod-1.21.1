@@ -3,6 +3,7 @@ package me.xander.firstmod.item.custom;
 import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.corruption.CorruptionSword;
+import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.ModToolMaterials;
@@ -50,6 +51,16 @@ public class ModItems {
     public static final Item AMETHYST_GEMS = registerItem("amethyst_gems", new Item(new Item.Settings().maxCount(16)));
     public static final Spear SPEAR = (Spear) registerItem("spear",  new Spear(new  Item.Settings().maxCount(1)));
     public static final Item DARK_PORTAL_SETTER = registerItem("dark_portal_setter", new DarkPortalSetter(new Item.Settings().maxCount(1)));
+    public static final Item TRAP_REMOTE = registerItem("trap_remote", new RemoteItem(new Item.Settings().maxCount(1)));
+    public static final Item CLONE_CREATOR = registerItem("clone_creator", new CloneCreator(new Item.Settings().maxCount(1).maxDamage(600)));
+    public static final Item TYRINITE = registerItem("tyrinite", new CorruptionRepeller(new Item.Settings()));
+    public static final Item TYRINITE_STEW = registerItem("tyrinite_stew", new Item(new Item.Settings().food(new FoodComponent.Builder()
+            .nutrition(3)
+            .saturationModifier(0.3f)
+            .alwaysEdible()
+            .usingConvertsTo(Items.BOWL)
+            .statusEffect(new StatusEffectInstance(ModEffects.PURIFICATION, 200), 1f).build())
+            .maxCount(1)));
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));
 
@@ -95,13 +106,13 @@ public class ModItems {
     public static final Item MITHRIL_SWORD_SHARD = registerItem("mithril_sword_shard", new SwordShard(new Item.Settings().maxCount(16).fireproof()));
     public static final Item THANK_HAT = registerItem("thank_hat", new ThankHat(new Item.Settings().maxCount(1)));
     public static final Item XMAS_HAT = registerItem("xmas_hat", new XmasHat(new Item.Settings().maxCount(1)));
-    public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
+    public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new TrapArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.HELMET, new Item.Settings().maxDamage(165)));
-    public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate",  new  ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
+    public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate",  new TrapArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(240)));
-    public static final Item MITHRIL_LEGGINGS = registerItem("mithril_leggings",  new ModArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
+    public static final Item MITHRIL_LEGGINGS = registerItem("mithril_leggings",  new TrapArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(225)));
-    public static final Item MITHRIL_BOOTS = registerItem("mithril_boots",  new  ArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
+    public static final Item MITHRIL_BOOTS = registerItem("mithril_boots",  new TrapArmorItem(ModArmorMaterials.MITHRIL_ARMOR,
             ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(195)));
     public static final Item MITHRIL_TEMPLATE = registerItem("mithril_template", new Item(new Item.Settings()));
     public static final Item LIGHTNING_HELMET = registerItem("lightning_helmet", new LightningHat(ModArmorMaterials.LIGHTNING,
@@ -143,8 +154,8 @@ public class ModItems {
 
 
     private static Item registerItem(String name, Item item) {
-        Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),
-                new Item(new Item.Settings()));
+       // Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),
+             //   new Item(new Item.Settings()));
         return Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name), item);
     }
     public static void registerModItems() {

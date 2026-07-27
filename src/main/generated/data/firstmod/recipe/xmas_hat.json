@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "firstmod:xmas_stick"
+    },
+    "G": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "pattern": [
+    "GEG",
+    "G G",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:xmas_hat"
+  }
+}

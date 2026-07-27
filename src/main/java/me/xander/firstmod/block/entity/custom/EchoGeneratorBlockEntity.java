@@ -4,7 +4,6 @@ import me.xander.firstmod.inventory.ImplementedInventory;
 import me.xander.firstmod.block.entity.ModBlockEntities;
 import me.xander.firstmod.screen.custom.EchoGeneratorScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,9 +24,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.EnergyStorage;
-import team.reborn.energy.api.EnergyStorageUtil;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
+
+import java.util.Optional;
 
 public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
@@ -41,14 +39,16 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
 
     private static final int ENERGY_TRANSFER_AMOUNT = 320;
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(228000, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
+   /* public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(228000, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
         @Override
         protected void onFinalCommit() {
             markDirty();
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
-
+    */
+   public int energyStorage = 0;
+   public final int energyStorageMax = 228000;
     public EchoGeneratorBlockEntity( BlockPos pos, BlockState state) {
         super(ModBlockEntities.ECHO_GENERATOR_BE, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
@@ -83,7 +83,7 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
-        nbt.putLong(("echo_generator.energy"), energyStorage.amount);
+        nbt.putInt(("echo_generator.energy"), energyStorage);
         nbt.putInt(("echo_generator.burn_progress"), burnProgress);
         nbt.putInt(("echo_generator.max_burn_progress"), maxBurnProgress);
     }
@@ -91,7 +91,7 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
     @Override
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.readNbt(nbt, inventory, registryLookup);
-        energyStorage.amount = nbt.getLong("echo_generator.energy");
+        energyStorage = nbt.getInt("echo_generator.energy");
         burnProgress = nbt.getInt("echo_generator.burn_progress");
         maxBurnProgress = nbt.getInt("echo_generator.max_burn_progress");
 
@@ -140,18 +140,31 @@ public class EchoGeneratorBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private boolean isFullOnPower() {
-        return (this.energyStorage.amount) >= 228000;
+        return (this.energyStorage) >= 228000;
     }
 
     private void pushEnergyToAboveNeighbour() {
-        EnergyStorageUtil.move(this.energyStorage, EnergyStorage.SIDED.find(world, pos.up(), null), Long.MAX_VALUE, null);
+        Optional<CompressorBlockEntity> entity = world.getBlockEntity(this.pos.up(), ModBlockEntities.COMPRESSOR_BE);
+        if(!entity.isEmpty()) {
+            CompressorBlockEntity be = entity.get();
+            if (be.energyStorage != be.energyStorageMax) {
+                be.addEnergy(ENERGY_TRANSFER_AMOUNT);
+                this.energyStorage -= ENERGY_TRANSFER_AMOUNT;
+            }
+        }
+
+        Optional<CrystallizerBlockEntity> cryEntity = world.getBlockEntity(this.pos.up(), ModBlockEntities.CRYSTALLIZER_BE);
+        if(!cryEntity.isEmpty()) {
+            CrystallizerBlockEntity be = cryEntity.get();
+            if (be.energyStorage != be.energyStorageMax) {
+                be.addEnergy(ENERGY_TRANSFER_AMOUNT);
+                this.energyStorage -= ENERGY_TRANSFER_AMOUNT;
+            }
+        }
     }
 
     private void fillUpOnEnergy() {
-        try(Transaction transaction = Transaction.openOuter()) {
-            this.energyStorage.insert(320, transaction);
-            transaction.commit();
-        }
+            this.energyStorage += 320;
     }
 
     private void resetBurning() {

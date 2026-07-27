@@ -6,14 +6,19 @@ import me.xander.firstmod.data.ModData;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +47,7 @@ public class CorruptionBlock extends Block {
                          if (CorruptionHandler.getCorruption(players.get(i)) <= 5) {
                              if (!players.get(i).isCreative()) {
                                  CorruptionHandler.addCorruption(players.get(i), 1);
-                                 players.get(i).playSoundToPlayer(ModSounds.STICKING, SoundCategory.NEUTRAL, 1f, 1f);
+                                 players.get(i).playSoundToPlayer(ModSounds.STICKING, SoundCategory.AMBIENT, 1f, 1f);
                              }
                          }
                      }
@@ -76,5 +81,18 @@ public class CorruptionBlock extends Block {
         if (world.getBlockState(pos.south()).isReplaceable()) {
             world.setBlockState(pos.south(), ModBlocks.CORRUPTION_VINES.getDefaultState());
         }
+    }
+
+    @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (CorruptionHandler.getCorruption(player) >= 3) {
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), ModBlocks.CORRUPTION_BLOCK.asItem().getDefaultStack());
+        }
+        return super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+        super.onPlaced(world, pos, state, placer, itemStack);
     }
 }

@@ -71,7 +71,7 @@ public class TrueBlade extends SwordItem {
                 if (player.isSneaking() && defenseMode) {
                     makeShield(world, player, 1);
                 }
-                if (ModKeyBindings.C_KEY_BINDING.wasPressed()) {
+                if (world.isClient() && ModKeyBindings.C_KEY_BINDING.wasPressed()) {
                     if (cooldown <= 0) {
                         if (defenseMode) {
                             stack.set(ModDataComponentTypes.USED, true);

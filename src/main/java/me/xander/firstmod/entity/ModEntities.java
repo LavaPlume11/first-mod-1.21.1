@@ -35,13 +35,18 @@ public class ModEntities {
     public static final EntityType<DarkPortalEntity> DARK_PORTAL = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "dark_portal"),EntityType.Builder.<DarkPortalEntity>create(DarkPortalEntity::new, SpawnGroup.MISC).dimensions(1f,1f).build());
     public static final EntityType<DarkSnareEntity> DARK_SNARE = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(first_mod.MOD_ID, "dark_snare"),EntityType.Builder.<DarkSnareEntity>create(DarkSnareEntity::new, SpawnGroup.MISC).dimensions(2f,0.05f).build());
+            Identifier.of(first_mod.MOD_ID, "dark_snare"),EntityType.Builder.create(DarkSnareEntity::new, SpawnGroup.MISC).dimensions(2f,0.05f).build());
     public static final EntityType<SteamGolemEntity> STEAM_GOLEM = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "steam_golem"),
             EntityType.Builder.create(SteamGolemEntity::new, SpawnGroup.MISC).dimensions(1.4f,2.7f).maxTrackingRange(10).build());
     public static final EntityType<GrazeEntity> GRAZE = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(first_mod.MOD_ID, "graze"),
             EntityType.Builder.create(GrazeEntity::new, SpawnGroup.MISC).dimensions(0.8f,1.2f).build());
+
+    public static final EntityType<CloneEntity> CLONE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(first_mod.MOD_ID, "clone"),
+            EntityType.Builder.create(CloneEntity::new, SpawnGroup.MISC).dimensions(0.5f,2f).maxTrackingRange(10).build());
+
     public static void registerModEntities() {
         first_mod.LOGGER.info("Registering Mod Entities for" + first_mod.MOD_ID);
     }

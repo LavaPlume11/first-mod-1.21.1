@@ -3,10 +3,17 @@ package me.xander.firstmod.util;
 
 import me.xander.first_mod;
 import me.xander.firstmod.components.ModDataComponentTypes;
+import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.custom.ModItems;
+import net.minecraft.client.item.ClampedModelPredicateProvider;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 public class ModModelPredicates {
     public static void registerModelPredicates() {
@@ -16,6 +23,7 @@ public class ModModelPredicates {
         registerElytra(ModItems.ICARUS_WINGS);
         registerUsable(ModItems.DARK_PORTAL_SETTER);
         registerElytra(ModItems.DRAGONSCALE_WINGS);
+        registerTriggerable(ModArmorMaterials.MITHRIL_ARMOR.value());
     }
     private static void registerUsable(Item item) {
         ModelPredicateProviderRegistry.register(item, Identifier.of(first_mod.MOD_ID, "usable"), (stack, world, entity, seed) -> {
@@ -85,5 +93,16 @@ public class ModModelPredicates {
                     return 0;
                 }
                 });
+    }
+    private static void registerTriggerable(ArmorMaterial material) {
+        ModelPredicateProviderRegistry.register( Identifier.of(first_mod.MOD_ID, "triggered"), ((stack, world, entity, seed) -> {
+            if (stack.get(ModDataComponentTypes.USED) == null) {
+                return 0f;
+            } else if (stack.get(ModDataComponentTypes.USED) == false) {
+                return 0f;
+            } else {
+                return 0.1f;
+            }
+        }));
     }
 }

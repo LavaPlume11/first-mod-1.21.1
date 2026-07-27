@@ -5,7 +5,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
 
         // This side piece will only spawn if this piece is entirely outside or inside the calling piece's bounding box
@@ -40,7 +40,7 @@
 
       // A second entry here means the starting piece's Jigsaw Block has a 33% chance of spawning
       // this golden right side piece instead of the regular right side. Think of it like a lottery.
-      "weight": 1,
+      "weight": 3,
       "element": {
         "location": "firstmod:fountain_base_emerald",
         "processors": "minecraft:empty",

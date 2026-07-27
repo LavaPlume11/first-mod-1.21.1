@@ -7,7 +7,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import team.reborn.energy.api.EnergyStorage;
+
 
 public class ModBlockEntities {
     public static final BlockEntityType<DisplayBlockEntity> DISPLAY_BE =
@@ -44,8 +44,8 @@ public class ModBlockEntities {
     public static void registerBlockEntities(){
         first_mod.LOGGER.info("Registering Block Entities for" + first_mod.MOD_ID);
 
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, ECHO_GENERATOR_BE);
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, CRYSTALLIZER_BE);
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, COMPRESSOR_BE);
+        //EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, ECHO_GENERATOR_BE);
+        //EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, CRYSTALLIZER_BE);
+        //EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, COMPRESSOR_BE);
     }
 }

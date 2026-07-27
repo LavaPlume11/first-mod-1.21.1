@@ -23,6 +23,8 @@ public class ModEntityModelLayers {
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"steam_golem"),"main");
     public static final EntityModelLayer GRAZE =
             new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"graze"),"main");
+    public static final EntityModelLayer CLONE =
+            new EntityModelLayer(Identifier.of(first_mod.MOD_ID,"clone"),"main");
 
 }
 

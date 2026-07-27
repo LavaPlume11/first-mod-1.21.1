@@ -114,6 +114,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LOCATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DRAGON_SCALE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SHODDY_WINGS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRAP_REMOTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TYRINITE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TYRINITE_STEW, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));

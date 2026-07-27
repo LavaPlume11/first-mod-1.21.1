@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "firstmod:tyrinite_gem"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tyrinite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:tyrinite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tyrinite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "firstmod:tyrinite_gem"
+    ]
+  }
+}

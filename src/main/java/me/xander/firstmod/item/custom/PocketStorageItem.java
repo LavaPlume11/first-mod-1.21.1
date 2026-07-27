@@ -1,5 +1,6 @@
 package me.xander.firstmod.item.custom;
 
+import me.xander.first_mod;
 import me.xander.firstmod.inventory.PocketStorageInventory;
 import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import me.xander.firstmod.screen.custom.StorageScreenHandler;
@@ -13,6 +14,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
+import java.sql.Time;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Set;
 
 public class PocketStorageItem extends Item {
@@ -47,11 +53,13 @@ public class PocketStorageItem extends Item {
     }
     public void openStorage(PlayerEntity player, World world) {
             PocketStorageInventory pocketStorageInventory = ((PocketStorageAccess)player).first_mod_template_1_21_1$getPocketStorageInventory();
+        if((Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 25 && Calendar.getInstance().get(Calendar.MONTH) == Calendar.DECEMBER) &&!pocketStorageInventory.containsAny(Set.of(ModItems.XMAS_STICK))) {
+            pocketStorageInventory.addStack(ModItems.XMAS_STICK.getDefaultStack());
+        }
             if (pocketStorageInventory.containsAny(Set.of(ModItems.POCKET_STORAGE))) {
                 pocketStorageInventory.clear();
             }
             player.openHandledScreen(new SimpleNamedScreenHandlerFactory((i, playerInventory, playerEntity) ->
-                   // GenericContainerScreenHandler.createGeneric9x3(i, playerInventory, pocketStorageInventory), Text.of("Pocket Dimension"
                     StorageScreenHandler.createMod9x2(i,playerInventory,pocketStorageInventory),Text.of("Pocket Dimension")));
 
     }

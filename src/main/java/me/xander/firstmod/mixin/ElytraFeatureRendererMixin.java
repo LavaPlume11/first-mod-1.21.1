@@ -25,10 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -66,18 +63,17 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
             }
             matrixStack.pop();
             ci.cancel();
-        }
-        if (itemStack.isOf(ModItems.DRAGONSCALE_WINGS)) {
-            VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(Identifier.of(first_mod.MOD_ID, "textures/entity/dragonscale_wings.png")), itemStack.hasGlint());
+        } else {
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(getElytraTexture(itemStack)), itemStack.hasGlint());
             this.elytra.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV);
             matrixStack.pop();
             ci.cancel();
         }
-        if (itemStack.isOf(ModItems.SHODDY_WINGS)) {
-            VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(Identifier.of(first_mod.MOD_ID, "textures/entity/shoddy_wings.png")), itemStack.hasGlint());
-            this.elytra.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV);
-            matrixStack.pop();
-            ci.cancel();
-        }
+    }
+    @Unique
+    private static Identifier getElytraTexture(ItemStack stack) {
+        String fullString = stack.getRegistryEntry().getIdAsString();
+        int index = fullString.indexOf(":");
+        return Identifier.of(fullString.substring(0, index) + ":textures/entity/" + fullString.substring(index + 1) + ".png");
     }
 }

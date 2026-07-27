@@ -36,7 +36,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 import java.util.Optional;
 
@@ -56,13 +55,18 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
 
     private static final int ENERGY_CRAFTING_AMOUNT = 20000;
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(97800, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
+    /*public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(97800, ENERGY_TRANSFER_AMOUNT, ENERGY_TRANSFER_AMOUNT) {
         @Override
         protected void onFinalCommit() {
             markDirty();
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
+
     };
+    */
+
+    public final int energyStorageMax = 97800;
+    public int energyStorage = 0;
     public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
         @Override
         protected FluidVariant getBlankVariant() {
@@ -134,7 +138,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         Inventories.writeNbt(nbt, inventory, registryLookup);
         nbt.putInt("crystallizer.progress",progress);
         nbt.putInt("crystallizer.max_progress",maxProgress);
-        nbt.putLong("crystallizer.energy", energyStorage.amount);
+        nbt.putInt("crystallizer.energy", energyStorage);
         SingleVariantStorage.writeNbt(this.fluidStorage, FluidVariant.CODEC, nbt, registryLookup);
 
     }
@@ -144,7 +148,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
         Inventories.readNbt(nbt,inventory,registryLookup);
         progress = nbt.getInt("crystallizer.progress");
         maxProgress = nbt.getInt("crystallizer.max_progress");
-        energyStorage.amount = nbt.getLong("crystallizer.energy");
+        energyStorage = nbt.getInt("crystallizer.energy");
         SingleVariantStorage.readNbt(fluidStorage, FluidVariant.CODEC, FluidVariant::blank ,nbt, registryLookup);
         super.readNbt(nbt, registryLookup);
     }
@@ -175,23 +179,21 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
             fillFluidTank();
         }
     }
-
+    public void addEnergy(int energy) {
+        this.energyStorage += energy;
+    }
     private void consumeEnergyItem() {
         if (this.getStack(ENERGY_ITEM_SLOT).isOf(ModItems.TRUE_BLADE)) {
             for (int i = 0; i < 100; i++) {
-                try (Transaction transaction = Transaction.openOuter()) {
-                    this.energyStorage.insert(this.energyStorage.maxInsert, transaction);
+                    this.energyStorage += ENERGY_TRANSFER_AMOUNT;
                     inventory.set(ENERGY_ITEM_SLOT, new ItemStack(ModItems.REFINED_MITHRIL_SWORD));
-                    transaction.commit();
-                }
+
             }
 
         } else {
-            try (Transaction transaction = Transaction.openOuter()) {
-                this.energyStorage.insert(7000, transaction);
+                this.energyStorage += 7000;
                 inventory.set(ENERGY_ITEM_SLOT, ItemStack.EMPTY);
-                transaction.commit();
-            }
+
         }
     }
 
@@ -227,10 +229,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     private void useEnergyForCrafting() {
-        try(Transaction transaction = Transaction.openOuter()) {
-            this.energyStorage.extract(ENERGY_CRAFTING_AMOUNT, transaction);
-            transaction.commit();
-        }
+            //this.energyStorage -= ENERGY_CRAFTING_AMOUNT;
     }
 
     private void resetProgress() {
@@ -274,7 +273,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     private boolean hasEnoughEnergyToCraft() {
-        return this.energyStorage.amount >= (long) ENERGY_CRAFTING_AMOUNT;
+        //return this.energyStorage >=  ENERGY_CRAFTING_AMOUNT;
+        return true;
     }
 
     private Optional<RecipeEntry<CrystallizerRecipe>> getCurrentRecipe() {

@@ -30,7 +30,7 @@ public class CompressorScreen extends HandledScreen<CompressorScreenHandler> {
 
     private void assignEnergyInfoArea() {
         energyInfoArea = new EnergyInfoArea(((width - backgroundWidth) / 2) + 11,
-                ((height - backgroundHeight) / 2 ) + 9, handler.blockEntity.energyStorage, 9, 45/*48*/);
+                ((height - backgroundHeight) / 2 ) + 9, handler.blockEntity.energyStorage, handler.blockEntity.energyStorageMax, 9, 45/*48*/);
     }
     private void renderEnergyAreaTooltips(DrawContext context, int pMouseX, int pMouseY, int x, int y) {
         if(isMouseAboveArea(pMouseX, pMouseY, x, y, 12, 9, 9, 45)) {
@@ -51,14 +51,12 @@ public class CompressorScreen extends HandledScreen<CompressorScreenHandler> {
         // Get rid of title and Inventory title
         titleY = 1000;
         playerInventoryTitleY = 1000;
-        assignEnergyInfoArea();
     }
 
     @Override
     protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-        renderEnergyAreaTooltips(context, mouseX, mouseY, x, y);
         renderInspectionTooltips(context, mouseX, mouseY, x, y);
 
     }
@@ -74,7 +72,6 @@ public class CompressorScreen extends HandledScreen<CompressorScreenHandler> {
         context.drawItem(this.handler.blockEntity.currentInspectedItem, x + 150, y + 10);;
         renderProgressArrow(context, x, y);
         renderInspectionProgress(context, x, y);
-        energyInfoArea.draw(context);
 
 
 

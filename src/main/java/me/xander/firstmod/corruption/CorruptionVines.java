@@ -2,6 +2,7 @@ package me.xander.firstmod.corruption;
 
 
 import me.xander.firstmod.block.ModBlocks;
+import me.xander.firstmod.item.custom.CorruptionRepeller;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -34,9 +35,15 @@ public class CorruptionVines extends GlowLichenBlock {
 
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (CorruptionHandler.getCorruption(player) >= 2 || player.isCreative()) {
+        if (stack.getItem() instanceof CorruptionRepeller item) {
             world.removeBlock(pos, false);
-            world.playSound(player,pos, ModSounds.STICKING, SoundCategory.NEUTRAL, 1f, 1f);
+            world.playSound(player,pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1f, 1f);
+            if (!player.isCreative() && item.isConsumed()) {
+                stack.decrement(1);
+            }
+        } else if (CorruptionHandler.getCorruption(player) >= 2 || player.isCreative()) {
+            world.removeBlock(pos, false);
+            world.playSound(player,pos, ModSounds.STICKING, SoundCategory.AMBIENT, 1f, 1f);
             if (!world.isClient()) {
                 CorruptionHandler.addCorruption((ServerPlayerEntity) player, 1);
             }

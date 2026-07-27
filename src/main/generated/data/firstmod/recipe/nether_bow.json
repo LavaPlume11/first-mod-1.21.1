@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:twisting_vines"
+    },
+    "S": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    " SE",
+    "S E",
+    " SE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:nether_bow"
+  }
+}

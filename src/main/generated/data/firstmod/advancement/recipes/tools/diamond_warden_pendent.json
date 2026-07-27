@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "firstmod:diamond_warden_pendent"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warden_pendent": {
+      "conditions": {
+        "items": [
+          {
+            "items": "firstmod:warden_pendent"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warden_pendent"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "firstmod:diamond_warden_pendent"
+    ]
+  }
+}

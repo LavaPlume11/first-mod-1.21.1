@@ -12,8 +12,6 @@ public class StickyEffect extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
-
-
         if (entity.horizontalCollision) {
             Vec3d intialVec = entity.getVelocity();
         Vec3d climbVec = new Vec3d(intialVec.x, 0.2D, intialVec.z);

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "firstmod:corruption_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "firstmod:corruption_vines"
+  }
+}

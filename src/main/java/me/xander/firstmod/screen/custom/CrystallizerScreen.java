@@ -36,7 +36,7 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
 
     private void assignEnergyInfoArea() {
         energyInfoArea = new EnergyInfoArea(((width - backgroundWidth) / 2) + 156,
-                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage, 8, 46/*48*/);
+                ((height - backgroundHeight) / 2 ) + 11, handler.blockEntity.energyStorage,handler.blockEntity.energyStorageMax, 8, 46/*48*/);
     }
 
     private void renderEnergyAreaTooltips(DrawContext context, int pMouseX, int pMouseY, int x, int y) {
@@ -59,7 +59,6 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
         // Get rid of title and Inventory title
         titleY = 1000;
         playerInventoryTitleY = 1000;
-        assignEnergyInfoArea();
         assignFluidStackRenderer();
     }
 
@@ -68,7 +67,6 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
-        renderEnergyAreaTooltips(context, mouseX, mouseY, x, y);
         renderFluidTooltip(context, mouseX, mouseY, x, y, 8, 7, fluidStackRenderer);
     }
 
@@ -80,7 +78,6 @@ public class CrystallizerScreen extends HandledScreen<CrystallizerScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         context.drawTexture(GUI_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        energyInfoArea.draw(context);
         fluidStackRenderer.drawFluid(context, handler.blockEntity.fluidStorage, x + 8, y + 7, 16, 50,
                 (FluidConstants.BUCKET / 81) * 16);
         renderProgressArrow(context, x, y);

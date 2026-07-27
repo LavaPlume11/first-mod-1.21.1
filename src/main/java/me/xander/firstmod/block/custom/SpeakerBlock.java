@@ -29,7 +29,7 @@ public class SpeakerBlock extends Block {
 
     public void update(BlockState state, ServerWorld serverWorld, BlockPos pos) {
        if(serverWorld.isReceivingRedstonePower(pos)) {
-           serverWorld.playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSounds.WELCOME_MESSAGE, SoundCategory.NEUTRAL, 0.5f, 1f);
+           serverWorld.playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSounds.WELCOME_MESSAGE, SoundCategory.PLAYERS, 0.5f, 1f);
        }
     }
 }

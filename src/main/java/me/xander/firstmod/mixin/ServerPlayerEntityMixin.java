@@ -1,6 +1,7 @@
 package me.xander.firstmod.mixin;
 
 import com.mojang.authlib.GameProfile;
+import me.xander.firstmod.util.mixin.PlayerEntityAccess;
 import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -21,5 +22,6 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     @Inject(method = "copyFrom", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/data/DataTracker;set(Lnet/minecraft/entity/data/TrackedData;Ljava/lang/Object;)V"))
     private void setPocketInventory(ServerPlayerEntity oldPlayer, boolean alive, CallbackInfo ci) {
         ((PocketStorageAccess) this).first_mod_template_1_21_1$setPocketStorageInventory(((PocketStorageAccess) oldPlayer).first_mod_template_1_21_1$getPocketStorageInventory());
+        ((PlayerEntityAccess) this).first_mod_template_1_21_1$setCorruptedKills(((PlayerEntityAccess) oldPlayer).first_mod_template_1_21_1$getCorruptedKills());
     }
 }

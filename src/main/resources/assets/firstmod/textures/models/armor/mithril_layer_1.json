@@ -1,0 +1,13 @@
+{
+  "textures": {
+    "layer0": "firstmod:armor/mithril_layer_1_untriggered"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "firstmod:triggered": 0.1
+      },
+      "model": "firstmod:armor/mithril_layer_1_triggered"
+    }
+  ]
+}
