@@ -5,7 +5,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAttachmentType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -83,7 +82,7 @@ public class WardenPendent extends Item implements Equipment {
 
                             // Check if the entity is roughly in front of the player
                             if (direction.dotProduct(playerToEntity) > 0.99) { // Adjust the threshold
-                                applySonicBoomEffects(entity1, direction);
+                                applySonicBoomEffects(entity1, direction, (LivingEntity) entity);
                             }
                         }
 
@@ -98,21 +97,13 @@ public class WardenPendent extends Item implements Equipment {
     }
 
 
-    private void applySonicBoomEffects(LivingEntity entity, Vec3d direction) {
+    private void applySonicBoomEffects(LivingEntity entity, Vec3d direction, LivingEntity attacker) {
         // Apply knockback in the line direction
         Vec3d knockbackForce = direction.multiply(knockback);
         entity.setVelocity(knockbackForce);
 
         // Apply damage
-        Optional<RegistryEntry.Reference<DamageType>> sonicBoomDamageOptional = entity.getWorld().getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).getEntry(DamageTypes.SONIC_BOOM);
-        if (sonicBoomDamageOptional.isPresent()) {
-            RegistryEntry<DamageType> sonicBoomDamage = sonicBoomDamageOptional.get();
-            entity.damage(new DamageSource(sonicBoomDamage), damage);
-        } else {
-            first_mod.LOGGER.error("Error: Sonic Boom DamageType not found!");
-        }
-
-
+            entity.damage(entity.getDamageSources().sonicBoom(attacker), damage);
     }
 
     @Override

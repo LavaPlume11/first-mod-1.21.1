@@ -32,6 +32,7 @@ public class CloneEntity extends LivingEntity {
     private Direction playerLeft = Direction.WEST;
     private Direction playerRight = Direction.EAST;
     private boolean isLeft;
+    private boolean shouldConform = false;
 
     public static DefaultAttributeContainer.Builder createCloneAttributes() {
         return LivingEntity.createLivingAttributes()
@@ -112,6 +113,7 @@ public class CloneEntity extends LivingEntity {
         }
         nbt.putInt("cooldown", attackCoolDown);
         nbt.putBoolean("should_move", shouldMove);
+        nbt.putBoolean("should_conform", shouldConform);
         nbt.putString("direction", direction.asString());
     }
 
@@ -125,6 +127,7 @@ public class CloneEntity extends LivingEntity {
         }
         attackCoolDown = nbt.getInt("cooldown");
         shouldMove = nbt.getBoolean("should_move");
+        shouldConform = nbt.getBoolean("should_conform");
         direction = Direction.byName(nbt.getString("direction"));
     }
 
@@ -210,4 +213,13 @@ public class CloneEntity extends LivingEntity {
         }
         this.discard();
     }
+
+    public boolean shouldConform() {
+        return shouldConform;
+    }
+
+    public void setShouldConform(boolean shouldConform) {
+        this.shouldConform = shouldConform;
+    }
+
 }

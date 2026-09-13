@@ -7,9 +7,11 @@ import me.xander.firstmod.screen.custom.StorageScreenHandler;
 import me.xander.firstmod.util.ModKeyBindings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -47,10 +49,12 @@ public class PocketStorageItem extends Item {
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient)
+        if (!world.isClient())
             openStorage(user, world);
         return super.use(world, user, hand);
     }
+
+
     public void openStorage(PlayerEntity player, World world) {
             PocketStorageInventory pocketStorageInventory = ((PocketStorageAccess)player).first_mod_template_1_21_1$getPocketStorageInventory();
         if((Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 25 && Calendar.getInstance().get(Calendar.MONTH) == Calendar.DECEMBER) &&!pocketStorageInventory.containsAny(Set.of(ModItems.XMAS_STICK))) {

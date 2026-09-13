@@ -57,7 +57,7 @@ dependencies {
 	//modImplementation "curse.maven:techreborn-233564:5939581"
 	//modImplementation "curse.maven:reborncore-237903:5939580"
 	//modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.0'
-	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+	//modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 processResources {

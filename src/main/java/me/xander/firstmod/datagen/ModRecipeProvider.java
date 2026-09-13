@@ -2,17 +2,24 @@ package me.xander.firstmod.datagen;
 
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.item.custom.ModItems;
+import me.xander.firstmod.potion.ModPotions;
+import me.xander.firstmod.recipe.BloodBottleRecipe;
+import me.xander.firstmod.recipe.SeekingArrowRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.component.ComponentType;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
+import net.minecraft.data.server.recipe.ComplexRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.SuspiciousStewRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -303,6 +310,53 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', ModItems.TYRINITE)
                 .criterion(hasItem(ModItems.TYRINITE), conditionsFromItem(ModItems.TYRINITE))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.TYRINITE_GEM)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.TYRINITE_SWORD)
+                .pattern(" G ")
+                .pattern(" G ")
+                .pattern(" S ")
+                .input('G', ModItems.TYRINITE)
+                .input('S', Items.STICK)
+                .criterion(hasItem(ModItems.TYRINITE), conditionsFromItem(ModItems.TYRINITE))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.TYRINITE_SWORD)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.TYRINITE_ARROW, 4)
+                .pattern(" G ")
+                .pattern(" S ")
+                .pattern(" F ")
+                .input('G', ModItems.TYRINITE)
+                .input('S', Items.STICK)
+                .input('F', Items.FEATHER)
+                .criterion(hasItem(ModItems.TYRINITE), conditionsFromItem(ModItems.TYRINITE))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.TYRINITE_ARROW)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.RESONANT_ALLOY, 2)
+                .pattern(" G ")
+                .pattern("GSG")
+                .pattern(" G ")
+                .input('G', Items.DIAMOND)
+                .input('S', Items.ECHO_SHARD)
+                .criterion(hasItem(Items.ECHO_SHARD), conditionsFromItem(Items.ECHO_SHARD))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.RESONANT_ALLOY)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.LOCATOR)
+                .pattern("SSI")
+                .pattern("SMS")
+                .pattern("ISS")
+                .input('M', ModItems.RESONANT_ALLOY)
+                .input('I', Items.COPPER_INGOT)
+                .input('S', Items.IRON_INGOT)
+                .criterion(hasItem(ModItems.RESONANT_ALLOY), conditionsFromItem(ModItems.RESONANT_ALLOY))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.LOCATOR)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ECHO_FARM)
+                .pattern(" M ")
+                .pattern("CSC")
+                .pattern(" C ")
+                .input('S', Blocks.SCULK_SHRIEKER)
+                .input('C', Items.ECHO_SHARD)
+                .input('M', ModItems.RESONANT_ALLOY)
+                .criterion(hasItem(Items.SCULK_SHRIEKER), conditionsFromItem(Items.SCULK_SHRIEKER))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.ECHO_FARM)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.MITHRIL_SWORD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.DAMAGED_MITHRIL_SWORD)
                 .criterion("has_shard", conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_SWORD)));
@@ -312,6 +366,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_mithril_sword", conditionsFromItem(ModItems.MITHRIL_SWORD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.REFINED_MITHRIL_SWORD)));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.TYRINITE_STEW).input(ModItems.TYRINITE).input(ModItems.TYRINITE).input(Items.BOWL).input(Items.OXEYE_DAISY)
                 .criterion("has_tyrinite", conditionsFromItem(ModItems.TYRINITE)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.TYRINITE_STEW)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALTER).input(ModBlocks.STONE_OF_SWORD).input(Blocks.SMOOTH_BASALT).input(Items.DIAMOND).input(ModBlocks.CORRUPTION_VINES).input(ModBlocks.CORRUPTION_VINES)
+                .criterion("has_stone_of_sword", conditionsFromItem(ModBlocks.STONE_OF_SWORD)).offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.ALTER)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BLOOD_OF_STEEL).input(ModItems.BLOOD_BOTTLE).input(Items.IRON_INGOT).input(Items.DIAMOND)
+                .criterion("has_blood_bottle", conditionsFromItem(ModItems.BLOOD_BOTTLE)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.BLOOD_OF_STEEL)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.SEEKING_ARROW, 4).input(Items.ARROW).input(Items.ARROW).input(Items.ARROW).input(Items.ARROW).input(ModItems.RESONANT_ALLOY)
+                .criterion("has_resonant_alloy", conditionsFromItem(ModItems.RESONANT_ALLOY)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.SEEKING_ARROW)));
+
         offerBlasting(exporter, BANANA_SMELTABLE,RecipeCategory.MISC, ModItems.BURNT_BANANA,
                 0.7f, 1000, "banana");
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.MITHRIL, RecipeCategory.DECORATIONS,
@@ -323,6 +385,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerSmelting(exporter, MITHRIL_SMELTABLE,RecipeCategory.MISC, ModItems.MITHRIL,
                 1.7f, 500, "mithril");
         offerShapelessRecipe(exporter, ModItems.DRAGON_SCALE, Items.DRAGON_EGG, "dragon", 16);
+        offerSmelting(exporter, List.of(ModBlocks.MITHRILIZED_STONE), RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, 1.7f, 200, "mithril_nugget");
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModBlocks.CORRUPTION_VINES, RecipeCategory.MISC,
                 ModBlocks.CORRUPTION_BLOCK);
@@ -337,7 +400,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createPressurePlateRecipe(RecipeCategory.BUILDING_BLOCKS ,ModBlocks.MITHRIL_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.MITHRIL_BLOCK));
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_STAIRS, ModBlocks.MITHRIL_BLOCK);
         offerShapelessRecipe(exporter, ModBlocks.MITHRIL_BUTTON, ModBlocks.MITHRIL_BLOCK, "mithril", 1);
-
+        ComplexRecipeJsonBuilder.create(BloodBottleRecipe::new).offerTo(exporter, "bottling");
+        offerReversibleCompactingRecipesWithCompactingRecipeGroup(exporter, RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, RecipeCategory.MISC,
+                ModItems.MITHRIL, "mithril_from_mithril_nugget", "mithril");
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_DISPLAY_BLOCK)
                 .pattern(" O ")
                 .pattern("CSC")

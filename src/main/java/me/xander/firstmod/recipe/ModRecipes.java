@@ -1,8 +1,7 @@
 package me.xander.firstmod.recipe;
 
 import me.xander.first_mod;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -36,6 +35,15 @@ public class ModRecipes {
                     return "melting";
                 }
             });
+    public static final RecipeSerializer<BloodBottleRecipe> BLOOD_BOTTLE = Registry.register(Registries.RECIPE_SERIALIZER, "bottling", new SpecialRecipeSerializer<>(BloodBottleRecipe::new));
+    public static final RecipeType<BloodBottleRecipe> BLOOD_BOTTLE_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(first_mod.MOD_ID,"bottling"), new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "bottling";
+                }
+            });
+    public static final RecipeSerializer<SeekingArrowRecipe> SEEKING_ARROW = Registry.register(Registries.RECIPE_SERIALIZER, "seeking", new SpecialRecipeSerializer<>(SeekingArrowRecipe::new));
 
 
 

@@ -15,9 +15,12 @@ public class ModItemGroups {
    public static final ItemGroup MOD_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(first_mod.MOD_ID,"mithril"),
            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.mithril"))
                    .icon(() -> new ItemStack(ModItems.MITHRIL)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.MITHRIL);
                        entries.add(ModItems.RAW_MITHRIL);
+                       entries.add(ModItems.MITHRIL);
+                       entries.add(ModItems.MITHRIL_NUGGET);
+                       entries.add(ModItems.MITHRIL_CRYSTAL);
                        entries.add(ModFluids.MITHRIL_WATER_BUCKET);
+                       entries.add(ModItems.RESONANT_ALLOY);
                        entries.add(ModItems.MELTED_METAL);
                        entries.add(ModItems.STICKY_FEATHER);
                        entries.add(ModItems.DRAGON_SCALE);
@@ -34,8 +37,6 @@ public class ModItemGroups {
                        entries.add(ModItems.POCKET_STORAGE);
                        entries.add(ModItems.DARK_PORTAL_SETTER);
                        entries.add(ModItems.CLONE_CREATOR);
-                       entries.add(ModItems.LEMMING_SPAWN_EGG);
-                       entries.add(ModItems.WHISPERER_SPAWN_EGG);
                        entries.add(ModBlocks.TANK);
                        entries.add(ModBlocks.CRYSTALLIZER);
                        entries.add(ModBlocks.COMPRESSOR);
@@ -43,7 +44,9 @@ public class ModItemGroups {
                        entries.add(ModBlocks.POWER_AMPLIFIER);
                        entries.add(ModBlocks.MITHRIL_BLOCK);
                        entries.add(ModBlocks.MITHRIL_DISPLAY_BLOCK);
+                       entries.add(ModBlocks.MITHRILIZED_STONE);
                        entries.add(ModBlocks.MITHRIL_ORE);
+                       entries.add(ModBlocks.MITHRIL_CLUSTER);
                        entries.add(ModBlocks.DEEPSLATE_MITHRIL_ORE);
                        entries.add(ModBlocks.NETHER_MITHRIL_ORE);
                        entries.add(ModBlocks.MITHRIL_STAIRS);
@@ -60,6 +63,9 @@ public class ModItemGroups {
                        entries.add(ModItems.TYRINITE);
                        entries.add(ModItems.TYRINITE_STEW);
                        entries.add(ModBlocks.TYRINITE_GEM);
+                       entries.add(ModItems.TYRINITE_SWORD);
+                       entries.add(ModItems.TYRINITE_ARROW);
+                       entries.add(ModBlocks.ALTER);
                        entries.add(ModBlocks.CORRUPTION_BLOCK);
                        entries.add(ModBlocks.CORRUPTION_VINES);
                        entries.add(ModItems.CORRUPTION_SWORD);
@@ -76,6 +82,7 @@ public class ModItemGroups {
                        entries.add(ModItems.TRUE_BLADE);
                        entries.add(ModItems.LIGHT_KNIFE);
                        entries.add(ModItems.RE_DEAD_SWORD);
+                       entries.add(ModItems.NETHER_BOW);
                        entries.add(ModItems.SHODDY_WINGS);
                        entries.add(ModItems.ICARUS_WINGS);
                        entries.add(ModItems.DRAGONSCALE_WINGS);
@@ -85,8 +92,14 @@ public class ModItemGroups {
                        entries.add(ModItems.MITHRIL_LEGGINGS);
                        entries.add(ModItems.MITHRIL_BOOTS);
                        entries.add(ModItems.TRAP_REMOTE);
+                       entries.add(ModItems.LOCATOR);
+                       entries.add(ModItems.BRIDGE_BUILDER);
                        entries.add(ModItems.BIG_SWORD);
-                       entries.add(ModItems.NETHER_BOW);
+                       entries.add(ModItems.VAMPIRE_BLOOD);
+                       entries.add(ModItems.BLOOD_BOTTLE);
+                       entries.add(ModItems.BLOOD_OF_STEEL);
+                       entries.add(ModItems.SEEKING_ARROW);
+                       entries.add(ModBlocks.ECHO_FARM);
                    }).build());
 
 

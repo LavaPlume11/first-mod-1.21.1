@@ -1,6 +1,7 @@
 package me.xander.firstmod.enchantment;
 
 import me.xander.first_mod;
+import me.xander.firstmod.enchantment.custom.ConductivityEnchantmentEffect;
 import me.xander.firstmod.enchantment.custom.ImprovedSmiteEnchantmentEffect;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:echo_shard"
+    },
+    "M": {
+      "item": "firstmod:resonant_alloy"
+    },
+    "S": {
+      "item": "minecraft:sculk_shrieker"
+    }
+  },
+  "pattern": [
+    " M ",
+    "CSC",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:echo_farm"
+  }
+}

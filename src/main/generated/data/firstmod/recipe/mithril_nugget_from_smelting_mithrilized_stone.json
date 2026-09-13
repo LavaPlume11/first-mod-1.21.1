@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.7,
+  "group": "mithril_nugget",
+  "ingredient": {
+    "item": "firstmod:mithrilized_stone"
+  },
+  "result": {
+    "id": "firstmod:mithril_nugget"
+  }
+}

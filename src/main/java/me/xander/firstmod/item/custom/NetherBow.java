@@ -3,6 +3,7 @@ package me.xander.firstmod.item.custom;
 import me.xander.first_mod;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
@@ -40,25 +41,25 @@ public class NetherBow extends BowItem {
         return super.use(world, user, hand);
     }
 
-    @Override
+   @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        if (user instanceof PlayerEntity playerEntity) {
-            ItemStack itemStack = playerEntity.getProjectileType(stack);
+            ItemStack itemStack = user.getProjectileType(stack);
             if (itemStack.isOf(Items.FIRE_CHARGE)) {
                 int i = this.getMaxUseTime(stack, user) - remainingUseTicks;
                 float f = getPullProgress(i);
                 if (!((double) f < 0.1)) {
-                    List<ItemStack> list = load(stack, itemStack, playerEntity);
+                    List<ItemStack> list = load(stack, itemStack, user);
                     if (world instanceof ServerWorld) {
                         ServerWorld serverWorld = (ServerWorld) world;
                         if (!list.isEmpty()) {
-                            this.shootAll(serverWorld, playerEntity, playerEntity.getActiveHand(), stack, list, f * 6.0F, 0.0F, f == 1.0F, (LivingEntity) null);
+                            this.shootAll(serverWorld, user, user.getActiveHand(), stack, list, f * 6.0F, 0.0F, f == 1.0F, (LivingEntity) null);
 
                         }
                     }
 
-                    world.playSound((PlayerEntity) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+                    world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    if (user instanceof PlayerEntity playerEntity)
+                        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                 }
                 isUsingFireCharge = false;
             } else if (!itemStack.isEmpty()) {
@@ -66,18 +67,19 @@ public class NetherBow extends BowItem {
                 int i = this.getMaxUseTime(stack, user) - remainingUseTicks;
                 float f = getPullProgress(i);
                 if (!((double) f < 0.1)) {
-                    List<ItemStack> list = load(stack, itemStack, playerEntity);
+                    List<ItemStack> list = load(stack, itemStack, user);
                     if (world instanceof ServerWorld) {
                         ServerWorld serverWorld = (ServerWorld) world;
                         if (!list.isEmpty()) {
-                            this.shootAll(serverWorld, playerEntity, playerEntity.getActiveHand(), stack, list, f * 3.0F, 1.0F, f == 1.0F, (LivingEntity) null);
+                            this.shootAll(serverWorld, user, user.getActiveHand(), stack, list, f * 3.0F, 1.0F, f == 1.0F, (LivingEntity) null);
                         }
                     }
 
-                    world.playSound((PlayerEntity) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+                    world.playSound((PlayerEntity) null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    if (user instanceof PlayerEntity playerEntity)
+                     playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                 }
             }
-        }
     }
+
 }

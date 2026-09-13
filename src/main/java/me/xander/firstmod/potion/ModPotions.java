@@ -12,6 +12,8 @@ import net.minecraft.util.Identifier;
 public class ModPotions {
     public static final RegistryEntry<Potion> STICKY_POTION = registerPotion("sticky_potion",
             new Potion(new StatusEffectInstance(ModEffects.STICKY,3600, 0)));
+    public static final RegistryEntry<Potion> PURE_POTION = registerPotion("pure_potion",
+            new Potion(new StatusEffectInstance(ModEffects.PURIFICATION,3600, 0)));
     public static final RegistryEntry<Potion> LONG_STICKY_POTION = registerPotion("long_sticky_potion",
             new Potion(new StatusEffectInstance(ModEffects.STICKY,9600, 0)));
 

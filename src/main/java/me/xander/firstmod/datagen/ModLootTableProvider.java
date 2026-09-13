@@ -60,6 +60,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.BANANA_BUSH)
                 .properties(StatePredicate.Builder.create().exactMatch(BananaBushBlock.AGE,5));
         this.addDrop(ModBlocks.BANANA_BUSH, this.cropDrops(ModBlocks.BANANA_BUSH, ModItems.BANANA, ModItems.BANANA, builder));
+        addDrop(ModBlocks.STONE_OF_SWORD);
+        addDrop(ModBlocks.ALTER);
+        addDrop(ModBlocks.MITHRILIZED_STONE);
+        addDrop(ModBlocks.MITHRIL_CLUSTER, amethystLikeOreDrops(ModBlocks.MITHRIL_CLUSTER, ModItems.MITHRIL_CRYSTAL));
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
@@ -70,4 +74,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         ItemEntry.builder(item)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 5.0F)))
                                 .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
-}}
+}
+    public LootTable.Builder amethystLikeOreDrops(Block drop, Item item) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        return this.dropsWithSilkTouch(
+                drop,
+                this.applyExplosionDecay(
+                        drop,
+                        ItemEntry.builder(item)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)))
+                                .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
+    }
+}

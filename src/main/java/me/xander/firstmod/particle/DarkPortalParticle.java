@@ -16,6 +16,7 @@ import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import org.joml.Quaternionf;
 
 public class DarkPortalParticle extends AnimatedParticle {
     DarkPortalParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider) {
@@ -32,6 +33,8 @@ public class DarkPortalParticle extends AnimatedParticle {
 
     public void move(double dx, double dy, double dz) {
         this.setBoundingBox(this.getBoundingBox().offset(dx, dy, dz));
+        if (this.age + 20 >= this.maxAge)
+            this.scale(0.95f);
         this.repositionFromBoundingBox();
 
     }

@@ -105,7 +105,7 @@ public class ModBlocks {
     public static final Block BANANA_LEAVES = registerBlock("banana_leaves",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block STONE_OF_SWORD = registerBlock("stone_of_sword",
-            new StoneOfSwordBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
+            new StoneOfSwordBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque().requiresTool()));
 
     public static final Block BLACKWOOD_SAPLING = registerBlock("blackwood_sapling",
             new SaplingBlock(ModSaplingGenerators.BLACKWOOD,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).strength(3f)));
@@ -153,6 +153,24 @@ public class ModBlocks {
             new TyriniteGem(AbstractBlock.Settings.create().strength(2f).mapColor(MapColor.GREEN).ticksRandomly().dropsNothing()
                     .requiresTool().sounds(BlockSoundGroup.METAL).nonOpaque()));
 
+    public static final Block ALTER = registerBlock("alter",
+            new AlterBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GRAY)
+                    .requiresTool()
+                    .strength(5.0F, 5.0F)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block ECHO_FARM = registerBlock("echo_farm",
+            new EchoFarmBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_AQUA)
+                    .requiresTool()
+                    .strength(10.0F, 5.0F)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+    public static final Block MITHRILIZED_STONE = registerBlock("mithrilized_stone", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
+    public static final Block MITHRIL_CLUSTER = registerBlock("mithril_cluster", new AmethystClusterBlock(7.0f, 3.0f, AbstractBlock.Settings.copy(Blocks.AMETHYST_CLUSTER).mapColor(MapColor.LIGHT_BLUE).requiresTool()));
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, Identifier.of(first_mod.MOD_ID, name), block);

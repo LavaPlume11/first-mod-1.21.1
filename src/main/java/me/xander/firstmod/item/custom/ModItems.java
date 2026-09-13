@@ -7,6 +7,7 @@ import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.item.ModArmorMaterials;
 import me.xander.firstmod.item.ModToolMaterials;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -38,7 +39,7 @@ public class ModItems {
     public static final Item DIAMOND_WARDEN_PENDENT = registerItem("diamond_warden_pendent",  new WardenPendent(new Item.Settings().maxDamage(500),
             60, 50.0, 40.0F, 6.0, 1.15, 1));
 
-    public static final Item LOCATOR = registerItem("locator", new LocatorItem(new Item.Settings()));
+    public static final Item LOCATOR = registerItem("locator", new LocatorItem(new Item.Settings().maxDamage(200)));
     public static final Item DICE = registerItem("dice",  new DiceItem(new Item.Settings()));
     public static final Item XMAS_STICK = registerItem("xmas_stick",  new XmasStick(new Item.Settings().maxCount(1).maxDamage(1).fireproof()));
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new Item.Settings()));
@@ -54,16 +55,23 @@ public class ModItems {
     public static final Item TRAP_REMOTE = registerItem("trap_remote", new RemoteItem(new Item.Settings().maxCount(1)));
     public static final Item CLONE_CREATOR = registerItem("clone_creator", new CloneCreator(new Item.Settings().maxCount(1).maxDamage(600)));
     public static final Item TYRINITE = registerItem("tyrinite", new CorruptionRepeller(new Item.Settings()));
-    public static final Item TYRINITE_STEW = registerItem("tyrinite_stew", new Item(new Item.Settings().food(new FoodComponent.Builder()
-            .nutrition(3)
-            .saturationModifier(0.3f)
-            .alwaysEdible()
-            .usingConvertsTo(Items.BOWL)
-            .statusEffect(new StatusEffectInstance(ModEffects.PURIFICATION, 200), 1f).build())
-            .maxCount(1)));
+    public static final Item TYRINITE_STEW = registerItem("tyrinite_stew", new Item(new Item.Settings().maxCount(1).food(new FoodComponent.Builder()
+            .nutrition(4).saturationModifier(1.3f).usingConvertsTo(Items.BOWL).alwaysEdible()
+            .statusEffect(new StatusEffectInstance(ModEffects.PURIFICATION, 1200), 1f)
+            .build()
+    )));
+    public static final Item TYRINITE_SWORD = registerItem("tyrinite_sword", new TyriniteSword(ModToolMaterials.SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
+            (ModToolMaterials.TYRINITE,4,-2.5f)).rarity(Rarity.UNCOMMON)));
 
+    public static final Item TYRINITE_ARROW = registerItem("tyrinite_arrow", new TyriniteArrowItem(new Item.Settings()));
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(first_mod.MOD_ID, "item_group"));
-
+    public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new BloodBottle(new Item.Settings().maxCount(8), false));
+    public static final Item VAMPIRE_BLOOD = registerItem("vampire_blood", new BloodBottle(new Item.Settings().maxCount(8), true));
+    public static final Item BLOOD_OF_STEEL = registerItem("blood_of_steel", new BloodOfSteel(new Item.Settings().maxCount(1)));
+    public static final Item MITHRIL_NUGGET = registerItem("mithril_nugget", new Item(new Item.Settings()));
+    public static final Item MITHRIL_CRYSTAL = registerItem("mithril_crystal", new Item(new Item.Settings()));
+    public static final Item BRIDGE_BUILDER = registerItem("bridge_builder", new BridgeBuilder(new Item.Settings()));
+    public static final Item RESONANT_ALLOY = registerItem("resonant_alloy", new Item(new Item.Settings()));
     public static final Item DAMAGED_MITHRIL_SWORD = registerItem("damaged_mithril_sword", new DamagedSword(ModToolMaterials.DAMAGED_SWORD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
             (ModToolMaterials.DAMAGED_SWORD,2,-3.4f)).rarity(Rarity.UNCOMMON)));
     public static final Item DASH_SWORD = registerItem("dash_sword", new DashSword(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
@@ -151,12 +159,14 @@ public class ModItems {
     public static final Item CORRUPTION_SWORD = registerItem("corruption_sword",
             new CorruptionSword(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers
                     (ToolMaterials.DIAMOND,3,-2.1f)).maxDamage(1561).rarity(Rarity.RARE)));
-
+    public static final Item SEEKING_ARROW = registerItem("seeking_arrow", new SeekingArrowItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
-       // Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name),
-             //   new Item(new Item.Settings()));
-        return Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name), item);
+        Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name), item);
+        if (item instanceof ProjectileItem) {
+            DispenserBlock.registerProjectileBehavior(item);
+        }
+        return item;
     }
     public static void registerModItems() {
         first_mod.LOGGER.info("Registering ModItems for " + first_mod.MOD_ID);

@@ -20,6 +20,8 @@ public enum ModToolMaterials implements ToolMaterial {
                  ()-> Ingredient.ofItems(ModItems.RAW_MITHRIL)),
     LIGHT(1,5,1.5f,1.5f,1,
                           ()-> Ingredient.ofItems((net.minecraft.item.ItemConvertible) null)),
+    TYRINITE(2,350,2.5f,2.0f,16,
+            ()-> Ingredient.ofItems(ModItems.TYRINITE)),
     LAVA(5,2500,3.5f,9.5f,26,
                     ()-> Ingredient.ofItems(ModItems.POWER_CELL));
 

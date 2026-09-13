@@ -15,6 +15,7 @@ import me.xander.firstmod.events.ModServerEvents;
 import me.xander.firstmod.events.PlayerCopyHandler;
 import me.xander.firstmod.fluid.ModFluids;
 import me.xander.firstmod.item.custom.ModItemGroups;
+import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.networking.ModPackets;
 import me.xander.firstmod.potion.ModPotions;
 import me.xander.firstmod.recipe.ModRecipes;
@@ -33,6 +34,7 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.*;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.potion.Potions;
@@ -93,7 +95,7 @@ public class first_mod implements ModInitializer {
 
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.WEAVING, Items.COBWEB, ModPotions.STICKY_POTION));
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(ModPotions.STICKY_POTION, Items.REDSTONE, ModPotions.LONG_STICKY_POTION));
-
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.registerPotionRecipe(Potions.REGENERATION, ModBlocks.TYRINITE_GEM.asItem(), ModPotions.PURE_POTION));
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "blood_particle"), BLOOD_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "sticky_feather_particle"), STICKY_FEATHER_PARTICLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "dark_portal_particle"), DARK_PORTAL_PARTICLE);

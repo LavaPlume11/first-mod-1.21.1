@@ -41,6 +41,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SPARKLER_BLOCK)
                 .add(ModBlocks.BLOCK_OF_THE_SEA)
                 .add(ModBlocks.TYRINITE_GEM)
+                .add(ModBlocks.STONE_OF_SWORD)
+                .add(ModBlocks.ALTER)
+                .add(ModBlocks.MITHRILIZED_STONE)
+                .add(ModBlocks.MITHRIL_CLUSTER)
+                .add(ModBlocks.ECHO_FARM)
                 .add(ModBlocks.TANK);
 
 

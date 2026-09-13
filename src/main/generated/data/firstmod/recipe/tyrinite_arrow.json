@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "G": {
+      "item": "firstmod:tyrinite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " G ",
+    " S ",
+    " F "
+  ],
+  "result": {
+    "count": 4,
+    "id": "firstmod:tyrinite_arrow"
+  }
+}

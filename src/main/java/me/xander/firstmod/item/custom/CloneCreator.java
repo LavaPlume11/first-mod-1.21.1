@@ -65,6 +65,7 @@ public class CloneCreator extends Item {
                  clone2 = ModEntities.CLONE.spawn(((ServerWorld) world), user.getBlockPos().offset(right), SpawnReason.TRIGGERED);
                 if(clone1 != null && clone2 != null) {
                     clone1.setPlayerOwner(user);
+                    clone1.setShouldConform(true);
                     clone2.setPlayerOwner(user);
                 }
                 stack.set(ModDataComponentTypes.USED, true);

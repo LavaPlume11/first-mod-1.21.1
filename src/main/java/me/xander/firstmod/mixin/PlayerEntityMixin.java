@@ -1,5 +1,6 @@
 package me.xander.firstmod.mixin;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import me.xander.first_mod;
 import me.xander.firstmod.components.ModDataComponentTypes;
 import me.xander.firstmod.corruption.CorruptionHandler;
@@ -8,8 +9,10 @@ import me.xander.firstmod.item.custom.ModItems;
 import me.xander.firstmod.util.mixin.PlayerEntityAccess;
 import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ElytraItem;
@@ -18,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,6 +35,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Mixin(PlayerEntity.class)

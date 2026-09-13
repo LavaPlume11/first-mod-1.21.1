@@ -6,8 +6,10 @@ import me.xander.firstmod.corruption.CorruptionHandler;
 import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -31,7 +33,6 @@ public class TyriniteGem extends Block {
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-
             super.randomDisplayTick(state, world, pos, random);
     }
 
@@ -53,8 +54,7 @@ public class TyriniteGem extends Block {
                         if ((posList.get(i).getY() < pos.getY() && posList.get(i).getY() > pos.down(20).getY())) {
                             if (CorruptionHandler.getCorruption(players.get(i)) > 0) {
                                 players.get(i).damage(players.get(i).getDamageSources().magic(), 5);
-                                players.get(i).move(MovementType.SELF, new Vec3d(players.get(i).getX() - pos.getX(),
-                                        (int) players.get(i).getY() - pos.getY(), (int) players.get(i).getZ() - pos.getZ()));
+                                players.get(i).takeKnockback(0.8, -(players.get(i).getX() - pos.getX()), -(players.get(i).getZ() - pos.getZ()));
                                 players.get(i).playSoundToPlayer(SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.PLAYERS, 1f, 1f);
                             }
                         }

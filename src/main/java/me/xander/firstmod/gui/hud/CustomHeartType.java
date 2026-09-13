@@ -1,10 +1,14 @@
 package me.xander.firstmod.gui.hud;
 
 import me.xander.first_mod;
+import me.xander.firstmod.corruption.CorruptionHandler;
+import me.xander.firstmod.effect.ModEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
 public enum CustomHeartType {
-    CORRUPTED(Identifier.of(first_mod.MOD_ID, "heart/corrupted_full"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half_blinking"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half_blinking"));
+    CORRUPTED(Identifier.of(first_mod.MOD_ID, "heart/corrupted_full"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half_blinking"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full"),Identifier.of(first_mod.MOD_ID, "heart/corrupted_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half"), Identifier.of(first_mod.MOD_ID, "heart/corrupted_half_blinking")),
+    STEEL(Identifier.of(first_mod.MOD_ID, "heart/steel_full"),Identifier.of(first_mod.MOD_ID, "heart/steel_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/steel_half"), Identifier.of(first_mod.MOD_ID, "heart/steel_half_blinking"),Identifier.of(first_mod.MOD_ID, "heart/steel_full"),Identifier.of(first_mod.MOD_ID, "heart/steel_full_blinking"), Identifier.of(first_mod.MOD_ID, "heart/steel_half"), Identifier.of(first_mod.MOD_ID, "heart/steel_half_blinking"));
     private final Identifier fullTexture;
     private final Identifier fullBlinkingTexture;
     private final Identifier halfTexture;
@@ -38,6 +42,15 @@ public enum CustomHeartType {
             return blinking ? this.hardcoreFullBlinkingTexture : this.hardcoreFullTexture;
         }
     }
-
+    public static CustomHeartType shouldRenderCustomHeart(PlayerEntity player) {
+        int corruption = CorruptionHandler.getCorruption(player);
+        if (corruption >= 2) {
+           return CORRUPTED;
+        }
+        if (player.hasStatusEffect(ModEffects.STEEL_BLOODED)) {
+           return STEEL;
+        }
+        return null;
+    }
 }
 

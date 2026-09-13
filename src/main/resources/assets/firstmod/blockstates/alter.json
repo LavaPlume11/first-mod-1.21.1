@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "firstmod:block/alter"},
+    "facing=south": {
+      "model": "firstmod:block/alter",
+      "y": 180},
+    "facing=east": {
+      "model": "firstmod:block/alter",
+      "y": 90},
+    "facing=west": {
+      "model": "firstmod:block/alter",
+      "y": 270}
+
+  }
+}

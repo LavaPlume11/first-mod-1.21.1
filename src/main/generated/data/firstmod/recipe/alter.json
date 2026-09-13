@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "firstmod:stone_of_sword"
+    },
+    {
+      "item": "minecraft:smooth_basalt"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "firstmod:corruption_vines"
+    },
+    {
+      "item": "firstmod:corruption_vines"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:alter"
+  }
+}

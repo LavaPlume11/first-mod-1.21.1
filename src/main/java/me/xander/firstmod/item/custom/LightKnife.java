@@ -19,7 +19,7 @@ public class LightKnife extends SwordItem {
     @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getWorld();
-        if (!world.isClient) {
+        if (!world.isClient()) {
             BlockPos pos = target.getBlockPos();
             EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
 

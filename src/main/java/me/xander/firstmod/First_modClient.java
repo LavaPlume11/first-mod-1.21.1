@@ -1,9 +1,7 @@
 package me.xander.firstmod;
 
 import me.xander.first_mod;
-import me.xander.firstmod.block.renderer.MelterBlockEntityRenderer;
-import me.xander.firstmod.block.renderer.StoneOfSwordBlockEntityRenderer;
-import me.xander.firstmod.block.renderer.TankBlockEntityRenderer;
+import me.xander.firstmod.block.renderer.*;
 import me.xander.firstmod.entity.ModEntities;
 import me.xander.firstmod.entity.client.*;
 import me.xander.firstmod.events.HudRenderHandler;
@@ -20,7 +18,6 @@ import me.xander.firstmod.screen.ModScreenHandlers;
 import me.xander.firstmod.screen.custom.*;
 import me.xander.firstmod.block.ModBlocks;
 import me.xander.firstmod.block.entity.ModBlockEntities;
-import me.xander.firstmod.block.renderer.DisplayBlockEntityRenderer;
 import me.xander.firstmod.util.ModKeyBindings;
 import me.xander.firstmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
@@ -53,6 +50,9 @@ public class First_modClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BRIDGE_BLOCK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CORRUPTION_VINES, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TYRINITE_GEM, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ALTER, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MITHRIL_CLUSTER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ECHO_FARM, RenderLayer.getTranslucent());
         ModScreenHandlers.registerScreenHandlers();
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MITHRIL_WATER, ModFluids.FLOWING_MITHRIL_WATER,
@@ -64,6 +64,8 @@ public class First_modClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.STONE_BE, StoneOfSwordBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.TANK_BE, TankBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.MELTER_BE, MelterBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.ALTER_BE, AlterBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.ECHO_FARM_BE, EchoFarmBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.DISPLAY_SCREEN_HANDLER, DisplayScreen::new);
         HandledScreens.register(ModScreenHandlers.CRYSTALLIZER_SCREEN_HANDLER, CrystallizerScreen::new);
         HandledScreens.register(ModScreenHandlers.WARTURTLE_SCREEN_HANDLER, WarturtleScreen::new);

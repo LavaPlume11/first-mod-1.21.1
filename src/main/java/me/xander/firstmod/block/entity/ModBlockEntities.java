@@ -40,6 +40,13 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "bridge_block_be"),
                     BlockEntityType.Builder.create(BridgeBlockEntity::new, ModBlocks.BRIDGE_BLOCK).build(null));
 
+    public static final BlockEntityType<AlterBlockEntity> ALTER_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "alter_be"),
+                    BlockEntityType.Builder.create(AlterBlockEntity::new, ModBlocks.ALTER).build(null));
+
+    public static final BlockEntityType<EchoFarmBlockEntity> ECHO_FARM_BE =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(first_mod.MOD_ID, "echo_farm_be"),
+                    BlockEntityType.Builder.create(EchoFarmBlockEntity::new, ModBlocks.ECHO_FARM).build(null));
 
     public static void registerBlockEntities(){
         first_mod.LOGGER.info("Registering Block Entities for" + first_mod.MOD_ID);

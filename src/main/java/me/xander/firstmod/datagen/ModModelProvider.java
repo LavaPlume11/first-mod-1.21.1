@@ -39,11 +39,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEAM_VENT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORRUPTION_BLOCK);
         blockStateModelGenerator.registerWallPlant(ModBlocks.CORRUPTION_VINES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRILIZED_STONE);
 
         blockStateModelGenerator.registerCooker(ModBlocks.CRYSTALLIZER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerCooker(ModBlocks.COMPRESSOR, TexturedModel.ORIENTABLE);
-        
-
+        blockStateModelGenerator.registerAmethyst(ModBlocks.MITHRIL_CLUSTER);
 
         mithrilPool.stairs(ModBlocks.MITHRIL_STAIRS);
         mithrilPool.slab(ModBlocks.MITHRIL_SLAB);
@@ -117,6 +117,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TRAP_REMOTE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TYRINITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TYRINITE_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TYRINITE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TYRINITE_ARROW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLOOD_OF_STEEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLOOD_BOTTLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRIDGE_BUILDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RESONANT_ALLOY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SEEKING_ARROW, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));

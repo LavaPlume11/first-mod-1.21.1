@@ -22,17 +22,13 @@ public class CorruptionRepeller extends Item {
         super(settings);
     }
 
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if (!entity.getWorld().isClient() && entity instanceof PlayerEntity player && CorruptionHandler.getCorruption(player) > 0 && CorruptionHandler.getCorruption(user) <= 0) {
             CorruptionHandler.subtractCorruption(((ServerPlayerEntity) player), 1);
             player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1f, 1f);
-            player.damage(player.getDamageSources().magic(), 8);
+            player.damage(player.getDamageSources().magic(), 5);
             stack.decrement(1);
         }
         return super.useOnEntity(stack, user, entity, hand);
@@ -44,7 +40,7 @@ public class CorruptionRepeller extends Item {
             if (!user.getWorld().isClient() && CorruptionHandler.getCorruption(user) > 0) {
                 CorruptionHandler.subtractCorruption(((ServerPlayerEntity) user), 1);
                 user.getWorld().playSound(null, user.getBlockPos(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1f, 1f);
-                user.damage(user.getDamageSources().magic(), 8);
+                user.damage(user.getDamageSources().magic(), 5);
                 if(!user.isCreative() && isConsumed())
                     user.getStackInHand(hand).decrement(1);
             }

@@ -4,12 +4,16 @@
   "package": "me.xander.firstmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractSkeletonEntityMixin",
+    "BatEntityMixin",
+    "BowAttackGoalMixin",
     "LivingEntityMixin",
     "ModEntityDataSaverMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
     "SlotMixin",
     "ZombieEntityMixin",
+    "accessor.AbstractSkeletonEntityAccessor",
     "accessor.ArmorMaterialAccessor",
     "accessor.ArmorMaterialLayerAccessor"
   ],
@@ -22,6 +26,7 @@
     "LivingEntityRendererMixin",
     "ModelLoaderMixin",
     "PlayerEntityRendererMixin",
+    "WorldRendererMixin",
     "accessor.HeartTypeAccessor"
   ],
   "injectors": {

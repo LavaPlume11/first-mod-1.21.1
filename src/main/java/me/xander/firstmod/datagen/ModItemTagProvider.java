@@ -27,6 +27,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModBlocks.STRIPPED_BLACKWOOD_LOG.asItem(),ModBlocks.STRIPPED_BLACKWOOD_WOOD.asItem());
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.BLACKWOOD_PLANKS.asItem());
+        getOrCreateTagBuilder(ItemTags.ARROWS)
+                .add(ModItems.TYRINITE_ARROW)
+                .add(ModItems.SEEKING_ARROW);
+        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
+                .add(ModItems.TYRINITE_SWORD, ModItems.BIG_SWORD, ModItems.CORRUPTION_SWORD);
 
     }
 }

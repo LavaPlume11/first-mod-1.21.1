@@ -2,6 +2,7 @@ package me.xander.firstmod.world;
 
 import me.xander.first_mod;
 import me.xander.firstmod.block.ModBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -10,6 +11,7 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
@@ -22,7 +24,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> BLACKWOOD_KEY = registryKey("blackwood");
     public static final RegistryKey<ConfiguredFeature<?,?>> MITHRIL_ORE_KEY = registryKey("mithril_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> NETHER_MITHRIL_ORE_KEY = registryKey("nether_mithril_ore");
-
+    public static final RegistryKey<ConfiguredFeature<?,?>> MITHRIL_GEODE_KEY = registryKey("mithril_geode");
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         register(context, BLACKWOOD_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.BLACKWOOD_LOG),
@@ -42,6 +44,17 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(netherReplacebles, ModBlocks.NETHER_MITHRIL_ORE.getDefaultState()));
         register(context, MITHRIL_ORE_KEY, Feature.SCATTERED_ORE, new OreFeatureConfig(overworldMithrilOres,2));
         register(context, NETHER_MITHRIL_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherMithrilOres,9));
+        register(context,MITHRIL_GEODE_KEY , Feature.GEODE,
+                new GeodeFeatureConfig(new GeodeLayerConfig(BlockStateProvider.of(Blocks.AIR),
+                        BlockStateProvider.of(ModBlocks.MITHRILIZED_STONE), BlockStateProvider.of(ModBlocks.MITHRIL_ORE),
+                        BlockStateProvider.of(Blocks.CALCITE), BlockStateProvider.of(Blocks.SMOOTH_BASALT),
+                        List.of(ModBlocks.MITHRIL_CLUSTER.getDefaultState(), ModBlocks.MITHRIL_CLUSTER.getDefaultState(),
+                                ModBlocks.MITHRIL_CLUSTER.getDefaultState(), ModBlocks.MITHRIL_CLUSTER.getDefaultState()),
+                        BlockTags.FEATURES_CANNOT_REPLACE, BlockTags.GEODE_INVALID_BLOCKS),
+                        new GeodeLayerThicknessConfig(1.7, 2.2, 3.2, 4.2),
+                        new GeodeCrackConfig(0.25, 2.0, 2), 0.35,
+                        0.083, true, UniformIntProvider.create(4, 6), UniformIntProvider.create(3, 4),
+                        UniformIntProvider.create(1, 2), -16, 16, 0.05, 1));
     }
 
         public static RegistryKey<ConfiguredFeature<?,?>> registryKey(String name) {

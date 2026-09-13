@@ -1,16 +1,19 @@
 package me.xander.firstmod.effect;
 
+import me.xander.first_mod;
 import me.xander.firstmod.corruption.CorruptionHandler;
 import me.xander.firstmod.util.mixin.PlayerEntityAccess;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PurificationEffect extends StatusEffect {
     protected PurificationEffect(StatusEffectCategory category, int color) {
@@ -28,7 +31,16 @@ public class PurificationEffect extends StatusEffect {
                 if (entity instanceof PlayerEntity player) {
                     ((PlayerEntityAccess) player).first_mod_template_1_21_1$setCorruptedKills(new ArrayList<>());
                 }
-                entity.heal(amplifier + 1);
+
+                for (Iterator<StatusEffectInstance> iterator = entity.getStatusEffects().iterator(); iterator.hasNext();) {
+                    StatusEffectInstance instance = iterator.next();
+                    if (!instance.getEffectType().value().isBeneficial()) {
+                        entity.removeStatusEffect(instance.getEffectType());
+                        break;
+                    }
+                }
+
+
             }
         }
         return super.applyUpdateEffect(entity, amplifier);

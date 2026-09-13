@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "firstmod:block/mithril_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "firstmod:block/mithril_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "firstmod:block/mithril_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "firstmod:block/mithril_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "firstmod:block/mithril_cluster"
+    },
+    "facing=west": {
+      "model": "firstmod:block/mithril_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

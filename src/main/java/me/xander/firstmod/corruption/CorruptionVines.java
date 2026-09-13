@@ -41,7 +41,7 @@ public class CorruptionVines extends GlowLichenBlock {
             if (!player.isCreative() && item.isConsumed()) {
                 stack.decrement(1);
             }
-        } else if (CorruptionHandler.getCorruption(player) >= 2 || player.isCreative()) {
+        } else if (((CorruptionHandler.getCorruption(player) >= 2 && CorruptionHandler.getCorruption(player) < 6) || player.isCreative()) && player.isSneaking()) {
             world.removeBlock(pos, false);
             world.playSound(player,pos, ModSounds.STICKING, SoundCategory.AMBIENT, 1f, 1f);
             if (!world.isClient()) {

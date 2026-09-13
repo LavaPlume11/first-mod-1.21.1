@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 
 public class DisplayBlockEntityRenderer implements BlockEntityRenderer<DisplayBlockEntity> {
     public DisplayBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
-
     }
 
 
