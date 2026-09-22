@@ -21,7 +21,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     public void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
-                .add(ModItems.MITHRIL_HELMET, ModItems.MITHRIL_CHESTPLATE,ModItems.MITHRIL_LEGGINGS,ModItems.MITHRIL_BOOTS);
+                .add(ModItems.MITHRIL_HELMET, ModItems.MITHRIL_CHESTPLATE,ModItems.MITHRIL_LEGGINGS,ModItems.MITHRIL_BOOTS, ModItems.ECHO_CHESTPLATE);
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.BLACKWOOD_LOG.asItem(),ModBlocks.BLACKWOOD_WOOD.asItem(),
                         ModBlocks.STRIPPED_BLACKWOOD_LOG.asItem(),ModBlocks.STRIPPED_BLACKWOOD_WOOD.asItem());

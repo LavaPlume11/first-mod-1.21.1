@@ -23,20 +23,6 @@ public abstract class InGameHudMixin {
     private void customHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo ci) {
         PlayerEntity player = client.player;
         if (player != null) {
-          /*  int corruption = CorruptionHandler.getCorruption(player);
-            if (corruption >= 2 && type != InGameHud.HeartType.CONTAINER) {
-                RenderSystem.enableBlend();
-                context.drawGuiTexture(CustomHeartType.CORRUPTED.getTexture(hardcore, half, blinking), x, y, 9, 9);
-                RenderSystem.disableBlend();
-                ci.cancel();
-            }
-            if (player.hasStatusEffect(ModEffects.STEEL_BLOODED) && type != InGameHud.HeartType.CONTAINER) {
-                RenderSystem.enableBlend();
-                context.drawGuiTexture(CustomHeartType.STEEL.getTexture(hardcore, half, blinking), x, y, 9, 9);
-                RenderSystem.disableBlend();
-                ci.cancel();
-            }
-           */
             CustomHeartType customHeartType = CustomHeartType.shouldRenderCustomHeart(player);
             if (customHeartType != null && type != InGameHud.HeartType.CONTAINER) {
                 RenderSystem.enableBlend();

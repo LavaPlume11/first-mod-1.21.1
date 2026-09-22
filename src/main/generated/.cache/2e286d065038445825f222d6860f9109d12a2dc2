@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-06T15:44:56.3400323	First Mod/Recipes
+// 1.21.1	2026-09-17T19:53:01.8704111	First Mod/Recipes
 e825f01e921d7011a19776d05741ac52aa316307 data\firstmod\recipe\tyrinite_arrow.json
 b59179fc889acf7b76e69de2d426108f3579e871 data\firstmod\advancement\recipes\combat\refined_mithril_sword.json
 bc821b3bb5199b38321a8987bb84372c21f02a32 data\firstmod\recipe\nether_bow.json
@@ -73,8 +73,8 @@ e72b7992e01e7fcfaa5cc51fe86acdf8c6d85f42 data\firstmod\recipe\catalyst.json
 cfbbc28be501921378dd6a69e59ced1caf8eedb1 data\firstmod\recipe\tyrinite_stew.json
 3fc2f24ec5233d421c8f43f64052b55bd408881f data\firstmod\recipe\power_cell.json
 57a7715c1269af795cd28e8cfa0fccbc32028019 data\firstmod\recipe\tyrinite_sword.json
-605b119cd5c682042f4440776f087101dcda65b5 data\firstmod\recipe\compressor.json
 ee9542f919959f522ba444af516b38752fabbc78 data\firstmod\advancement\recipes\redstone\basic_computer.json
+605b119cd5c682042f4440776f087101dcda65b5 data\firstmod\recipe\compressor.json
 b3b1446eefb30d21e9256ec7d18fd70cc5eedb26 data\firstmod\recipe\clone_creator.json
 c8d311b6f0ca25919ea5537ded220d6bb0f2dd12 data\firstmod\recipe\resonant_alloy.json
 0df8909417aea458d49e36832a8d85e3ec69c3bc data\firstmod\advancement\recipes\misc\power_amplifier.json

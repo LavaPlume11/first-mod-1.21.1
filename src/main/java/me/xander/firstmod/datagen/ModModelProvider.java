@@ -126,6 +126,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BRIDGE_BUILDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.RESONANT_ALLOY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SEEKING_ARROW, Models.GENERATED);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ECHO_CHESTPLATE));
 
         itemModelGenerator.register(ModItems.LION_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")),Optional.empty()));

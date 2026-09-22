@@ -1,10 +1,11 @@
 package me.xander.firstmod.mixin;
 
-import me.xander.first_mod;
 import me.xander.firstmod.effect.ModEffects;
 import me.xander.firstmod.item.custom.ModItems;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -16,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.ItemScatterer;
-import net.minecraft.util.math.random.LocalRandom;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,8 +29,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -102,5 +100,6 @@ public abstract class LivingEntityMixin extends Entity {
         }
         cir.setReturnValue(bl);
     }
+
 }
 

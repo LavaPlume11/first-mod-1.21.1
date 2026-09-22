@@ -1,6 +1,7 @@
 package me.xander.firstmod.networking;
 
 import me.xander.firstmod.networking.packet.CorruptionPayload;
+import me.xander.firstmod.networking.packet.SenseEntityPayload;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.network.RegistryByteBuf;
@@ -9,6 +10,7 @@ public class ModPackets {
     private static void registerClientbound(PayloadTypeRegistry<RegistryByteBuf> registry) {
         // this payload is sent to client
         registry.register(CorruptionPayload.ID, CorruptionPayload.CODEC);
+        registry.register(SenseEntityPayload.ID, SenseEntityPayload.CODEC);
     }
 
     private static void registerServerbound(PayloadTypeRegistry<RegistryByteBuf> registry) {
@@ -22,5 +24,6 @@ public class ModPackets {
     }
     public static void registerClient() {
         ClientPlayNetworking.registerGlobalReceiver(CorruptionPayload.ID, ClientboundPackets::handelCorruptionPayload);
+        ClientPlayNetworking.registerGlobalReceiver(SenseEntityPayload.ID, ClientboundPackets::handleSenseEntityPayload);
     }
 }

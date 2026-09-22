@@ -106,5 +106,11 @@ public class godStick extends SwordItem {
 
         return super.postHit(stack, target, attacker);
     }
+
+    @Override
+    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+        ((PlayerEntityAccess) user).first_mod_template_1_21_1$canSense(entity);
+        return super.useOnEntity(stack, user, entity, hand);
+    }
 }
 
