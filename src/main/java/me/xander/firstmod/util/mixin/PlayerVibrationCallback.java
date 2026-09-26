@@ -56,7 +56,7 @@ public class PlayerVibrationCallback implements Vibrations.Callback {
         if (emitter.sourceEntity() == player || ((PlayerEntityAccess) player).first_mod_template_1_21_1$getVibrationCooldown() >= 0) {
             return false;
         }
-        return !player.isDead() && world.getWorldBorder().contains(pos) && player.getEquippedStack(EquipmentSlot.CHEST).isOf(ModItems.ECHO_CHESTPLATE);
+        return !player.isDead() && !player.isSpectator() && world.getWorldBorder().contains(pos) && player.getEquippedStack(EquipmentSlot.CHEST).isOf(ModItems.ECHO_CHESTPLATE);
     }
 
     public void accept(ServerWorld world, BlockPos pos, RegistryEntry<GameEvent> event, @Nullable Entity sourceEntity, @Nullable Entity entity, float distance) {
@@ -65,19 +65,17 @@ public class PlayerVibrationCallback implements Vibrations.Callback {
       if (i == 404) {
           player.sendMessage(Text.literal("You heard Herobrine").formatted(Formatting.RED).formatted(Formatting.BOLD), true);
       } else if (sourceEntity != null) {
-           if (sourceEntity instanceof LivingEntity livingEntity) {
-               //livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 40, 0, false, false, false));
-               ((PlayerEntityAccess) player).first_mod_template_1_21_1$setLastHeardEntity(livingEntity);
-               //first_mod.LOGGER.info(((PlayerEntityAccess) player).first_mod_template_1_21_1$getLastHeardEntity().toString());
-               ServerPlayNetworking.send((ServerPlayerEntity) player, new SenseEntityPayload(40, livingEntity.getId()));
-               if (livingEntity.hasCustomName() || livingEntity instanceof PlayerEntity) {
+               ((PlayerEntityAccess) player).first_mod_template_1_21_1$setLastHeardEntity(sourceEntity);
+               ServerPlayNetworking.send((ServerPlayerEntity) player, new SenseEntityPayload(40, sourceEntity.getId()));
+               if (sourceEntity instanceof LivingEntity livingEntity && (livingEntity.hasCustomName() || livingEntity instanceof PlayerEntity)) {
                    player.sendMessage(Text.literal("You heard " + sourceEntity.getName().getString()).formatted(Formatting.RED), true);
                } else {
                    player.sendMessage(Text.literal("You heard a " + sourceEntity.getName().getString()).formatted(Formatting.RED), true);
                }
                ((PlayerEntityAccess) player).first_mod_template_1_21_1$setSenseCooldown(40);
            }
-       }
+
        ((PlayerEntityAccess) player).first_mod_template_1_21_1$setVibrationCooldown(30);
     }
+
 }

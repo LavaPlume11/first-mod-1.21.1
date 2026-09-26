@@ -17,7 +17,6 @@ public class MinecraftClientMixin {
         if (((MinecraftClient) (Object) this).player == null) {
             return instance.isGlowing();
         }
-        //return instance.isGlowing() || ((MinecraftClient) (Object) this).player.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.DIAMOND_HELMET);
         return instance.isGlowing() || ((PlayerEntityAccess) ((MinecraftClient) (Object) this).player).first_mod_template_1_21_1$canSense(instance);
     }
 }

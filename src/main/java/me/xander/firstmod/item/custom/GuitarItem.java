@@ -4,6 +4,7 @@ import me.xander.firstmod.sound.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
@@ -17,11 +18,9 @@ public class GuitarItem extends Item {
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient) {
-            user.playSound(ModSounds.GUITAR_RIFF, 1.0f, 1.0f);
+        if (!world.isClient()) {
+            world.playSound(null, user.getBlockPos(), ModSounds.GUITAR_RIFF, SoundCategory.PLAYERS, 1.0f, 1.0f);
         }
-
-
 
         return TypedActionResult.success(user.getStackInHand(hand));
     }

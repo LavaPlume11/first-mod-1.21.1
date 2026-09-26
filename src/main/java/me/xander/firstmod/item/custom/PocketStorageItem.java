@@ -2,9 +2,11 @@ package me.xander.firstmod.item.custom;
 
 import me.xander.first_mod;
 import me.xander.firstmod.inventory.PocketStorageInventory;
+import me.xander.firstmod.networking.packet.PocketStoragePayload;
 import me.xander.firstmod.util.mixin.PocketStorageAccess;
 import me.xander.firstmod.screen.custom.StorageScreenHandler;
 import me.xander.firstmod.util.ModKeyBindings;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
@@ -24,10 +26,10 @@ import java.util.GregorianCalendar;
 import java.util.Set;
 
 public class PocketStorageItem extends Item {
+    private boolean isPressingKeyBind = false;
 
     public PocketStorageItem(Settings settings) {
         super(settings);
-
     }
 
 
@@ -38,11 +40,13 @@ public class PocketStorageItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient()) {
+        if (world.isClient() && ModKeyBindings.G_KEY_BINDING.isPressed()) {
+            ClientPlayNetworking.send(new PocketStoragePayload(this, true));
+        }
+        if (isPressingKeyBind && !world.isClient()) {
             if (entity instanceof PlayerEntity player) {
-                if (ModKeyBindings.G_KEY_BINDING.isPressed()) {
                     openStorage(player, world);
-                }
+                    isPressingKeyBind = false;
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);
@@ -66,6 +70,13 @@ public class PocketStorageItem extends Item {
             player.openHandledScreen(new SimpleNamedScreenHandlerFactory((i, playerInventory, playerEntity) ->
                     StorageScreenHandler.createMod9x2(i,playerInventory,pocketStorageInventory),Text.of("Pocket Dimension")));
 
+    }
+    public boolean isPressingKeyBind() {
+        return isPressingKeyBind;
+    }
+
+    public void setPressingKeyBind(boolean pressingKeyBind) {
+        isPressingKeyBind = pressingKeyBind;
     }
 
 }

@@ -100,6 +100,8 @@ public class ModItemGroups {
                        entries.add(ModItems.BLOOD_OF_STEEL);
                        entries.add(ModItems.SEEKING_ARROW);
                        entries.add(ModBlocks.ECHO_FARM);
+                       entries.add(ModItems.ECHO_CHESTPLATE);
+                       entries.add(ModItems.ECHO_HELMET);
                    }).build());
 
 

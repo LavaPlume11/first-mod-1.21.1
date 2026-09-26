@@ -358,6 +358,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.SCULK_SHRIEKER), conditionsFromItem(Items.SCULK_SHRIEKER))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.ECHO_FARM)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ECHO_CHESTPLATE)
+                .pattern("C C")
+                .pattern("CSC")
+                .pattern("CCC")
+                .input('S', Blocks.SCULK_SENSOR)
+                .input('C', Items.ECHO_SHARD)
+                .criterion(hasItem(Items.SCULK_SENSOR), conditionsFromItem(Items.SCULK_SENSOR))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.ECHO_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ECHO_HELMET)
+                .pattern("CSC")
+                .pattern("C C")
+                .pattern("   ")
+                .input('S', Blocks.SCULK_SENSOR)
+                .input('C', Items.ECHO_SHARD)
+                .criterion(hasItem(Items.SCULK_SENSOR), conditionsFromItem(Items.SCULK_SENSOR))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.ECHO_HELMET)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.MITHRIL_SWORD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.MITHRIL_SWORD_SHARD).input(ModItems.DAMAGED_MITHRIL_SWORD)
                 .criterion("has_shard", conditionsFromItem(ModItems.MITHRIL_SWORD_SHARD)).offerTo(exporter, Identifier.of(getRecipeName(ModItems.MITHRIL_SWORD)));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STICKY_FEATHER).input(Items.FEATHER).input(Items.HONEYCOMB).input(Items.HONEYCOMB).input(Items.HONEYCOMB)

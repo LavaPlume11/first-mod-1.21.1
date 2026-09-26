@@ -1,7 +1,6 @@
 package me.xander.firstmod.effect;
 
-import me.xander.first_mod;
-import me.xander.firstmod.block.entity.damage.ModDamageTypes;
+import me.xander.firstmod.entity.damage.ModDamageTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:echo_shard"
+    },
+    "S": {
+      "item": "minecraft:sculk_sensor"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "C C",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "firstmod:echo_helmet"
+  }
+}

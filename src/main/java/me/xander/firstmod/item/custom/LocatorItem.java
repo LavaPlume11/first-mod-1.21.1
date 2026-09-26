@@ -26,7 +26,6 @@ public class LocatorItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient()) {
             if (user.isSneaking() || hand == Hand.OFF_HAND) {
                 range--;
             } else {
@@ -38,7 +37,6 @@ public class LocatorItem extends Item {
             } else {
                 user.sendMessage(Text.of("Tuning to " + range + " blocks"), true);
             }
-        }
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 

@@ -1,9 +1,7 @@
-package me.xander.firstmod.block.entity.damage;
+package me.xander.firstmod.entity.damage;
 
 import me.xander.first_mod;
 import net.minecraft.entity.damage.DamageType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;

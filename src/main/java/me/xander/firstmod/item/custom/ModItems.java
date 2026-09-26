@@ -162,6 +162,8 @@ public class ModItems {
     public static final Item SEEKING_ARROW = registerItem("seeking_arrow", new SeekingArrowItem(new Item.Settings()));
     public static final Item ECHO_CHESTPLATE = registerItem("echo_chestplate",  new ArmorItem(ModArmorMaterials.ECHO,
             ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(540)));
+    public static final Item ECHO_HELMET = registerItem("echo_helmet", new ArmorItem(ModArmorMaterials.ECHO,
+            ArmorItem.Type.HELMET, new Item.Settings().maxDamage(465)));
 
     private static Item registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, Identifier.of(first_mod.MOD_ID, name), item);

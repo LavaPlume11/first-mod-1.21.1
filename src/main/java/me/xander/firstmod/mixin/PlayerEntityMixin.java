@@ -183,11 +183,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PocketSt
 
     @Override
     public boolean first_mod_template_1_21_1$canSense(Entity entity) {
-        if (this.getWorld().isClient()) {
-            //first_mod.LOGGER.info(String.valueOf(senseCooldown));
-            //first_mod.LOGGER.info(String.valueOf(this.lastHeardEntity));
-        }
-        return senseCooldown > 0 && entity == this.lastHeardEntity;
+        return senseCooldown > 0 && entity == this.lastHeardEntity && this.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.ECHO_HELMET);
     }
 
     @Override
